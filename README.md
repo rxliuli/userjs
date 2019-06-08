@@ -1,5 +1,7 @@
 # 日常需要用到便自行实现的油猴脚本
 
+[![source-GitHub](https://img.shields.io/badge/source-GitHub-brightgreen.svg)](https://github.com/rxliuli/userjs) [![license-MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rxliuli/userjs/blob/master/LICENSE)
+
 ## 脚本列表
 
 - [91Flac Download](https://github.com/rxliuli/userjs/tree/master/src/91FlacDownload): 下载歌曲时自动设置歌曲的文件名
