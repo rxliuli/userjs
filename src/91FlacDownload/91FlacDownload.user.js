@@ -7,7 +7,6 @@
 // @match        https://91flac.vip/*
 // @license      MIT
 // @require      https://greasyfork.org/scripts/382120-rx-util/code/rx-util.js?version=705860
-// @require      file://D:/Text/blog/test/91FlacDownload.user.js
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
