@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         91Flac Download
 // @namespace    https://github.com/rxliuli
-// @version      0.1
+// @version      0.1.1
 // @description  在 91Flac 下载歌曲自动设置文件名
 // @author       rxliuli
-// @match        https://91flac.vip/*
+// @match        http*://www.91flac.com/*
+// @match        http*://91flac.vip/*
 // @license      MIT
 // @require      https://greasyfork.org/scripts/382120-rx-util/code/rx-util.js?version=705860
 // @grant        GM_xmlhttpRequest
