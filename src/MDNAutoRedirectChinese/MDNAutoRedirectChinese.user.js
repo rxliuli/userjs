@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name         MDN 自动跳转中文翻译
 // @namespace    http://github.com/rxliuli/
-// @version      1.0.0
-// @description  如果有中文翻译的话就跳转到中文翻译页面
+// @version      1.0.1
+// @description  如果有中文翻译的话就跳转到中文翻译页面, 该脚本是为了弥补 MDN 自动切换有时候会抽风的问题
 // @author       rxliuli
 // @match        http*://developer.mozilla.org/*
-// @grant        none
+// @grant        GM_registerMenuCommand
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_deleteValue
 // @license      MIT
 // ==/UserScript==
 
@@ -22,21 +25,57 @@
    *      - 否则跳转至中文翻译页面
    */
   ;(() => {
-    // 获取 language
-    var language = new RegExp('https://developer.mozilla.org/(.*)/').exec(
-      location.href,
-    )[1]
+    // 默认语言
+    const DefaultLanguage = 'zh-CN'
 
-    // 判断 language 是否为中文
-    if (language === 'zh-CN') {
-      return
+    /**
+     * 切换语言为中文
+     */
+    function toggleZhCN() {
+      // 判断是否存在
+      const url = new RegExp('/.*?/(.*)').exec(location.pathname)[1]
+      const exists = GM_getValue(url)
+      if (exists === true) {
+        return
+      }
+      // 获取 language
+      const language = new RegExp('/(.*?)/').exec(location.pathname)[1]
+
+      // 判断 language 是否为中文
+      if (language === DefaultLanguage) {
+        return
+      }
+
+      // 获取可能存在的中文翻译页面
+      const zhCN = document.querySelector('#translations li[lang="zh-CN"] a')
+      // 如果有就跳转过去
+      if (zhCN) {
+        zhCN.click()
+      }
+    }
+    /**
+     * 显示启用/禁用切换语言菜单
+     */
+    function registerMenu() {
+      const url = new RegExp('/.*?/(.*)').exec(location.pathname)[1]
+      const exists = GM_getValue(url)
+      const language = new RegExp('/(.*?)/').exec(location.pathname)[1]
+      if (exists === true) {
+        GM_registerMenuCommand('启用自动切换中文', function() {
+          GM_deleteValue(url)
+          location.replace(location.href.replace(language, DefaultLanguage))
+        })
+      } else {
+        // 显示切换菜单
+        GM_registerMenuCommand('禁用自动切换中文', function() {
+          // 添加到禁用 URL 列表
+          GM_setValue(url, true)
+          location.replace(location.href.replace(language, 'en-US'))
+        })
+      }
     }
 
-    // 获取可能存在的中文翻译页面
-    var zhCN = document.querySelector('#translations li[lang="zh-CN"] a')
-    // 如果有就跳转过去
-    if (zhCN) {
-      zhCN.click()
-    }
+    registerMenu()
+    toggleZhCN()
   })()
 })()
