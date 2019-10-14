@@ -5,13 +5,40 @@
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
-// @grant        GM.getValue
-// @grant        GM.setValue
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_deleteValue
+// @grant        GM_listValues
+// @grant        GM_registerMenuCommand
+// @grant        GM_addStyle
 // 这里的 @run-at 非常重要，设置在文档开始时就载入脚本
 // @run-at       document-start
 // ==/UserScript==
 
 ;(() => {
+  /**
+   * 在固定时间周期内只执行函数一次
+   * @param {Function} fn 执行的函数
+   * @param {Number} time 时间周期
+   * @returns {Function} 包装后的函数
+   */
+  function onceOfCycle(fn, time) {
+    const LastUpdateKey = 'LastUpdate'
+    const LastValueKey = 'LastValue'
+    return new Proxy(fn, {
+      apply(_, _this, args) {
+        const now = Date.now()
+        const last = localStorage.getItem(LastUpdateKey)
+        if (last !== null && now - last < time) {
+          return JSON.parse(localStorage.getItem(LastValueKey))
+        }
+        const res = Reflect.apply(_, _this, args)
+        localStorage.setItem(LastUpdateKey, now)
+        localStorage.setItem(LastValueKey, JSON.stringify(res))
+        return res
+      },
+    })
+  }
   /**
    * 监听 event 的添加
    * 注：必须及早运行
@@ -37,6 +64,7 @@
     const eventTargetRemoveEventListener =
       EventTarget.prototype.removeEventListener
     const events = []
+    unsafeWindow.events = events
     /**
      * 自定义的添加事件监听函数
      * @param type 事件类型
@@ -81,34 +109,78 @@
   }
   watchEventListener()
 
+  // 注册菜单
+  function registerMenu() {
+    const domain = location.host
+    const isIncludes = GM_getValue(domain) === true
+    GM_registerMenuCommand(isIncludes ? '恢复默认' : '解除限制', () => {
+      if (isIncludes) {
+        GM_setValue(domain, false)
+      } else {
+        GM_setValue(domain, true)
+      }
+      location.reload()
+    })
+  }
+  registerMenu()
+
+  const eventTypes = [
+    'copy',
+    'cut',
+    'select',
+    'selectstart',
+    'contextmenu',
+    'dragstart',
+  ]
   // 清除网页添加的事件
   function clearEvent() {
-    const eventTypes = [
-      'copy',
-      'cut',
-      'select',
-      'contextmenu',
-      'selectstart',
-      'dragstart',
-    ]
     document.querySelectorAll('*').forEach(el => {
       eventTypes.forEach(type => el.removeEventListenerByType(type))
     })
   }
+  // 清理或还原DOM节点的onxxx属性
+  function clearLoop() {
+    let type
+    let prop
+    let c = [document, document.body, ...document.getElementsByTagName('div')]
+    let e = document.querySelector('iframe[src="about:blank"]')
+    if (e && e.clientWidth > 99 && e.clientHeight > 11) {
+      e = e.contentWindow.document
+      c.push(e, e.body)
+    }
+
+    for (e of c) {
+      if (!e) continue
+      e = e.wrappedJSObject || e
+      for (type of eventTypes) {
+        prop = 'on' + type
+        e[prop] = null
+      }
+    }
+  }
+  // 清理掉网页添加的全局防止复制/选择的 CSS
+  function clearCSS() {
+    GM_addStyle(
+      `html, * {
+        -webkit-user-select:text !important;
+        -moz-user-select:text !important;
+        user-select:text !important;
+      }
+      ::-moz-selection {color:#111 !important; background:#05D3F9 !important;}
+      ::selection {color:#111 !important; background:#05D3F9 !important;}`,
+    )
+  }
+  // TODO 更新支持的网站列表
+  function updateHostList() {
+    onceOfCycle(function() {})
+  }
 
   window.onload = function() {
-    const domainList = GM_listValues()
-    const domain = location.host
-    const isIncludes = domainList.includes(domain)
-    if (isIncludes) {
+    if (GM_getValue(location.host) === true) {
       clearEvent()
+      clearLoop()
+      clearCSS()
+      // updateHostList()
     }
-    GM_registerMenuCommand(isIncludes ? '恢复默认' : '解除限制', () => {
-      if (isIncludes) {
-        GM_deleteValue(domain)
-      }else{
-        GM_setValue()
-      }
-    })
   }
 })()
