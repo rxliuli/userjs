@@ -11,11 +11,26 @@
 // @grant        GM_listValues
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
+// @grant        GM_xmlhttpRequest
 // 这里的 @run-at 非常重要，设置在文档开始时就载入脚本
 // @run-at       document-start
+// @require      https://greasyfork.org/scripts/382120-rx-util/code/rx-util.js
 // ==/UserScript==
 
 ;(() => {
+  const { safeExec } = rx
+  /**
+   * 兼容异步函数的返回值
+   * @param res 返回值
+   * @param callback 同步/异步结果的回调函数
+   * @typeparam T 处理参数的类型，如果是 Promise 类型，则取出其泛型类型
+   * @typeparam Param 处理参数具体的类型，如果是 Promise 类型，则指定为原类型
+   * @typeparam R 返回值具体的类型，如果是 Promise 类型，则指定为 Promise 类型，否则为原类型
+   * @returns 处理后的结果，如果是同步的，则返回结果是同步的，否则为异步的
+   */
+  function compatibleAsync(res, callback) {
+    return res instanceof Promise ? res.then(callback) : callback(res)
+  }
   /**
    * 在固定时间周期内只执行函数一次
    * @param {Function} fn 执行的函数
@@ -23,19 +38,22 @@
    * @returns {Function} 包装后的函数
    */
   function onceOfCycle(fn, time) {
+    const get = window.GM_getValue
+    const set = window.GM_setValue
     const LastUpdateKey = 'LastUpdate'
     const LastValueKey = 'LastValue'
     return new Proxy(fn, {
       apply(_, _this, args) {
         const now = Date.now()
-        const last = localStorage.getItem(LastUpdateKey)
+        const last = get(LastUpdateKey)
         if (last !== null && now - last < time) {
-          return JSON.parse(localStorage.getItem(LastValueKey))
+          return safeExec(() => JSON.parse(get(LastValueKey)))
         }
-        const res = Reflect.apply(_, _this, args)
-        localStorage.setItem(LastUpdateKey, now)
-        localStorage.setItem(LastValueKey, JSON.stringify(res))
-        return res
+        return compatibleAsync(Reflect.apply(_, _this, args), res => {
+          set(LastUpdateKey, now)
+          set(LastValueKey, JSON.stringify(res))
+          return res
+        })
       },
     })
   }
@@ -170,17 +188,28 @@
       ::selection {color:#111 !important; background:#05D3F9 !important;}`,
     )
   }
-  // TODO 更新支持的网站列表
+  // 更新支持的网站列表
   function updateHostList() {
-    onceOfCycle(function() {})
+    onceOfCycle(function() {
+      GM_xmlhttpRequest({
+        method: 'GET',
+        url:
+          'https://raw.githubusercontent.com/rxliuli/userjs/master/src/UnblockWebRestrictions/blockList.json',
+        onload(res) {
+          JSON.parse(res.responseText)
+            .filter(domain => GM_getValue(domain) !== undefined)
+            .forEach(domain => GM_setValue(domain, true))
+        },
+      })
+    }, 1000 * 60 * 60 * 24)()
   }
+  updateHostList()
 
   window.onload = function() {
     if (GM_getValue(location.host) === true) {
       clearEvent()
       clearLoop()
       clearCSS()
-      // updateHostList()
     }
   }
 })()
