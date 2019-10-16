@@ -1,6 +1,6 @@
 # 解除网页限制
 
-> [GitHub](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/385046)
+> [GitHub](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/391193)
 
 ## 简介
 
