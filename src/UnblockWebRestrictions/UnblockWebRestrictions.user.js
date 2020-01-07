@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli
-// @version      1.1
+// @version      1.2
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -14,11 +14,30 @@
 // @grant        GM_xmlhttpRequest
 // 这里的 @run-at 非常重要，设置在文档开始时就载入脚本
 // @run-at       document-start
-// @require      https://greasyfork.org/scripts/382120-rx-util/code/rx-util.js
 // ==/UserScript==
 
 ;(() => {
-  const { safeExec } = rx
+  /**
+   * 安全执行某个函数
+   * 支持异步函数
+   * @param fn 需要执行的函数
+   * @param defaultVal 发生异常后的默认返回值，默认为 null
+   * @param args 可选的函数参数
+   * @returns 函数执行的结果，或者其默认值
+   */
+  function safeExec(fn, defaultVal, ...args) {
+    const defRes = defaultVal === undefined ? null : defaultVal
+    try {
+      const res = fn(...args)
+      return res instanceof Promise ? res.catch(() => defRes) : res
+    } catch (err) {
+      return defRes
+    }
+  }
+
+  const isBlock = GM_listValues().some(
+    host => location.host.includes(host) && GM_getValue(host) === true,
+  )
   /**
    * 兼容异步函数的返回值
    * @param res 返回值
@@ -62,7 +81,7 @@
   function registerMenu() {
     const domain = location.host
     const isIncludes = GM_getValue(domain) === true
-    GM_registerMenuCommand(isIncludes ? '恢复默认' : '解除限制', () => {
+    GM_registerMenuCommand(isBlock ? '恢复默认' : '解除限制', () => {
       if (isIncludes) {
         GM_setValue(domain, false)
       } else {
@@ -134,7 +153,8 @@
       modifyPrototype(document, type)
     })
   }
-  if (GM_getValue(location.host) === true) {
+
+  if (isBlock) {
     watchEventListener()
     clearJsOnXXXEvent()
   }
@@ -170,18 +190,21 @@
           'https://raw.githubusercontent.com/rxliuli/userjs/master/src/UnblockWebRestrictions/blockList.json',
         onload(res) {
           JSON.parse(res.responseText)
-            .filter(domain => GM_getValue(domain) !== undefined)
-            .forEach(domain => GM_setValue(domain, true))
+            .filter(domain => GM_getValue(domain) === undefined)
+            .forEach(domain => {
+              console.log('更新了屏蔽域名: ', domain)
+              GM_setValue(domain, true)
+            })
         },
       })
     }, 1000 * 60 * 60 * 24)()
   }
   updateHostList()
 
-  window.onload = function() {
-    if (GM_getValue(location.host) === true) {
+  window.addEventListener('load', function() {
+    if (isBlock) {
       clearDomOnXXXEvent()
       clearCSS()
     }
-  }
+  })
 })()
