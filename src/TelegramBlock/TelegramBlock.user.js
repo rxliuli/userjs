@@ -6,7 +6,7 @@
 // @author       rxliuli
 // @include      https://web.telegram.org/*
 // @grant        unsafeWindow
-// @linsence     MIT
+// @license     MIT
 // ==/UserScript==
 
 ;(function () {

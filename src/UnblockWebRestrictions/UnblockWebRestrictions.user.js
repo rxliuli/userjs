@@ -14,6 +14,7 @@
 // @grant        GM_xmlhttpRequest
 // 这里的 @run-at 非常重要，设置在文档开始时就载入脚本
 // @run-at       document-start
+// @license      MIT
 // ==/UserScript==
 
 ;(() => {
