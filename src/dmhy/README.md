@@ -2,6 +2,8 @@
 
 ## 场景
 
+> [GitHub](https://github.com/rxliuli/userjs/tree/master/src/dmhy), [GreasyFork](https://greasyfork.org/zh-CN/scripts/402206)
+
 使用 uBlock 访问动漫花园时，页面会一片空白，经过查看发现是动漫花园针对广告拦截器进行了特殊处理，故而使用此脚本对动漫花园进行特殊处理。
 
 ## 使用方式
