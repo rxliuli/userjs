@@ -8,7 +8,7 @@
 
 ## 使用方式
 
-1. 在动漫花园页面关闭 uBlock 的元素过滤器
+1. 在动漫花园页面关闭 uBlock 的元素过滤器  
    ![image.png](https://i.loli.net/2020/04/28/TxIZCHcmUafj74d.png)
 2. 在 GreasyFork 安装此脚本
 
