@@ -12,4 +12,4 @@
    ![image.png](https://i.loli.net/2020/04/28/TxIZCHcmUafj74d.png)
 2. 在 GreasyFork 安装此脚本
 
-> 如果对动漫花园的 UX（选择点击下载链接时很难看到对应的标题是哪一行）有所不满的话，可以使用 [user.css](./dmhyHover.user.css) 进行增强（悬浮高亮）。
+> 如果对动漫花园的 UX（选择点击下载链接时很难看到对应的标题是哪一行）有所不满的话，可以使用 [user.css](./dmhyEnhance.user.css) 进行增强（悬浮高亮）。

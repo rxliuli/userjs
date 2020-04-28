@@ -1,0 +1,21 @@
+/* ==UserStyle==
+@name           动漫花园功能增强
+@namespace      github.com/rxliuli/userjs
+@version        1.0.0
+@description    鼠标悬浮时，高亮一行，方便点击；屏蔽动漫花园广告。
+@author         rxliuli
+==/UserStyle== */
+@-moz-document domain("share.dmhy.org"),
+domain("dmhy.org") {
+  /*鼠标悬浮高亮*/
+  #topic_list tbody tr:hover > * {
+    background-color: rgba(34, 68, 119);
+  }
+  /*屏蔽动漫花园的广告*/
+  .ad,
+  div[id='\31 280_adv'],
+  div[id='\31 280_ad'] > a,
+  div[id='bebiv3_ad'] {
+    display: none;
+  }
+}
