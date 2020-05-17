@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      1.2.1
+// @version      2.0.0
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -176,10 +176,36 @@
         }
         static updateHostList(hostList) {
             hostList
-                .filter(domain => GM_getValue(domain) === undefined)
+                .filter(config => GM_getValue(JSON.stringify(config)) === undefined)
                 .forEach(domain => {
                 console.log('更新了屏蔽域名: ', domain);
-                GM_setValue(domain, true);
+                GM_setValue(JSON.stringify(domain), true);
+            });
+        }
+        static isBlock() {
+            return GM_listValues()
+                .filter(config => GM_getValue(config) === true)
+                .some(configStr => {
+                const config = safeExec(() => JSON.parse(configStr), {
+                    type: 'domain',
+                    url: configStr,
+                });
+                if (typeof config === 'string') {
+                    return location.host.includes(config);
+                }
+                else {
+                    const { type, url } = config;
+                    switch (type) {
+                        case 'domain':
+                            return location.host.includes(url);
+                        case 'link':
+                            return location.href === url;
+                        case 'linkPrefix':
+                            return location.href.startsWith(url);
+                        case 'regex':
+                            return new RegExp(url).test(location.href);
+                    }
+                }
             });
         }
     }
@@ -187,38 +213,60 @@
     BlockHost.updateBlockHostList = onceOfCycle(async () => {
         BlockHost.updateHostList(await BlockHost.fetchHostList());
     }, 1000 * 60 * 60 * 24);
-    BlockHost.isBlock = GM_listValues().some(host => location.host.includes(host) && GM_getValue(host) === true);
     //注册菜单
     class MenuHandler {
         static register() {
             const domain = location.host;
             const isIncludes = GM_getValue(domain) === true;
-            GM_registerMenuCommand(BlockHost.isBlock ? '恢复默认' : '解除限制', () => {
-                if (isIncludes) {
-                    GM_setValue(domain, false);
-                }
-                else {
-                    GM_setValue(domain, true);
-                }
+            const isBlock = BlockHost.isBlock();
+            if (!isBlock) {
+                console.log('domain: ', domain);
+            }
+            GM_registerMenuCommand(isBlock ? '恢复默认' : '解除限制', () => {
+                GM_setValue(JSON.stringify({
+                    type: 'domain',
+                    url: domain,
+                }), !isIncludes);
                 location.reload();
             });
+        }
+    }
+    /**
+     * 屏蔽列表配置 API，用以在指定 API 进行高级配置
+     */
+    class ConfigBlockApi {
+        list() {
+            return GM_listValues();
+        }
+        delete(config) {
+            GM_deleteValue(JSON.stringify(config));
+        }
+        add(config) {
+            GM_setValue(JSON.stringify(config), true);
+        }
+        clear() {
+            this.list().forEach(GM_deleteValue);
         }
     }
     //启动类
     class Application {
         start() {
             MenuHandler.register();
-            if (BlockHost.isBlock) {
+            if (BlockHost.isBlock()) {
                 UnblockLimit.watchEventListener();
                 UnblockLimit.clearJsOnXXXEvent();
             }
             BlockHost.updateBlockHostList();
             window.addEventListener('load', function () {
-                if (BlockHost.isBlock) {
+                if (BlockHost.isBlock()) {
                     UnblockLimit.clearDomOnXXXEvent();
                     UnblockLimit.clearCSS();
                 }
             });
+            if (location.href ===
+                'https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/index.html') {
+                Reflect.set(unsafeWindow, 'configBlockApi', new ConfigBlockApi());
+            }
         }
     }
     new Application().start();
