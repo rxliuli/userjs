@@ -6,7 +6,8 @@
   "author": "rxliuli",
   "license": "MIT",
   "scripts": {
-    "build:UnblockWebRestrictions": "tsc -w src/UnblockWebRestrictions/UnblockWebRestrictions.user.ts --lib \"esnext,dom\" --target esnext"
+    "build:UnblockWebRestrictions": "tsc -w src/UnblockWebRestrictions/UnblockWebRestrictions.user.ts --lib \"esnext,dom\" --target esnext",
+    "build:AutoPlay": "tsc -w src/OuchnVideoAutoPlay/AutoPlay.user.ts --lib \\\"esnext,dom\\\" --target esnext"
   },
   "devDependencies": {
     "@types/greasemonkey": "^3.0.0",
