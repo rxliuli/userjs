@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.1.0
+// @version      2.1.1
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -275,7 +275,8 @@
                 }
             });
             if (location.href ===
-                'https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/') {
+                'https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/' ||
+                location.hostname === '127.0.0.1') {
                 Reflect.set(unsafeWindow, 'configBlockApi', new ConfigBlockApi());
             }
         }

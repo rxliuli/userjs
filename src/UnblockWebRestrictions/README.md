@@ -1,20 +1,31 @@
-# 解除网页限制
+# Remove web restrictions
 
 > [GitHub](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/391193)
 
-## 简介
+## Introduction
 
-之所以要写这个脚本的原因在于目前已有的 UserJS 脚本添加/禁用域名很不方便，所以便自己写一个，方便吾辈更好的使用。
+> [English](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/README.md), [中文简体](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/README.zhCN.md)
 
-## 功能
+The reason why this script is written is that it is very inconvenient to add / disable the domain name in the existing UserJS script, so write one yourself, which is convenient for my generation to use.
 
-- 强制允许选择/复制/粘贴
-- 禁用掉网页复制时的小尾巴
-- 允许通过菜单快速启用/禁用（主要改进）
-- 动态更新支持域名列表（主要改进）
+## Features
 
-## 帮助
+- Force selection / copy / paste
+- Disable the small tail when copying web pages
+- Allows quick enable / disable through the menu (main improvements)
+- Dynamic update support domain name list (main improvements)
+- Advanced matching mode
 
-如果发现还没有支持的域名，可以点击 _Tampermonkey => 解除网页限制 => 解除限制_ 即可生效，或者，在 [GitHub Issues](https://github.com/rxliuli/userjs/issues) 上提出，以使所有人都能更新该域名为解除限制。
+## Advanced Matching Mode
+
+> [Local Rule Configuration Page](https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/)
+
+This is a more powerful feature, not only matching domain names, but also matching urls, url prefixes, and regular expressions.
+
+![image.png](https://i.loli.net/2020/05/17/4Piwq6CbGIfx1HU.png)
+
+## Help
+
+If you find a domain name that is not yet supported, you can click _Tampermonkey => Remove Webpage Restrictions => Remove Restrictions_ to take effect, or, put it on [GitHub Issues](https://github.com/rxliuli/userjs/issues) , So that everyone can update the domain name to lift the restriction.
 
 ![image.png](https://i.loli.net/2019/10/15/xypJIQnbtN4DuWM.png)
