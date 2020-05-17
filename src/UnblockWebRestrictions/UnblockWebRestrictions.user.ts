@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.0.0
+// @version      2.1.0
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -265,22 +265,31 @@
             type: 'domain',
             url: configStr,
           })!
-          if (typeof config === 'string') {
-            return location.host.includes(config)
-          } else {
-            const { type, url } = config
-            switch (type) {
-              case 'domain':
-                return location.host.includes(url)
-              case 'link':
-                return location.href === url
-              case 'linkPrefix':
-                return location.href.startsWith(url)
-              case 'regex':
-                return new RegExp(url).test(location.href)
-            }
-          }
+          return this.match(new URL(location.href), config)
         })
+    }
+
+    private static match(
+      href: URL,
+      config:
+        | string
+        | { type: 'domain' | 'link' | 'linkPrefix' | 'regex'; url: string },
+    ) {
+      if (typeof config === 'string') {
+        return href.host.includes(config)
+      } else {
+        const { type, url } = config
+        switch (type) {
+          case 'domain':
+            return href.host.includes(url)
+          case 'link':
+            return href.href === url
+          case 'linkPrefix':
+            return href.href.startsWith(url)
+          case 'regex':
+            return new RegExp(url).test(href.href)
+        }
+      }
     }
   }
 
@@ -312,6 +321,13 @@
   class ConfigBlockApi {
     list() {
       return GM_listValues()
+        .filter(key => key !== 'LastUpdate' && key !== 'LastValue')
+        .map(config =>
+          safeExec(() => JSON.parse(config as string), {
+            type: 'domain',
+            url: config,
+          } as BlockConfig),
+        )
     }
     delete(config: BlockConfig) {
       GM_deleteValue(JSON.stringify(config))
@@ -320,7 +336,10 @@
       GM_setValue(JSON.stringify(config), true)
     }
     clear() {
-      this.list().forEach(GM_deleteValue)
+      GM_listValues().forEach(GM_deleteValue)
+    }
+    async update() {
+      await BlockHost.updateBlockHostList()
     }
   }
 
@@ -341,7 +360,7 @@
       })
       if (
         location.href ===
-        'https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/index.html'
+        'https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/'
       ) {
         Reflect.set(unsafeWindow, 'configBlockApi', new ConfigBlockApi())
       }
