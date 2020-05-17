@@ -90,5 +90,9 @@
   {
     "type": "linkPrefix",
     "url": "https://www.bilibili.com/read/"
+  },
+  {
+    "type": "domain",
+    "url": "message.bilibili.com"
   }
 ]
