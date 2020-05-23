@@ -123,21 +123,31 @@ const App: React.FC<PropsType> = props => {
         <Form.Item
           label={'匹配模式'}
           name={'type'}
-          rules={[{ required: true }]}
+          rules={[{ required: true, message: '匹配模式没有选择' }]}
         >
           <Select
-            options={Object.entries(configTypeLabelMap).map(
-              ([value, label]) => ({ label, value }),
-            )}
+            options={Object.entries(
+              configTypeLabelMap,
+            ).map(([value, label]) => ({ label, value }))}
           />
         </Form.Item>
-        <Form.Item label={'匹配值'} name={'url'} rules={[{ required: true }]}>
+        <Form.Item
+          label={'匹配值'}
+          name={'url'}
+          rules={[{ required: true, message: '匹配值不能为空' }]}
+        >
           <Input />
         </Form.Item>
         <Form.Item
           label={'测试需要匹配的 URL'}
           name={'tempUrl'}
-          rules={[{ required: true }, { type: 'url' }]}
+          rules={[
+            { required: true, message: '测试需要匹配的 URL 不能为空' },
+            {
+              type: 'url',
+              message: '测试需要匹配的 URL 必须是个 URL 啊喂 (#`O′)',
+            },
+          ]}
         >
           <Input />
         </Form.Item>
@@ -159,7 +169,7 @@ const App: React.FC<PropsType> = props => {
       <h2>本地屏蔽配置列表</h2>
       <List
         dataSource={configList}
-        renderItem={(config: BlockConfig, i) => (
+        renderItem={(config: BlockConfig, i: number) => (
           <List.Item
             key={i}
             actions={[
@@ -173,11 +183,25 @@ const App: React.FC<PropsType> = props => {
               description={
                 <div
                   style={{
-                    width: '100%',
+                    width: 240,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
                   }}
                   title={config.url}
                 >
-                  {config.url}
+                  {config.type === 'regex' ? (
+                    config.url
+                  ) : (
+                    <a
+                      href={
+                        (config.type === 'domain' ? 'https://' : '') +
+                        config.url
+                      }
+                    >
+                      {config.url}
+                    </a>
+                  )}
                 </div>
               }
             />
