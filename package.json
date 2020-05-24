@@ -8,6 +8,7 @@
   "scripts": {
     "build:UnblockWebRestrictions": "tsc -w src/UnblockWebRestrictions/UnblockWebRestrictions.user.ts --lib \"esnext,dom\" --target esnext",
     "build:TelegramDarkCute": "tsc -w src/TelegramDarkCute/TelegramDarkCute.user.ts --lib \"esnext,dom\" --target esnext",
+    "build:SlackDarkCute": "tsc -w src/SlackDarkCute/SlackDarkCute.user.ts --lib \"esnext,dom\" --target esnext",
     "build:AutoPlay": "tsc -w src/OuchnVideoAutoPlay/AutoPlay.user.ts --lib \\\"esnext,dom\\\" --target esnext",
     "build:dmhy": "parcel watch src/dmhy/dmhyAdPass.user.ts --out-dir src/dmhy/ --global rx --no-source-maps --no-hmr"
   },
