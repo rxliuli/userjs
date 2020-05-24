@@ -62,7 +62,7 @@ body,
 
 /* 工作区 */
 .p-workspace * {
-  background-color: rgba(48, 48, 48, 0.1) !important;
+  background-color: rgba(48, 48, 48, 0.08) !important;
 }
 /* 鼠标在消息上 */
 .c-message_kit__message:hover {
