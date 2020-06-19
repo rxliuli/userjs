@@ -3,7 +3,7 @@
 ## 使用
 
 1. 打开 [Telegram Web for React](https://evgeny-nadymov.github.io/telegram-react/)
-2. 配置主题 _Settings => Appearance_ 选择 `Dark + Blue`
+2. 配置主题 _Settings => General Settings => Appearance_ 选择 `Dark + Blue`
 3. 安装油猴脚本
 
 效果图
