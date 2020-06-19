@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Telegram 暗黑模式萌化（动态泡水灵梦）
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.1.0
+// @version      0.1.1
 // @description  try to take over the world!
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
@@ -93,6 +93,9 @@ body,
 /* 群组消息 */
 .chat-info {
   background-color: rgba(0, 0, 0, 0.2);
+}
+.dialogs .sidebar-page:nth-child(2) {
+  background: var(--panel-background);
 }
 /* 归档的联系人列表 */
 .dialogs-list:nth-of-type(2) {
