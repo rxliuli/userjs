@@ -1,5 +1,7 @@
 # 动漫花园广告屏蔽
 
+> 已废弃，uBlockOrigin 已更新屏蔽规则。
+
 ## 场景
 
 > [GitHub](https://github.com/rxliuli/userjs/tree/master/src/dmhy), [GreasyFork](https://greasyfork.org/zh-CN/scripts/402206)

@@ -4,12 +4,17 @@
 
 ## 脚本列表
 
-- [解除网页限制](https://github.com/rxliuli/userjs/raw/master/src/UnblockWebRestrictions/README.md): 快速解除/恢复网页限制
-- [91Flac Download](https://github.com/rxliuli/userjs/tree/master/src/91FlacDownload): 下载歌曲时自动设置歌曲的文件名
-- [百度网盘导出数据](https://github.com/rxliuli/userjs/tree/master/src/PanbaiduExportData): 导出百度网盘中的所有文件/文件夹的数据，方便进行二级的检索和分析
-- [mobile 上知乎自动展开答案](https://github.com/rxliuli/userjs/tree/master/src/ZhihuAutoExpand): 自动展开 mobile 上知乎的答案，避免使用 app 打开
-- [MDN 自动跳转中文翻译](https://github.com/rxliuli/userjs/tree/master/src/MDNAutoRedirectChinese): 如果有中文翻译的话就跳转到中文翻译页面，主要是为了避免 MDN 本身的自动跳转失效
-- [Youtube RSS Inoreader Subscription](https://github.com/rxliuli/userjs/tree/master/src/YoutubeRSSInoreaderSubscription): 为 Youtube 订阅者添加 RSS 订阅按钮，点击后弹出 Inoreader 的订阅弹窗
+- [解除网页限制](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/README.md): 快速解除/恢复网页限制
+- [Telegram 屏蔽群用户消息](https://github.com/rxliuli/userjs/blob/master/src/TelegramBlock/README.md)
+  > 适用于 <https://web.telegram.org/#/im>
+- [Telegram 黑暗模式萌化（动态泡水灵梦）](https://github.com/rxliuli/userjs/blob/master/src/TelegramDarkCute/README.md)
+  > 适用于 <https://evgeny-nadymov.github.io/telegram-react/>
+- [Slack 暗黑模式萌化（动态泡水灵梦）](https://github.com/rxliuli/userjs/blob/master/src/SlackDarkCute/SlackDarkCute.user.ts)
+- [91Flac Download](https://github.com/rxliuli/userjs/blob/master/src/91FlacDownload/README.md): 下载歌曲时自动设置歌曲的文件名
+- [百度网盘导出数据](https://github.com/rxliuli/userjs/blob/master/src/PanbaiduExportData/README.md): 导出百度网盘中的所有文件/文件夹的数据，方便进行二级的检索和分析
+- [MDN 自动跳转中文翻译](https://github.com/rxliuli/userjs/blob/master/src/MDNAutoRedirectChinese/README.md): 如果有中文翻译的话就跳转到中文翻译页面，主要是为了避免 MDN 本身的自动跳转失效
+- [Youtube RSS Inoreader Subscription](https://github.com/rxliuli/userjs/blob/master/src/YoutubeRSSInoreaderSubscription/README.md): 为 Youtube 订阅者添加 RSS 订阅按钮，点击后弹出 Inoreader 的订阅弹窗
+- [动漫花园广告屏蔽（已废弃）](https://github.com/rxliuli/userjs/blob/master/src/dmhy/README.md)
 
 ## 库
 
