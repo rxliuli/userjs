@@ -2,6 +2,7 @@
 
 ## 使用
 
+> telegram for react 也是官方 web app，参考：https://telegram.org/apps#web-apps
 1. 打开 [Telegram Web for React](https://evgeny-nadymov.github.io/telegram-react/)
 2. 配置主题 _Settings => General Settings => Appearance_ 选择 `Dark + Blue`
 3. 安装油猴脚本
