@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Telegram 暗黑模式萌化（动态泡水灵梦）
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.1.1
-// @description  try to take over the world!
+// @version      0.1.2
+// @description  Telegram 暗黑模式萌化，默认为动态泡水灵梦，但支持任何动态视频，只要修改脚本中的以下链接：https://iirose.github.io/file/assets/reimu
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
 // @grant        GM_addStyle
@@ -29,7 +29,7 @@
   loop="loop"
   autoplay="autoplay"
   src="https://iirose.github.io/file/assets/reimu"
-></video>
+/>
 `)
   GM_addStyle(`video#videoWallPaper {
   position: fixed;
@@ -85,6 +85,7 @@ body,
 /* 联系人 */
 .sidebar-page,
 .dialogs,
+.dialogs .dialogs-list:nth-of-type(2),
 .dialogs-list,
 /* 未读消息提示条 */
 .unread-separator,
