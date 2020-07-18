@@ -1,6 +1,10 @@
 [
   {
     "type": "domain",
+    "url": "segmentfault.com"
+  },
+  {
+    "type": "domain",
     "url": "leetcode-cn.com"
   },
   {
