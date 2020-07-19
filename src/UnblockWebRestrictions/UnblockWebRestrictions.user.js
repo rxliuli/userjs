@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.2.0
+// @version      2.2.2
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -102,6 +102,41 @@
             }
             document.addEventListener = EventTarget.prototype.addEventListener = addEventListener;
         }
+        // 代理网页添加的键盘快捷键，阻止自定义 C-C/C-V/C-X 这三个快捷键
+        static proxyKeyEventListener() {
+            const documentAddEventListener = document.addEventListener;
+            const eventTargetAddEventListener = EventTarget.prototype.addEventListener;
+            function addEventListener(type, listener, useCapture) {
+                const $addEventListener = this === document
+                    ? documentAddEventListener
+                    : eventTargetAddEventListener;
+                // 在这里阻止会更合适一点
+                const listenerHandler = {
+                    apply(target, thisArg, argArray) {
+                        const ev = argArray[0];
+                        const proxyKey = ['c', 'x', 'v', 'a'];
+                        const proxyAssistKey = ['Control', 'Alt'];
+                        if ((ev.ctrlKey && proxyKey.includes(ev.key)) ||
+                            proxyAssistKey.includes(ev.key)) {
+                            console.log('已阻止: ', ev.ctrlKey, ev.altKey, ev.key);
+                            return;
+                        }
+                        if (ev.altKey) {
+                            return;
+                        }
+                        // Reflect.apply(target, thisArg, argArray)
+                    },
+                };
+                Reflect.apply($addEventListener, this, [
+                    type,
+                    UnblockLimit.keyEventTypes.includes(type)
+                        ? new Proxy(listener, listenerHandler)
+                        : listener,
+                    useCapture,
+                ]);
+            }
+            document.addEventListener = EventTarget.prototype.addEventListener = addEventListener;
+        }
         // 清理使用 onXXX 添加到事件
         static clearJsOnXXXEvent() {
             const emptyFunc = () => { };
@@ -161,39 +196,6 @@ time, mark, audio, video, html body * {
   background: #05d3f9 !important;
 }
 `);
-        }
-        // 代理网页添加的键盘快捷键，阻止自定义 C-C/C-V/C-X 这三个快捷键
-        static proxyKeyEventListener() {
-            const documentAddEventListener = document.addEventListener;
-            const eventTargetAddEventListener = EventTarget.prototype.addEventListener;
-            function addEventListener(type, listener, useCapture) {
-                const $addEventListener = this === document
-                    ? documentAddEventListener
-                    : eventTargetAddEventListener;
-                // 在这里阻止会更合适一点
-                const listenerHandler = {
-                    apply(target, thisArg, argArray) {
-                        if (UnblockLimit.keyEventTypes.includes(type)) {
-                            const ev = argArray[0];
-                            console.log('代理按键相关 listener: ', type, ev.ctrlKey, ev.altKey, ev.key);
-                            const blockProxyKey = ['c', 'x', 'v', 'a'];
-                            if (ev.ctrlKey && blockProxyKey.includes(ev.key)) {
-                                return;
-                            }
-                            if (ev.altKey) {
-                                return;
-                            }
-                        }
-                        Reflect.set(target, thisArg, argArray);
-                    },
-                };
-                Reflect.apply($addEventListener, this, [
-                    type,
-                    new Proxy(listener, listenerHandler),
-                    useCapture,
-                ]);
-            }
-            document.addEventListener = EventTarget.prototype.addEventListener = addEventListener;
         }
     }
     UnblockLimit.eventTypes = [
@@ -277,15 +279,13 @@ time, mark, audio, video, html body * {
                 console.log('domain: ', domain);
             }
             GM_registerMenuCommand(isBlock ? '恢复默认' : '解除限制', () => {
-                Reflect.set(unsafeWindow, 'GM_setValue', GM_setValue);
-                Reflect.set(unsafeWindow, 'GM_getValue', GM_getValue);
                 const key = JSON.stringify({
                     type: 'domain',
                     url: domain,
                 });
                 GM_setValue(key, !isBlock);
                 console.log('isBlock: ', isBlock, GM_getValue(key));
-                // location.reload()
+                location.reload();
             });
         }
     }
@@ -320,8 +320,8 @@ time, mark, audio, video, html body * {
             MenuHandler.register();
             if (BlockHost.isBlock()) {
                 UnblockLimit.watchEventListener();
-                UnblockLimit.clearJsOnXXXEvent();
                 UnblockLimit.proxyKeyEventListener();
+                UnblockLimit.clearJsOnXXXEvent();
             }
             BlockHost.updateBlockHostList();
             window.addEventListener('load', function () {
