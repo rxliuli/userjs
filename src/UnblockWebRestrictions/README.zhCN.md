@@ -29,3 +29,9 @@
 如果发现还没有支持的域名，可以点击 _Tampermonkey => 解除网页限制 => 解除限制_ 即可生效，或者，在 [GitHub Issues](https://github.com/rxliuli/userjs/issues) 上提出，以使所有人都能更新该域名为解除限制。
 
 ![image.png](https://i.loli.net/2019/10/15/xypJIQnbtN4DuWM.png)
+
+## 常问问题
+
+- 脚本未生效。如果是在 localhost 的网站，脚本的载入时机可能晚于网页脚本，参考: <https://www.tampermonkey.net/documentation.php#_run_at>
+- 网页上的快捷键不能用了。是的，由于脚本会覆盖以下快捷键，`c-c/v/x/a`，还有可能包括一些通过 `ctrl + 鼠标` 拖拽相关的快捷键。
+- 事实上，目前该脚本将影响范围限制的尽量小，但不保证与网站一定没有任何冲突（参见上一条），所以如果发生了什么问题，请直接在 GitHub issues 提出。
