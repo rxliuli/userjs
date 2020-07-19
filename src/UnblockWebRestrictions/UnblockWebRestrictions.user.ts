@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.1.2
+// @version      2.2.0
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -12,6 +12,7 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
 // @grant        GM_xmlhttpRequest
+// @grant        unsafeWindow
 // 这里的 @run-at 非常重要，设置在文档开始时就载入脚本
 // @run-at       document-start
 // @license      MIT
@@ -126,6 +127,11 @@
       'contextmenu',
       'dragstart',
     ]
+    private static keyEventTypes: readonly (keyof WindowEventMap)[] = [
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
 
     /**
      * 监听 event 的添加
@@ -142,7 +148,7 @@
         useCapture?: boolean,
       ) {
         const $addEventListener =
-          this === document
+          this instanceof Document
             ? documentAddEventListener
             : eventTargetAddEventListener
 
@@ -151,7 +157,7 @@
           console.log('拦截 addEventListener: ', type, this)
           return
         }
-        $addEventListener.apply(this, [type, listener, useCapture])
+        Reflect.apply($addEventListener, this, [type, listener, useCapture])
       }
 
       document.addEventListener = EventTarget.prototype.addEventListener = addEventListener
@@ -197,7 +203,19 @@
     // 清理掉网页添加的全局防止复制/选择的 CSS
     static clearCSS() {
       GM_addStyle(
-        `html, * {
+        `html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, html body * {
   -webkit-user-select: text !important;
   -moz-user-select: text !important;
   user-select: text !important;
@@ -205,14 +223,65 @@
 
 ::-moz-selection {
   color: #111 !important;
-  background: #05D3F9 !important;
+  background: #05d3f9 !important;
 }
 
 ::selection {
   color: #111 !important;
-  background: #05D3F9 !important;
-}`,
+  background: #05d3f9 !important;
+}
+`,
       )
+    }
+
+    // 代理网页添加的键盘快捷键，阻止自定义 C-C/C-V/C-X 这三个快捷键
+    static proxyKeyEventListener() {
+      const documentAddEventListener = document.addEventListener
+      const eventTargetAddEventListener = EventTarget.prototype.addEventListener
+
+      function addEventListener(
+        this: Document | HTMLElement,
+        type: string,
+        listener: EventListenerOrEventListenerObject,
+        useCapture?: boolean,
+      ) {
+        const $addEventListener =
+          this === document
+            ? documentAddEventListener
+            : eventTargetAddEventListener
+
+        // 在这里阻止会更合适一点
+
+        const listenerHandler: ProxyHandler<any> = {
+          apply(target: Func, thisArg: any, argArray: [KeyboardEvent]): any {
+            if (UnblockLimit.keyEventTypes.includes(type as any)) {
+              const ev = argArray[0]
+              console.log(
+                '代理按键相关 listener: ',
+                type,
+                ev.ctrlKey,
+                ev.altKey,
+                ev.key,
+              )
+              const blockProxyKey = ['c', 'x', 'v', 'a']
+              if (ev.ctrlKey && blockProxyKey.includes(ev.key)) {
+                return
+              }
+              if (ev.altKey) {
+                return
+              }
+            }
+            Reflect.set(target, thisArg, argArray)
+          },
+        }
+        Reflect.apply($addEventListener, this, [
+          type,
+          new Proxy(listener as Func, listenerHandler),
+          useCapture,
+        ])
+      }
+
+      document.addEventListener = EventTarget.prototype.addEventListener = addEventListener
     }
   }
 
@@ -297,20 +366,20 @@
   class MenuHandler {
     static register() {
       const domain = location.host
-      const isIncludes = GM_getValue(domain) === true
       const isBlock = BlockHost.isBlock()
       if (!isBlock) {
         console.log('domain: ', domain)
       }
       GM_registerMenuCommand(isBlock ? '恢复默认' : '解除限制', () => {
-        GM_setValue(
-          JSON.stringify({
-            type: 'domain',
-            url: domain,
-          } as BlockConfig),
-          !isIncludes,
-        )
-        location.reload()
+        Reflect.set(unsafeWindow, 'GM_setValue', GM_setValue)
+        Reflect.set(unsafeWindow, 'GM_getValue', GM_getValue)
+        const key = JSON.stringify({
+          type: 'domain',
+          url: domain,
+        } as BlockConfig)
+        GM_setValue(key, !isBlock)
+        console.log('isBlock: ', isBlock, GM_getValue(key))
+        // location.reload()
       })
     }
   }
@@ -350,6 +419,7 @@
       if (BlockHost.isBlock()) {
         UnblockLimit.watchEventListener()
         UnblockLimit.clearJsOnXXXEvent()
+        UnblockLimit.proxyKeyEventListener()
       }
       BlockHost.updateBlockHostList()
       window.addEventListener('load', function() {

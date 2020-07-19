@@ -5,6 +5,10 @@
   },
   {
     "type": "domain",
+    "url": "www.v1tx.com"
+  },
+  {
+    "type": "domain",
     "url": "leetcode-cn.com"
   },
   {
@@ -98,7 +102,8 @@
   {
     "type": "domain",
     "url": "message.bilibili.com"
-  },{
+  },
+  {
     "type": "domain",
     "url": "www.x23qb.com"
   }
