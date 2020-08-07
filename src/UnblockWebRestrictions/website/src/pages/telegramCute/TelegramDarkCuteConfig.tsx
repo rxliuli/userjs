@@ -57,6 +57,8 @@ const TelegramDarkCuteConfig: React.FC<PropsType> = () => {
               label: config.label,
               value: i,
             }))}
+            showSearch={true}
+            optionFilterProp={'label'}
           />
           <Button type={'primary'} onClick={handleSet}>
             确定
