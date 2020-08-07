@@ -7,8 +7,11 @@ import BasicLayoutCard from '../../components/layout/BasicLayoutCard'
 
 type PropsType = {}
 
+const configBlockApi =
+  window['com.rxliuli.UnblockWebRestrictions.configBlockApi']
+
 const UnblockWebRestrictionsConfig: React.FC<PropsType> = () => {
-  if (!window.configBlockApi) {
+  if (!configBlockApi) {
     return (
       <Result
         title="您还未安装解除网页禁止复制/粘贴的脚本"
@@ -24,37 +27,35 @@ const UnblockWebRestrictionsConfig: React.FC<PropsType> = () => {
     )
   }
 
-  const [configList, setConfigList] = useState(() =>
-    window.configBlockApi.list(),
-  )
+  const [configList, setConfigList] = useState(() => configBlockApi.list())
 
   function handleReload() {
-    const list = window.configBlockApi.list()
+    const list = configBlockApi.list()
     setConfigList(list)
     console.log('reload: ', list)
   }
   function handleClear() {
-    window.configBlockApi.clear()
+    configBlockApi.clear()
     handleReload()
     message.success('清空成功')
   }
 
   async function handleUpdate() {
-    await window.configBlockApi.update()
+    await configBlockApi.update()
     handleReload()
     message.success('更新成功')
   }
 
   function handleRemove(config: BlockConfig) {
     console.log('remove key: ', config.key)
-    window.configBlockApi.remove(config.key)
+    configBlockApi.remove(config.key)
     handleReload()
     message.success('删除成功')
   }
 
   function handleSwitch(config: BlockConfig) {
     console.log('handleSwitch: ', config)
-    window.configBlockApi.switch(config.key)
+    configBlockApi.switch(config.key)
     handleReload()
   }
 

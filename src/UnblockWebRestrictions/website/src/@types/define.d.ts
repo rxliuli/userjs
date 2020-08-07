@@ -19,5 +19,5 @@ declare class ConfigBlockApi {
 }
 
 declare interface Window {
-  configBlockApi: ConfigBlockApi
+  ['com.rxliuli.UnblockWebRestrictions.configBlockApi']: ConfigBlockApi
 }
