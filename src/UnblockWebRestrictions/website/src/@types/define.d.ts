@@ -5,11 +5,14 @@ declare type TypeEnum = 'domain' | 'link' | 'linkPrefix' | 'regex'
 declare type BlockConfig = {
   type: TypeEnum
   url: string
+  enable: boolean
+  key: string
 }
 
 declare class ConfigBlockApi {
   list(): BlockConfig[]
-  delete(config: BlockConfig): void
+  remove(key: string): void
+  switch(key: string): void
   add(config: BlockConfig): void
   clear(): void
   update(): Promise<void>

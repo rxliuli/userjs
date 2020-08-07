@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Button, List } from 'antd'
+import { Button, List, Switch, Tag } from 'antd'
 import { configTypeLabelMap } from '../constant/configTypeLabelMap'
 
 type PropsType = {
   list: BlockConfig[]
   onRemove: (config: BlockConfig) => void
+  onSwitch: (config: BlockConfig) => void
 }
 
 /**
@@ -20,6 +21,10 @@ const UnblockWebRestrictionsConfigList: React.FC<PropsType> = props => {
           <List.Item
             key={i}
             actions={[
+              <Switch
+                checked={config.enable}
+                onChange={() => props.onSwitch(config)}
+              />,
               <Button
                 type={'danger' as any}
                 onClick={() => props.onRemove(config)}
@@ -29,44 +34,36 @@ const UnblockWebRestrictionsConfigList: React.FC<PropsType> = props => {
             ]}
           >
             <List.Item.Meta
-              title={<div>{configTypeLabelMap[config.type]}</div>}
-              description={
-                <div
-                  style={{
-                    width: 240,
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                  }}
-                  title={config.url}
-                >
-                  {config.type === 'regex' ? (
-                    config.url
-                  ) : (
-                    <a
-                      href={
-                        (config.type === 'domain' ? 'https://' : '') +
-                        config.url
-                      }
-                    >
-                      {config.url}
-                    </a>
-                  )}
+              title={
+                <div>
+                  <Tag>{configTypeLabelMap[config.type]}</Tag>
+                  <span
+                    style={{
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                    title={config.url}
+                  >
+                    {config.type === 'regex' ? (
+                      config.url
+                    ) : (
+                      <a
+                        href={
+                          (config.type === 'domain' ? 'https://' : '') +
+                          config.url
+                        }
+                      >
+                        {config.url}
+                      </a>
+                    )}
+                  </span>
                 </div>
               }
+              description={<div>{config.enable}</div>}
             />
           </List.Item>
         )}
-        itemLayout={'vertical'}
-        grid={{
-          gutter: 16,
-          xs: 1,
-          sm: 2,
-          md: 4,
-          lg: 4,
-          xl: 6,
-          xxl: 3,
-        }}
       />
     </div>
   )

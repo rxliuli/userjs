@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Button, Card, message, Result } from 'antd'
 import UnblockWebRestrictionsConfigForm from './component/UnblockWebRestrictionsConfigForm'
 import UnblockWebRestrictionsConfigList from './component/UnblockWebRestrictionsConfigList'
@@ -27,47 +27,63 @@ const UnblockWebRestrictionsConfig: React.FC<PropsType> = () => {
     window.configBlockApi.list(),
   )
 
-  useEffect(() => {
-    console.log('useEffect: ', configList)
-  }, [])
-
-  function reload() {
-    setConfigList(window.configBlockApi.list())
+  function handleReload() {
+    const list = window.configBlockApi.list()
+    setConfigList(list)
+    console.log('reload: ', list)
   }
-  function clear() {
+  function handleClear() {
     window.configBlockApi.clear()
-    reload()
+    handleReload()
     message.success('清空成功')
   }
 
-  async function update() {
+  async function handleUpdate() {
     await window.configBlockApi.update()
-    reload()
+    handleReload()
     message.success('更新成功')
   }
 
-  function remove(config: BlockConfig) {
-    window.configBlockApi.delete(config)
-    reload()
+  function handleRemove(config: BlockConfig) {
+    console.log('remove key: ', config.key)
+    window.configBlockApi.remove(config.key)
+    handleReload()
     message.success('删除成功')
+  }
+
+  function handleSwitch(config: BlockConfig) {
+    console.log('handleSwitch: ', config)
+    window.configBlockApi.switch(config.key)
+    handleReload()
   }
 
   return (
     <Card
       title={'配置页'}
+      style={{
+        width: '100%',
+      }}
       extra={
         <div>
-          <Button type="primary" onClick={clear} style={{ marginRight: 8 }}>
+          <Button
+            type="primary"
+            onClick={handleClear}
+            style={{ marginRight: 8 }}
+          >
             清空
           </Button>
-          <Button type="primary" onClick={update}>
+          <Button type="primary" onClick={handleUpdate}>
             更新
           </Button>
         </div>
       }
     >
-      <UnblockWebRestrictionsConfigForm onReload={reload} />
-      <UnblockWebRestrictionsConfigList list={configList} onRemove={remove} />
+      <UnblockWebRestrictionsConfigForm onReload={handleReload} />
+      <UnblockWebRestrictionsConfigList
+        list={configList}
+        onRemove={handleRemove}
+        onSwitch={handleSwitch}
+      />
     </Card>
   )
 }

@@ -325,10 +325,10 @@ time, mark, audio, video, html body * {
       BlockHost.updateHostList(await BlockHost.fetchHostList())
     }, 1000 * 60 * 60 * 24)
 
-    static isBlock() {
+    static findKey() {
       return GM_listValues()
         .filter(config => GM_getValue(config) === true)
-        .some(configStr => {
+        .find(configStr => {
           const config = safeExec(() => JSON.parse(configStr) as BlockConfig, {
             type: 'domain',
             url: configStr,
@@ -364,18 +364,17 @@ time, mark, audio, video, html body * {
   //注册菜单
   class MenuHandler {
     static register() {
-      const domain = location.host
-      const isBlock = BlockHost.isBlock()
-      if (!isBlock) {
-        console.log('domain: ', domain)
-      }
-      GM_registerMenuCommand(isBlock ? '恢复默认' : '解除限制', () => {
-        const key = JSON.stringify({
+      const findKey = BlockHost.findKey()
+      const key =
+        findKey ||
+        JSON.stringify({
           type: 'domain',
-          url: domain,
-        } as BlockConfig)
-        GM_setValue(key, !isBlock)
-        console.log('isBlock: ', isBlock, GM_getValue(key))
+          url: location.host,
+        })
+      console.log('key: ', key)
+      GM_registerMenuCommand(findKey ? '恢复默认' : '解除限制', () => {
+        GM_setValue(key, !GM_getValue(key))
+        console.log('isBlock: ', key, GM_getValue(key))
         location.reload()
       })
     }
@@ -394,10 +393,14 @@ time, mark, audio, video, html body * {
             url: config,
           } as BlockConfig),
           enable: GM_getValue(config),
+          key: config,
         }))
     }
-    delete(config: BlockConfig) {
-      GM_deleteValue(JSON.stringify(config))
+    switch(key: string) {
+      GM_setValue(key, !GM_getValue(key))
+    }
+    remove(key: string) {
+      GM_deleteValue(key)
     }
     add(config: BlockConfig) {
       GM_setValue(JSON.stringify(config), true)
@@ -414,14 +417,14 @@ time, mark, audio, video, html body * {
   class Application {
     start() {
       MenuHandler.register()
-      if (BlockHost.isBlock()) {
+      if (BlockHost.findKey()) {
         UnblockLimit.watchEventListener()
         UnblockLimit.proxyKeyEventListener()
         UnblockLimit.clearJsOnXXXEvent()
       }
       BlockHost.updateBlockHostList()
       window.addEventListener('load', function() {
-        if (BlockHost.isBlock()) {
+        if (BlockHost.findKey()) {
           UnblockLimit.clearDomOnXXXEvent()
           UnblockLimit.clearCSS()
         }
