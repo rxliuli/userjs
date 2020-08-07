@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Telegram 暗黑模式萌化（动态泡水灵梦）
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.0
+// @version      0.2.1
 // @description  Telegram 暗黑模式萌化，默认为动态泡水灵梦，但支持任何动态视频，只要修改脚本中的以下链接：https://iirose.github.io/file/assets/reimu
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
@@ -17,17 +17,18 @@
 ;
 (function () {
     'use strict';
-    /**
-     * 根据 html 字符串创建 Element 元素
-     * @param str html 字符串
-     * @returns 创建的 Element 元素
-     */
-    function createElByString(str) {
-        const root = document.createElement('div');
-        root.innerHTML = str;
-        return root.querySelector('*');
-    }
-    const $videoEl = createElByString(`<video
+    function apply() {
+        /**
+         * 根据 html 字符串创建 Element 元素
+         * @param str html 字符串
+         * @returns 创建的 Element 元素
+         */
+        function createElByString(str) {
+            const root = document.createElement('div');
+            root.innerHTML = str;
+            return root.querySelector('*');
+        }
+        const $videoEl = createElByString(`<video
   id="videoWallPaper"
   muted="muted"
   loop="loop"
@@ -35,7 +36,7 @@
   src="https://iirose.github.io/file/assets/reimu"
 />
 `);
-    GM_addStyle(`video#videoWallPaper {
+        GM_addStyle(`video#videoWallPaper {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -115,7 +116,11 @@ code {
   color: #e96900;
 }
 `);
-    document.body.appendChild($videoEl);
+        document.body.appendChild($videoEl);
+    }
+    if (window.location.hostname === 'evgeny-nadymov.github.io') {
+        apply();
+    }
     class ConfigApi {
         async list() {
             return new Promise((resolve, reject) => {
