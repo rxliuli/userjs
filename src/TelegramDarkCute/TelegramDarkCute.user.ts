@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Telegram 暗黑模式萌化（动态泡水灵梦）
+// @name         Telegram 暗黑模式萌化
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.1
-// @description  Telegram 暗黑模式萌化，默认为动态泡水灵梦，但支持任何动态视频，只要修改脚本中的以下链接：https://iirose.github.io/file/assets/reimu
+// @version      0.2.2
+// @description  Telegram 暗黑模式萌化，理论上支持任何视频背景。
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
 // @match        http://127.0.0.1:*/*
@@ -18,7 +18,44 @@
 ;(function() {
   'use strict'
 
-  function apply() {
+  interface Config {
+    label: string
+    imageUrl: string
+    videoUrl: string
+  }
+  class ConfigApi {
+    async list(): Promise<Config[]> {
+      return new Promise<Config[]>((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: 'GET',
+          url: 'https://assets.rxliuli.com/data.json',
+          onload(res) {
+            resolve(JSON.parse(res.responseText))
+          },
+          onerror(e) {
+            reject(e)
+          },
+        })
+      })
+    }
+
+    private static readonly CurrentBackgroundVideoKey = 'CurrentBackgroundVideo'
+
+    get() {
+      try {
+        return JSON.parse(GM_getValue(ConfigApi.CurrentBackgroundVideoKey))
+      } catch (e) {}
+    }
+    set(config: Config) {
+      return GM_setValue(
+        ConfigApi.CurrentBackgroundVideoKey,
+        JSON.stringify(config),
+      )
+    }
+  }
+  const configApi = new ConfigApi()
+
+  function setBackVideo(config: Config) {
     /**
      * 根据 html 字符串创建 Element 元素
      * @param str html 字符串
@@ -35,7 +72,7 @@
   muted="muted"
   loop="loop"
   autoplay="autoplay"
-  src="https://iirose.github.io/file/assets/reimu"
+  src="${config.videoUrl}"
 />
 `)
     GM_addStyle(`video#videoWallPaper {
@@ -50,9 +87,10 @@
   height: auto;
   z-index: -100;
 
-  background-image: url(https://cdn.jsdelivr.net/gh/rxliuli/img-bed/20200306083232.jpg);
+  background-image: url(${config.imageUrl || ''});
   background-repeat: no-repeat;
   background-size: cover;
+  filter: brightness(0.5);
 }
 
 /*需要透明化的背景*/
@@ -122,43 +160,9 @@ code {
   }
 
   if (window.location.hostname === 'evgeny-nadymov.github.io') {
-    apply()
-  }
-
-  interface Config {
-    label: string
-    imageUrl: string
-    videoUrl: string
-  }
-
-  class ConfigApi {
-    async list(): Promise<Config[]> {
-      return new Promise<Config[]>((resolve, reject) => {
-        GM_xmlhttpRequest({
-          method: 'GET',
-          url: 'https://assets.rxliuli.com/data.json',
-          onload(res) {
-            resolve(JSON.parse(res.responseText))
-          },
-          onerror(e) {
-            reject(e)
-          },
-        })
-      })
-    }
-
-    private static readonly CurrentBackgroundVideoKey = 'CurrentBackgroundVideo'
-
-    get() {
-      try {
-        return JSON.parse(GM_getValue(ConfigApi.CurrentBackgroundVideoKey))
-      } catch (e) {}
-    }
-    set(config: Config) {
-      return GM_setValue(
-        ConfigApi.CurrentBackgroundVideoKey,
-        JSON.stringify(config),
-      )
+    const config = configApi.get()
+    if (config) {
+      setBackVideo(config)
     }
   }
 
@@ -169,7 +173,7 @@ code {
     Reflect.set(
       unsafeWindow,
       'com.rxliuli.TelegramDarkCute.configApi',
-      new ConfigApi(),
+      configApi,
     )
   }
 })()
