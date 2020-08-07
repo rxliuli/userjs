@@ -1,10 +1,22 @@
 import * as React from 'react'
 import { Layout, Menu } from 'antd'
-import UnblockWebRestrictionsConfig from '../../pages/unblock/UnblockWebRestrictionsConfig'
+import { Switch, Route, useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import { allRouteList } from './constant/allRouteList'
+import { ClickParam } from 'antd/es/menu'
 
 type PropsType = {}
 
 const LayoutHome: React.FC<PropsType> = () => {
+  const [openKey, setOpenKey] = useState<string>('')
+
+  const history = useHistory()
+  function handleClick(clickParam: ClickParam) {
+    console.log('handleOpenChange: ', clickParam)
+    history.push(clickParam.key)
+    setOpenKey(clickParam.key)
+  }
+
   return (
     <Layout
       style={{
@@ -23,15 +35,25 @@ const LayoutHome: React.FC<PropsType> = () => {
             脚本配置
           </h2>
           <Menu
+            openKeys={[openKey]}
+            onClick={handleClick}
             mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
             style={{ height: '100%', borderRight: 0 }}
           >
-            <Menu.Item key="1">解除网页限制</Menu.Item>
+            {allRouteList.map(config => (
+              <Menu.Item key={config.path as string}>
+                {config.meta.title}
+              </Menu.Item>
+            ))}
           </Menu>
         </Layout.Sider>
-        <UnblockWebRestrictionsConfig />
+        <React.Suspense fallback={'正在加载中...'}>
+          <Switch>
+            {allRouteList.map((config, i) => (
+              <Route {...config} key={i} />
+            ))}
+          </Switch>
+        </React.Suspense>
       </Layout>
     </Layout>
   )

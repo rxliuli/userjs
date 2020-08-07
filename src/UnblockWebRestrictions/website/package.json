@@ -13,14 +13,19 @@
     "@babel/preset-env": "^7.9.6",
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.9.7",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.5",
     "parcel-bundler": "^1.12.4",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.2.3",
+    "mobx": "^5.15.5",
+    "mobx-react": "^6.2.5",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-router-dom": "^5.2.0",
     "rx-util": "^1.7.17"
   }
 }
