@@ -27798,5 +27798,10 @@ div.ant-typography-edit-content.ant-typography-rtl {
 
 
 
+#app {
+  height: 100%;
+  overflow-y: auto;
+}
+
 
 /*# sourceMappingURL=/src.f69400ca.css.map */
