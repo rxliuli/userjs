@@ -4,6 +4,7 @@ import { Button, message, Result } from 'antd'
 import UnblockWebRestrictionsConfigForm from './component/UnblockWebRestrictionsConfigForm'
 import UnblockWebRestrictionsConfigList from './component/UnblockWebRestrictionsConfigList'
 import BasicLayoutCard from '../../components/layout/BasicLayoutCard'
+import LayoutEmpty from '../../components/layout/LayoutEmpty'
 
 type PropsType = {}
 
@@ -13,16 +14,9 @@ const configBlockApi =
 const UnblockWebRestrictionsConfig: React.FC<PropsType> = () => {
   if (!configBlockApi) {
     return (
-      <Result
+      <LayoutEmpty
         title="您还未安装解除网页禁止复制/粘贴的脚本"
-        extra={
-          <Button
-            type={'primary'}
-            href={'https://greasyfork.org/zh-CN/scripts/391193'}
-          >
-            去安装脚本
-          </Button>
-        }
+        href={'https://greasyfork.org/zh-CN/scripts/391193'}
       />
     )
   }

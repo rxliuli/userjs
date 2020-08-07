@@ -4,6 +4,7 @@ import { Button, Divider, message, Select, Space } from 'antd'
 import { useMemo, useState } from 'react'
 import { useMount } from 'react-use'
 import Config = TelegramDarkCute.Config
+import LayoutEmpty from '../../components/layout/LayoutEmpty'
 
 type PropsType = {}
 
@@ -13,6 +14,14 @@ const configApi = window['com.rxliuli.TelegramDarkCute.configApi']
  * tg 暗黑模式萌化的配置页
  */
 const TelegramDarkCuteConfig: React.FC<PropsType> = () => {
+  if (!configApi) {
+    return (
+      <LayoutEmpty
+        title="您还未安装 telegram 暗黑模式萌化的脚本"
+        href={'https://greasyfork.org/zh-CN/scripts/404017'}
+      />
+    )
+  }
   const [configList, setConfigList] = useState<Config[]>([])
   const [config, setConfig] = useState<Config>()
   useMount(async () => {
