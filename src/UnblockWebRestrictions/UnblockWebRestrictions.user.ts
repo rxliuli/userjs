@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.2.2
+// @version      2.2.3
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -388,12 +388,13 @@ time, mark, audio, video, html body * {
     list() {
       return GM_listValues()
         .filter(key => key !== 'LastUpdate' && key !== 'LastValue')
-        .map(config =>
-          safeExec(() => JSON.parse(config as string), {
+        .map(config => ({
+          ...safeExec(() => JSON.parse(config as string), {
             type: 'domain',
             url: config,
           } as BlockConfig),
-        )
+          enable: GM_getValue(config),
+        }))
     }
     delete(config: BlockConfig) {
       GM_deleteValue(JSON.stringify(config))

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, Layout, Menu } from 'antd'
+import { Layout, Menu } from 'antd'
 import UnblockWebRestrictionsConfig from '../../pages/unblock/UnblockWebRestrictionsConfig'
 
 type PropsType = {}
