@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { Button, Card, message, Result } from 'antd'
+import { Button, message, Result } from 'antd'
 import UnblockWebRestrictionsConfigForm from './component/UnblockWebRestrictionsConfigForm'
 import UnblockWebRestrictionsConfigList from './component/UnblockWebRestrictionsConfigList'
+import BasicLayoutCard from '../../components/layout/BasicLayoutCard'
 
 type PropsType = {}
 
@@ -58,11 +59,8 @@ const UnblockWebRestrictionsConfig: React.FC<PropsType> = () => {
   }
 
   return (
-    <Card
+    <BasicLayoutCard
       title={'配置页'}
-      style={{
-        width: '100%',
-      }}
       extra={
         <div>
           <Button
@@ -84,7 +82,7 @@ const UnblockWebRestrictionsConfig: React.FC<PropsType> = () => {
         onRemove={handleRemove}
         onSwitch={handleSwitch}
       />
-    </Card>
+    </BasicLayoutCard>
   )
 }
 

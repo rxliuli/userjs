@@ -8,7 +8,7 @@ import { ClickParam } from 'antd/es/menu'
 type PropsType = {}
 
 const LayoutHome: React.FC<PropsType> = () => {
-  const [openKey, setOpenKey] = useState<string>('')
+  const [openKey, setOpenKey] = useState<string>('/')
 
   const history = useHistory()
   function handleClick(clickParam: ClickParam) {
@@ -30,6 +30,9 @@ const LayoutHome: React.FC<PropsType> = () => {
               color: '#fff',
               margin: 4,
               textAlign: 'center',
+              verticalAlign: 'middle',
+              height: 48,
+              lineHeight: '48px',
             }}
           >
             脚本配置
@@ -38,7 +41,7 @@ const LayoutHome: React.FC<PropsType> = () => {
             openKeys={[openKey]}
             onClick={handleClick}
             mode="inline"
-            style={{ height: '100%', borderRight: 0 }}
+            style={{ height: 'calc(100% - 56px)', borderRight: 0 }}
           >
             {allRouteList.map(config => (
               <Menu.Item key={config.path as string}>
