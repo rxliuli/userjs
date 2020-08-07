@@ -1,11 +1,17 @@
 // ==UserScript==
 // @name         Telegram 暗黑模式萌化（动态泡水灵梦）
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.1.2
+// @version      0.2.0
 // @description  Telegram 暗黑模式萌化，默认为动态泡水灵梦，但支持任何动态视频，只要修改脚本中的以下链接：https://iirose.github.io/file/assets/reimu
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
+// @match        http://127.0.0.1:*/*
+// @match        https://rxliuli.com/userjs/*
 // @grant        GM_addStyle
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_xmlhttpRequest
+// @grant        unsafeWindow
 // @license      MIT
 // ==/UserScript==
 
@@ -112,4 +118,52 @@ code {
 }
 `)
   document.body.appendChild($videoEl)
+
+  interface Config {
+    label: string
+    imageUrl: string
+    videoUrl: string
+  }
+
+  class ConfigApi {
+    async list(): Promise<Config[]> {
+      return new Promise<Config[]>((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: 'GET',
+          url: 'https://assets.rxliuli.com/data.json',
+          onload(res) {
+            resolve(JSON.parse(res.responseText))
+          },
+          onerror(e) {
+            reject(e)
+          },
+        })
+      })
+    }
+
+    private static readonly CurrentBackgroundVideoKey = 'CurrentBackgroundVideo'
+
+    get() {
+      try {
+        return JSON.parse(GM_getValue(ConfigApi.CurrentBackgroundVideoKey))
+      } catch (e) {}
+    }
+    set(config: Config) {
+      return GM_setValue(
+        ConfigApi.CurrentBackgroundVideoKey,
+        JSON.stringify(config),
+      )
+    }
+  }
+
+  if (
+    location.href.includes('https://rxliuli.com/userjs/') ||
+    location.hostname === '127.0.0.1'
+  ) {
+    Reflect.set(
+      unsafeWindow,
+      'com.rxliuli.TelegramDarkCute.configApi',
+      new ConfigApi(),
+    )
+  }
 })()

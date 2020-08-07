@@ -25,4 +25,13 @@ export const allRouteList: RouteConfig[] = [
       title: '解除网页限制',
     },
   },
+  {
+    path: '/telegramDuck',
+    component: lazy(() =>
+      import('../../../pages/telegramCute/TelegramDarkCuteConfig'),
+    ),
+    meta: {
+      title: 'Telegram 暗黑模式萌化',
+    },
+  },
 ]

@@ -430,8 +430,7 @@ time, mark, audio, video, html body * {
         }
       })
       if (
-        location.href ===
-          'https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/' ||
+        location.href.includes('https://rxliuli.com/userjs/') ||
         location.hostname === '127.0.0.1'
       ) {
         Reflect.set(

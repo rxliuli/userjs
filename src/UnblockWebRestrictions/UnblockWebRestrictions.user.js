@@ -335,8 +335,7 @@ time, mark, audio, video, html body * {
                     UnblockLimit.clearCSS();
                 }
             });
-            if (location.href ===
-                'https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/' ||
+            if (location.href.includes('https://rxliuli.com/userjs/') ||
                 location.hostname === '127.0.0.1') {
                 Reflect.set(unsafeWindow, 'com.rxliuli.UnblockWebRestrictions.configBlockApi', new ConfigBlockApi());
             }

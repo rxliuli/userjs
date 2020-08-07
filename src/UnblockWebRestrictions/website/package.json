@@ -26,6 +26,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router-dom": "^5.2.0",
+    "react-use": "^15.3.3",
     "rx-util": "^1.7.17"
   }
 }
