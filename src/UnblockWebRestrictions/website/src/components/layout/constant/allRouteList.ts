@@ -34,4 +34,13 @@ export const allRouteList: RouteConfig[] = [
       title: 'Telegram 暗黑模式萌化',
     },
   },
+  {
+    path: '/slackCute',
+    component: lazy(() =>
+      import('../../../pages/slackCute/SlackDarkCuteConfig'),
+    ),
+    meta: {
+      title: 'Slack 暗黑模式萌化',
+    },
+  },
 ]

@@ -20,7 +20,7 @@ namespace UnblockWebRestrictions {
   }
 }
 
-declare namespace TelegramDarkCute {
+declare namespace DarkCute {
   interface Config {
     label: string
     imageUrl: string
@@ -34,6 +34,7 @@ declare namespace TelegramDarkCute {
 }
 
 declare interface Window {
-  'com.rxliuli.UnblockWebRestrictions.configBlockApi': UnblockWebRestrictions.ConfigBlockApi
-  'com.rxliuli.TelegramDarkCute.configApi': TelegramDarkCute.ConfigApi
+  'com.rxliuli.UnblockWebRestrictions.configBlockApi'?: UnblockWebRestrictions.ConfigBlockApi
+  'com.rxliuli.TelegramDarkCute.configApi'?: DarkCute.ConfigApi
+  'com.rxliuli.SlackDarkCute.configApi'?: DarkCute.ConfigApi
 }
