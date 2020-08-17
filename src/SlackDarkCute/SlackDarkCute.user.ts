@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Slack 暗黑模式萌化
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.1
+// @version      0.2.2
 // @description  try to take over the world!
 // @author       rxliuli
 // @match        https://app.slack.com/client/*
 // @match        http://127.0.0.1:*/*
-// @match        https://rxliuli.com/userjs/*
+// @match        https://userjs.rxliuli.com/*
 // @grant        GM_addStyle
 // @grant        GM_getValue
 // @grant        GM_setValue

@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Telegram 暗黑模式萌化
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.4
+// @version      0.2.5
 // @description  Telegram 暗黑模式萌化，理论上支持任何视频背景。
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
 // @match        http://127.0.0.1:*/*
-// @match        https://rxliuli.com/userjs/*
+// @match        https://userjs.rxliuli.com/*
 // @grant        GM_addStyle
 // @grant        GM_getValue
 // @grant        GM_setValue
