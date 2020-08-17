@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.2.4
+// @version      2.3.0
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -255,7 +255,7 @@ time, mark, audio, video, html body * {
                 const { type, url } = config;
                 switch (type) {
                     case 'domain':
-                        return href.host.includes(url);
+                        return href.host === url;
                     case 'link':
                         return href.href === url;
                     case 'linkPrefix':
