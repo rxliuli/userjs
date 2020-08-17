@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ."
+    "build": "parcel build src/index.html --public-url .",
+    "deploy": "yarn copy public/data.json dist/ && yarn gh-pages -d dist -t true && yarn rimraf dist/"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -15,7 +16,10 @@
     "@types/react-dom": "^16.9.7",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+    "copy": "^0.3.2",
+    "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
   },
   "dependencies": {
