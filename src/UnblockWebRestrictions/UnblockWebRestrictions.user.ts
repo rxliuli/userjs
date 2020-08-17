@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.2.3
+// @version      2.2.4
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -301,7 +301,7 @@ time, mark, audio, video, html body * {
         GM_xmlhttpRequest({
           method: 'GET',
           url:
-            'https://rxliuli.com/userjs/src/UnblockWebRestrictions/blockList.json',
+            'https://github.com/rxliuli/userjs/raw/master/src/UnblockWebRestrictions/blockList.json',
           onload(res) {
             resolve(JSON.parse(res.responseText))
           },
@@ -430,7 +430,7 @@ time, mark, audio, video, html body * {
         }
       })
       if (
-        location.href.includes('https://rxliuli.com/userjs/') ||
+        location.href.startsWith('https://userjs.rxliuli.com/') ||
         location.hostname === '127.0.0.1'
       ) {
         Reflect.set(

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Slack 暗黑模式萌化
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.0
+// @version      0.2.1
 // @description  try to take over the world!
 // @author       rxliuli
 // @match        https://app.slack.com/client/*
@@ -63,7 +63,7 @@
             return new Promise((resolve, reject) => {
                 GM_xmlhttpRequest({
                     method: 'GET',
-                    url: 'https://assets.rxliuli.com/data.json',
+                    url: 'https://raw.githubusercontent.com/rxliuli/userjs/master/src/website/public/data.json',
                     onload(res) {
                         resolve(JSON.parse(res.responseText));
                     },
@@ -131,7 +131,7 @@
             addOtherStyle();
         }
     }
-    if (location.href.includes('https://rxliuli.com/userjs/') ||
+    if (location.href.startsWith('https://userjs.rxliuli.com/') ||
         location.hostname === '127.0.0.1') {
         Reflect.set(unsafeWindow, 'com.rxliuli.SlackDarkCute.configApi', configApi);
     }
