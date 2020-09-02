@@ -18,7 +18,7 @@ The reason why this script is written is that it is very inconvenient to add / d
 
 ## Advanced Matching Mode
 
-> [Local Rule Configuration Page](https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/)
+> [Local Rule Configuration Page](https://userjs.rxliuli.com/)
 
 This is a more powerful feature, not only matching domain names, but also matching urls, url prefixes, and regular expressions.
 
