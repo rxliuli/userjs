@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.3.0
+// @version      2.3.1
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -419,7 +419,6 @@ time, mark, audio, video, html body * {
       MenuHandler.register()
       if (BlockHost.findKey()) {
         UnblockLimit.watchEventListener()
-        UnblockLimit.proxyKeyEventListener()
         UnblockLimit.clearJsOnXXXEvent()
       }
       BlockHost.updateBlockHostList()
