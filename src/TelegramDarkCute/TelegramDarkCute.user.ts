@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Telegram 暗黑模式萌化
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.5
+// @version      0.2.6
 // @description  Telegram 暗黑模式萌化，理论上支持任何视频背景。
 // @author       rxliuli
 // @match        https://evgeny-nadymov.github.io/*
@@ -94,8 +94,7 @@ code {
       return new Promise<Config[]>((resolve, reject) => {
         GM_xmlhttpRequest({
           method: 'GET',
-          url:
-            'https://raw.githubusercontent.com/rxliuli/userjs/master/src/website/public/data.json',
+          url: 'https://userjs.rxliuli.com/data.json',
           onload(res) {
             resolve(JSON.parse(res.responseText))
           },

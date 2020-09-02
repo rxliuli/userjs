@@ -11,7 +11,7 @@
 效果图
 ![image.png](https://i.loli.net/2020/03/20/8fslMB2QpqN5HRi.png)
 
-你还可以在 [高级配置页面](https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/#/telegramDuck) 配置喜欢的视频背景，如果你有任何喜欢的视频背景也可以修改 [公共配置文件](https://github.com/rxliuli/dynamic_backgroud_video_asset/blob/master/data.json) 添加自己喜欢的动画人物（尤其而且欢迎使用外部视频链接的 PR）。
+你还可以在 [高级配置页面](https://userjs.rxliuli.com/#/telegramDuck) 配置喜欢的视频背景，如果你有任何喜欢的视频背景也可以修改 [公共配置文件](https://github.com/rxliuli/userjs/blob/master/src/website/public/data.json) 添加自己喜欢的动画人物（尤其而且欢迎使用外部视频链接的 PR）。
 
 ## 一些限制
 

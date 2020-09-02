@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url .",
-    "deploy": "yarn copy public/data.json dist/ && yarn gh-pages -d dist -t true && yarn rimraf dist/"
+    "deploy": "yarn gh-pages -d dist -t true && yarn rimraf dist/"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -19,6 +23,7 @@
     "copy": "^0.3.2",
     "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
   },

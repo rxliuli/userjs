@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Slack 暗黑模式萌化
 // @namespace    http://github.com/rxliuli/userjs
-// @version      0.2.2
+// @version      0.2.3
 // @description  try to take over the world!
 // @author       rxliuli
 // @match        https://app.slack.com/client/*
@@ -70,8 +70,7 @@
       return new Promise<Config[]>((resolve, reject) => {
         GM_xmlhttpRequest({
           method: 'GET',
-          url:
-            'https://raw.githubusercontent.com/rxliuli/userjs/master/src/website/public/data.json',
+          url: 'https://userjs.rxliuli.com/data.json',
           onload(res) {
             resolve(JSON.parse(res.responseText))
           },
