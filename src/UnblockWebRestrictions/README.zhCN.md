@@ -18,7 +18,7 @@
 
 ## 高级匹配模式
 
-> [本地规则配置页面](https://rxliuli.com/userjs/src/UnblockWebRestrictions/website/dist/)
+> [本地规则配置页面](https://userjs.rxliuli.com/)
 
 这是一项更加强大的功能，不仅能匹配域名，还能匹配 url、url 前缀、正则表达式。
 
