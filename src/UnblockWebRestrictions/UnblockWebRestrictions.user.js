@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         解除网页限制
 // @namespace    http://github.com/rxliuli/userjs
-// @version      2.3.1
+// @version      2.3.2
 // @description  破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @author       rxliuli
 // @include      *
@@ -206,6 +206,7 @@ time, mark, audio, video, html body * {
         'selectstart',
         'contextmenu',
         'dragstart',
+        'mousedown',
     ];
     UnblockLimit.keyEventTypes = [
         'keydown',
