@@ -1,0 +1,14 @@
+{
+  "name": "hello",
+  "scripts": {
+    "build": "rollup --config"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2",
+    "rollup": "^2.29.0",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "rollup-plugin-userscript-metablock": "^0.2.5",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3"
+  }
+}

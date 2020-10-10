@@ -9,7 +9,9 @@
 # npm
 node_modules/
 package-lock.json
+.yarn
 
 # parcel
 .cache
 test/
+dist/

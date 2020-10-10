@@ -5,26 +5,16 @@
   "repository": "git@github.com:rxliuli/userjs.git",
   "author": "rxliuli",
   "license": "MIT",
-  "scripts": {
-    "build:UnblockWebRestrictions": "tsc -w src/UnblockWebRestrictions/UnblockWebRestrictions.user.ts --lib \"esnext,dom\" --target esnext",
-    "build:TelegramDarkCute": "tsc -w src/TelegramDarkCute/TelegramDarkCute.user.ts --lib \"esnext,dom\" --target esnext",
-    "build:SlackDarkCute": "tsc -w src/SlackDarkCute/SlackDarkCute.user.ts --lib \"esnext,dom\" --target esnext",
-    "build:AutoPlay": "tsc -w src/OuchnVideoAutoPlay/AutoPlay.user.ts --lib \\\"esnext,dom\\\" --target esnext",
-    "build:dmhy": "parcel watch src/dmhy/dmhyAdPass.user.ts --out-dir src/dmhy/ --global rx --no-source-maps --no-hmr"
-  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@types/greasemonkey": "^3.0.0",
-    "eslint": "^5.15.3",
-    "eslint-config-prettier": "^6.2.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^1.18.2",
-    "rx-util": "^1.7.3",
-    "ts-node": "^8.10.1",
-    "typescript": "^3.8.3"
+    "lerna": "^3.22.1",
+    "prettier": "^2.1.2",
+    "rx-util": "^1.8.12",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
   }
 }
