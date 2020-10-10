@@ -1,9 +1,8 @@
-import { singleModel } from 'rx-util'
+import { createElByString, download, singleModel, wait } from 'rx-util'
 
 /**
  * 简单的弹窗组件
  */
-// eslint-disable-next-line no-undef
 const Loading = singleModel(
   class Loading {
     constructor() {
@@ -18,17 +17,21 @@ const Loading = singleModel(
     </div>
     `
       // eslint-disable-next-line no-undef
-      document.body.append(rx.createElByString(LoadingText))
+      document.body.append(createElByString(LoadingText)!)
       this.hide()
     }
     show() {
-      document.querySelector('.rx-loading').style.display = 'block'
+      ;(document.querySelector('.rx-loading') as HTMLElement).style.display =
+        'block'
     }
     hide() {
-      document.querySelector('.rx-loading').style.display = 'none'
+      ;(document.querySelector('.rx-loading') as HTMLElement).style.display =
+        'none'
     }
-    progress(num) {
-      document.querySelector('.rx-loading .loading-progress').innerHTML = num
+    progress(num: number) {
+      ;(document.querySelector(
+        '.rx-loading .loading-progress',
+      ) as HTMLElement).innerHTML = num.toString()
     }
   },
 )
@@ -44,27 +47,33 @@ function load() {
  * @param {string} url 链接
  * @param {string} name 歌曲全名，包括后缀
  */
-function downloadMusic(url, name) {
+function downloadMusic(url: string, name: string) {
   const loading = load()
   // eslint-disable-next-line no-undef
   GM_xmlhttpRequest({
     method: 'GET',
     responseType: 'blob',
     url,
-    onload(res) {
+    onload(res: any) {
       // eslint-disable-next-line no-undef
-      rx.download(res.response, name)
+      download(res.response, name)
       loading.hide()
     },
-    onprogress(res) {
+    onprogress(res: any) {
       if (res.readyState !== 3) {
         return
       }
-      const num = parseInt((res.done * 100) / res.total)
+      const num = Math.floor(((res as any).done * 100) / res.total)
       loading.progress(num)
     },
-  })
+  } as any)
 }
+
+type ClickEventParam = {
+  el: HTMLLinkElement
+  suffix: string
+}
+
 /**
  * 下载单个歌曲
  */
@@ -82,30 +91,33 @@ function singleDownload() {
    * 获取所有可用的下载按钮列表
    */
   function getBtnList() {
-    function predicate($elem) {
-      if (!MusicTypeList.some((type) => $elem.dataset.type.includes(type))) {
+    function predicate($elem: HTMLElement) {
+      if (!MusicTypeList.some((type) => $elem.dataset.type!.includes(type))) {
         return false
       }
-      const $btn = $elem.querySelector('a.btn')
+      const $btn = $elem.querySelector('a.btn') as HTMLLinkElement
       return !(
         $btn === null ||
         $btn.classList.contains('disabled') ||
         $btn.href === EmptyHref
       )
     }
-    return Array.from(document.querySelectorAll('.download'))
+    return (Array.from(document.querySelectorAll('.download')) as HTMLElement[])
       .filter(predicate)
-      .map(($elem) => ({
-        el: $elem.querySelector('a.btn'),
-        suffix: $elem.dataset.type,
-      }))
+      .map(
+        ($elem) =>
+          ({
+            el: $elem.querySelector('a.btn'),
+            suffix: $elem.dataset.type,
+          } as ClickEventParam),
+      )
   }
 
   /**
    * 获取当前页面的歌曲名
    */
   function getMusicName() {
-    return document.querySelector('.rounded .h3').innerHTML
+    return document.querySelector('.rounded .h3')!.innerHTML
   }
 
   /**
@@ -114,7 +126,7 @@ function singleDownload() {
    * @param {Element} option.el 按钮元素
    * @param {string} option.suffix 后缀名
    */
-  function addClickEvent({ el, suffix }) {
+  function addClickEvent({ el, suffix }: ClickEventParam) {
     const url = el.href
     el.addEventListener('click', function () {
       downloadMusic(url, `${getMusicName()}.${suffix}`)
@@ -126,10 +138,10 @@ function singleDownload() {
   ;(async () => {
     // 等待全部按钮都加载完毕
     // eslint-disable-next-line no-undef
-    await rx.wait(() =>
-      Array.from(document.querySelectorAll('.download a.btn')).every(
-        ($el) => $el.innerText !== '加载中...',
-      ),
+    await wait(() =>
+      (Array.from(
+        document.querySelectorAll('.download a.btn'),
+      ) as HTMLLinkElement[]).every(($el) => $el.innerText !== '加载中...'),
     )
     getBtnList().forEach(addClickEvent)
   })()
@@ -147,15 +159,19 @@ function batchDownload() {
    */
   function getSelectedTrList() {
     return Array.from(document.querySelectorAll('.songs-list tbody tr')).filter(
-      ($el) => $el.querySelector('td input[type="checkbox"]').checked,
-    )
+      ($el) =>
+        ($el.querySelector('td input[type="checkbox"]') as HTMLInputElement)
+          .checked,
+    ) as HTMLElement[]
   }
-  function getSelectedIdList(trList) {
+  function getSelectedIdList(trList: HTMLElement[]) {
     return trList.map(
-      ($el) => $el.querySelector('td input[type="checkbox"]').value,
+      ($el) =>
+        ($el.querySelector('td input[type="checkbox"]') as HTMLInputElement)
+          .value,
     )
   }
-  async function getLinks(idList) {
+  async function getLinks(idList: string[]) {
     fetch('https://www.91flac.com/song/links', {
       credentials: 'omit',
       headers: {
@@ -180,18 +196,18 @@ function batchDownload() {
     // eslint-disable-next-line no-return-await
     return await res.json()
   }
-  function calcMusicName(el) {
+  function calcMusicName(el: HTMLElement) {
     return (
-      el.querySelector('td:nth-child(1) a').innerText +
-      el.querySelector('td:nth-child(2) a').innerText
+      (el.querySelector('td:nth-child(1) a') as HTMLElement).innerText +
+      (el.querySelector('td:nth-child(2) a') as HTMLElement).innerText
     )
   }
   const SUFFIXS = ['flac', 'ape', 'mp3', 'aac', 'ogg']
-  function calcType(links) {
+  function calcType(links: string[]) {
     const arr = Array.from(links)
     return SUFFIXS.find((suffix) => arr.some(([name]) => name.includes(suffix)))
   }
-  function calcLink(links) {
+  function calcLink(links: string[]): string | undefined {
     const arr = Array.from(links)
     let result
     SUFFIXS.find((suffix) => {
@@ -215,15 +231,13 @@ function batchDownload() {
       }))
       .filter(({ link }) => link)
       .forEach(({ musicName, type, link }) =>
-        downloadMusic(link, `${musicName}.${type}`),
+        downloadMusic(link!, `${musicName}.${type}`),
       )
   }
 
   downloadSelected()
 }
 
-// eslint-disable-next-line no-undef
-unsafeWindow.batchDownload = batchDownload
-// eslint-disable-next-line no-undef
-unsafeWindow.singleDownload = singleDownload
+Reflect.set(unsafeWindow, 'batchDownload', batchDownload)
+Reflect.set(unsafeWindow, 'singleDownload', singleDownload)
 singleDownload()

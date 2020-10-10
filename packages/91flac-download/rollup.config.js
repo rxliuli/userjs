@@ -1,17 +1,19 @@
 import metablock from 'rollup-plugin-userscript-metablock'
-import typescript from 'rollup-plugin-typescript2'
-import rollupExternalModules from 'rollup-external-modules'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import sucrase from '@rollup/plugin-sucrase'
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: {
     file: 'dist/index.user.js',
     format: 'iife',
-    globals: {
-      'rx-util': 'rx',
-    },
   },
-  external: rollupExternalModules,
-
-  plugins: [typescript(), metablock()],
+  plugins: [
+    nodeResolve(),
+    sucrase({
+      exclude: ['node_modules/**'],
+      transforms: ['typescript'],
+    }),
+    metablock(),
+  ],
 }

@@ -10,6 +10,5 @@
     "http*://*.91flac.vip/*"
   ],
   "license": "MIT",
-  "require": "https://greasyfork.org/scripts/382120-rx-util/code/rx-util.js",
   "grant": "GM_xmlhttpRequest"
 }
