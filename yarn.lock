@@ -16,7 +16,7 @@ __metadata:
     rollup-external-modules: ^2.0.0
     rollup-plugin-typescript2: ^0.27.3
     rollup-plugin-userscript-metablock: ^0.2.5
-    rx-util: ^1.8.12
+    rx-util: ^1.9.2
     ts-loader: ^8.0.4
     typescript: ^4.0.3
   languageName: unknown
@@ -5867,10 +5867,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rx-util@npm:^1.8.12":
-  version: 1.8.12
-  resolution: "rx-util@npm:1.8.12"
-  checksum: 1474fa614e9bff5c8a7a4c56e93d577ae0cc29b4ad4275e72f6cc5d6f7805eaf21e398f8ca454d603e7b3d76e078047739c79fd148fa39ec5df9e1238ba17cc3
+"rx-util@npm:^1.9.2":
+  version: 1.9.2
+  resolution: "rx-util@npm:1.9.2"
+  checksum: 7d637877009ebdaf8ada7ae1d91e8e204744388a42aa02b7b23b6d355b5f0f6614607463a93c9f504f728391c6766781254280bc24abec3ebed6a39fa8e2f72e
   languageName: node
   linkType: hard
 
@@ -6926,7 +6926,7 @@ typescript@^4.0.3:
     "@types/greasemonkey": ^3.0.0
     lerna: ^3.22.1
     prettier: ^2.1.2
-    rx-util: ^1.8.12
+    rx-util: ^1.9.2
     ts-node: ^9.0.0
     typescript: ^4.0.3
   languageName: unknown

@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/greasemonkey", "npm:3.0.0"],
             ["lerna", "npm:3.22.1"],
             ["prettier", "npm:2.1.2"],
-            ["rx-util", "npm:1.8.12"],
+            ["rx-util", "npm:1.9.2"],
             ["ts-node", "virtual:e662333a7ba35815148347317652e1b53c58cd06c885f89f62ca04f8031979f2fb91ae07e49eb97a27bf0ac9a0981668c3a89550ae7d71333804b1e35c28db61#npm:9.0.0"],
             ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5bf698"]
           ],
@@ -79,7 +79,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-external-modules", "npm:2.0.0"],
             ["rollup-plugin-typescript2", "virtual:0e2ceb5cdb7acad4d27cdf7ac57300b6a5928b744c9f475166f456b6cff00bcbf0c76b6e4c41acb7a93ae9eaa01205594eb015d503326b00b230cd41cd292b06#npm:0.27.3"],
             ["rollup-plugin-userscript-metablock", "npm:0.2.5"],
-            ["rx-util", "npm:1.8.12"],
+            ["rx-util", "npm:1.9.2"],
             ["ts-loader", "virtual:0e2ceb5cdb7acad4d27cdf7ac57300b6a5928b744c9f475166f456b6cff00bcbf0c76b6e4c41acb7a93ae9eaa01205594eb015d503326b00b230cd41cd292b06#npm:8.0.4"],
             ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5bf698"]
           ],
@@ -6554,10 +6554,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rx-util", [
-        ["npm:1.8.12", {
-          "packageLocation": "./.yarn/cache/rx-util-npm-1.8.12-3680d59c04-1474fa614e.zip/node_modules/rx-util/",
+        ["npm:1.9.2", {
+          "packageLocation": "./.yarn/cache/rx-util-npm-1.9.2-14f0fa526e-7d63787700.zip/node_modules/rx-util/",
           "packageDependencies": [
-            ["rx-util", "npm:1.8.12"]
+            ["rx-util", "npm:1.9.2"]
           ],
           "linkType": "HARD",
         }]
@@ -7702,7 +7702,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/greasemonkey", "npm:3.0.0"],
             ["lerna", "npm:3.22.1"],
             ["prettier", "npm:2.1.2"],
-            ["rx-util", "npm:1.8.12"],
+            ["rx-util", "npm:1.9.2"],
             ["ts-node", "virtual:e662333a7ba35815148347317652e1b53c58cd06c885f89f62ca04f8031979f2fb91ae07e49eb97a27bf0ac9a0981668c3a89550ae7d71333804b1e35c28db61#npm:9.0.0"],
             ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5bf698"]
           ],
