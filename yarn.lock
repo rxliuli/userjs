@@ -3221,7 +3221,6 @@ fsevents@~2.1.2:
     rollup: ^2.29.0
     rollup-plugin-typescript2: ^0.27.3
     rollup-plugin-userscript-metablock: ^0.2.5
-    rx-util: ^1.8.12
     ts-loader: ^8.0.4
     typescript: ^4.0.3
   languageName: unknown
@@ -5907,6 +5906,20 @@ fsevents@~2.1.2:
   checksum: f8f3fec95c8d1f9ad7e3cce07e1195f84e7a85cdcb4e825e8a2b76aa5406a039083d2bc9662b3cf40e6948262f41277047d20e6fbd58c77edced0b18fab647d8
   languageName: node
   linkType: hard
+
+"slack-dark-cute@workspace:packages/slack-dark-cute":
+  version: 0.0.0-use.local
+  resolution: "slack-dark-cute@workspace:packages/slack-dark-cute"
+  dependencies:
+    "@types/greasemonkey": ^3.0.0
+    rollup: ^2.29.0
+    rollup-external-modules: ^2.0.0
+    rollup-plugin-typescript2: ^0.27.3
+    rollup-plugin-userscript-metablock: ^0.2.5
+    ts-loader: ^8.0.4
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
 
 "slash@npm:^2.0.0":
   version: 2.0.0
