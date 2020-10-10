@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "esnext.array", "dom", "es2015.iterable"],
+    "paths": {
+      "*": ["types/*"]
+    },
+    "module": "ESNext",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "strict": true,
+    "noImplicitAny": true,
+    "baseUrl": "./",
+    // 定义类型定义文件的根目录
+    "esModuleInterop": true,
+    // 引入辅助函数集
+    "importHelpers": true,
+    "moduleResolution": "node"
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./dist", "./node_modules"]
+}

@@ -1094,6 +1094,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/estree@npm:*":
+  version: 0.0.45
+  resolution: "@types/estree@npm:0.0.45"
+  checksum: 9d339cbcf29a96a32e9d40efc21009c2342e93c4f653294dd1ef081ae474bca9e54707e5d4a1cff90b9e3566e8bdd71ac31e0c3d24bc2ff1d3d5aa75058b3937
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:0.0.39":
   version: 0.0.39
   resolution: "@types/estree@npm:0.0.39"
@@ -1143,6 +1150,15 @@ __metadata:
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
   checksum: 6d077e73be7ac6227b678829c7bd765607136cdef537fd4ee7f368d9302a651aea924254d69826663322048436d90d6e7c679c9aa99c4824a687c568aab8ce4f
+  languageName: node
+  linkType: hard
+
+"@types/resolve@npm:0.0.8":
+  version: 0.0.8
+  resolution: "@types/resolve@npm:0.0.8"
+  dependencies:
+    "@types/node": "*"
+  checksum: f54f13e4b6ac46a6c7bde9e609cd730f4369b434aa59c5230478b9262bb75e7349c3247fd2cdb917e98d053a57f5609dd552379c612a720b59a8714914d324ed
   languageName: node
   linkType: hard
 
@@ -1550,6 +1566,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"builtin-modules@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "builtin-modules@npm:3.1.0"
+  checksum: 54f062393cd48ff6c7293d885a106faa0988cbffb8b5f7790bfd0148e56cedf21b13bd4c1e544911ec7b4b022c52fd4c606e8697469b342e8b3e529ce48d8831
+  languageName: node
+  linkType: hard
+
 "builtins@npm:^1.0.3":
   version: 1.0.3
   resolution: "builtins@npm:1.0.3"
@@ -1876,6 +1899,18 @@ __metadata:
   checksum: 5791ce7944530f0db74a97e77ea28b6fdbf89afcf038e41d6b4195019c4c803cd19ed2905a54959e5b3830d50bd5d6f93c681c6d3aaea8614ad43b48e62e9d65
   languageName: node
   linkType: hard
+
+"common-dark-cute@workspace:packages/common-dark-cute":
+  version: 0.0.0-use.local
+  resolution: "common-dark-cute@workspace:packages/common-dark-cute"
+  dependencies:
+    "@types/greasemonkey": ^3.0.0
+    rollup: ^2.29.0
+    rollup-external-modules: ^2.0.0
+    rollup-plugin-typescript2: ^0.27.3
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
 
 "commondir@npm:^1.0.1":
   version: 1.0.1
@@ -2536,6 +2571,13 @@ __metadata:
     esparse: ./bin/esparse.js
     esvalidate: ./bin/esvalidate.js
   checksum: 5df45a3d9c95c36800d028ba76d8d4e04e199932b58c2939f462f859fd583e7d39b4a12d3f97986cf272a28a5fe5948ee6e49e36ef63f67b5b48d82a635c5081
+  languageName: node
+  linkType: hard
+
+"estree-walker@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "estree-walker@npm:0.6.1"
+  checksum: a63b94b841fcda2d79ff8e313b4ea8439b3364094ba66547289814bd7da4399a54cd33849b23504d239266430f219a142627071201a9fb6eb488bd025575f8fc
   languageName: node
   linkType: hard
 
@@ -3604,6 +3646,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"is-module@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-module@npm:1.0.0"
+  checksum: 2cbd41e2760874130b76aee84cc53120c4feef0d0f196fa665326857b444c8549909cc840f3f3a59652a7e8df46146a77f6c0f3f70a578704e03670975843e74
+  languageName: node
+  linkType: hard
+
 "is-negative-zero@npm:^2.0.0":
   version: 2.0.0
   resolution: "is-negative-zero@npm:2.0.0"
@@ -3661,6 +3710,15 @@ fsevents@~2.1.2:
   version: 5.0.0
   resolution: "is-plain-object@npm:5.0.0"
   checksum: 92bd87f095036fb6ef21fcba4e66734bba1457fc4abece5873bd1fba130c44fa8a4df64a2ef7841da638680af18e1ad2e5fac1095bed3578d0da0afc1f04bcf3
+  languageName: node
+  linkType: hard
+
+"is-reference@npm:^1.1.2":
+  version: 1.2.1
+  resolution: "is-reference@npm:1.2.1"
+  dependencies:
+    "@types/estree": "*"
+  checksum: 9daa3d7c4dc159e326be68c025a43bf714b36a6d065c2cc6907f7c44d010867dd10ec7f74bff37cb5d2000ac8b03c94cde3d69c85dc9a56a887ce576200ad01f
   languageName: node
   linkType: hard
 
@@ -4111,6 +4169,15 @@ fsevents@~2.1.2:
   version: 2.4.1
   resolution: "macos-release@npm:2.4.1"
   checksum: 0d15f4b163831e3178f3b1eb602938e38690b26caef7b275ae54e2e705d168eb2309d3d4dbc8c08ff03ecb0a04ca2fb3e66cc8b0c42182adc9f90a19b8005e6f
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.25.2":
+  version: 0.25.7
+  resolution: "magic-string@npm:0.25.7"
+  dependencies:
+    sourcemap-codec: ^1.4.4
+  checksum: 4b70c13eb21c6f1c54bf7fb029748dc44d6bfcd3c59e5deeda060eecc38df6144b91d10fb7a3cf6156fadab1a68f83d69a189df20ca5f6bd088bf0196ea8f039
   languageName: node
   linkType: hard
 
@@ -5652,7 +5719,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"resolve@1.17.0, resolve@^1.10.0":
+"resolve@1.17.0, resolve@^1.10.0, resolve@^1.11.0, resolve@^1.11.1":
   version: 1.17.0
   resolution: "resolve@npm:1.17.0"
   dependencies:
@@ -5661,7 +5728,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@1.17.0#builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#builtin<compat/resolve>":
+"resolve@patch:resolve@1.17.0#builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.11.0#builtin<compat/resolve>, resolve@patch:resolve@^1.11.1#builtin<compat/resolve>":
   version: 1.17.0
   resolution: "resolve@patch:resolve@npm%3A1.17.0#builtin<compat/resolve>::version=1.17.0&hash=3388aa"
   dependencies:
@@ -5712,6 +5779,36 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"rollup-plugin-commonjs@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "rollup-plugin-commonjs@npm:10.1.0"
+  dependencies:
+    estree-walker: ^0.6.1
+    is-reference: ^1.1.2
+    magic-string: ^0.25.2
+    resolve: ^1.11.0
+    rollup-pluginutils: ^2.8.1
+  peerDependencies:
+    rollup: ">=1.12.0"
+  checksum: 853150cba571df74a3eac03a4352bb6d63fbe05c3438b0702615ba366877e6d2076fa1d695a442cd7910c55641306a2fa54644e022570988441c35a59313decc
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-node-resolve@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "rollup-plugin-node-resolve@npm:5.2.0"
+  dependencies:
+    "@types/resolve": 0.0.8
+    builtin-modules: ^3.1.0
+    is-module: ^1.0.0
+    resolve: ^1.11.1
+    rollup-pluginutils: ^2.8.1
+  peerDependencies:
+    rollup: ">=1.11.0"
+  checksum: f20dd3e6669b2b888cd41c8e6072f09c95e14559fb7a4634b5756f7f99e0986e9dc36d3b3e651c0a38ca4c192b2b96c3898aec46a81842fd2f186f55701d9cf1
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-typescript2@npm:^0.27.3":
   version: 0.27.3
   resolution: "rollup-plugin-typescript2@npm:0.27.3"
@@ -5738,6 +5835,15 @@ fsevents@~2.1.2:
     semver: ^7.1.3
     valid-url: ^1.0.9
   checksum: 39499ecad01426ef9251206af42bc475779329756c596c434ea0b1b297aa61e33a8750b95da389fc35c4ddc60648f2a830ad6e47c46411756a1a47d4b01c3ac6
+  languageName: node
+  linkType: hard
+
+"rollup-pluginutils@npm:^2.8.1":
+  version: 2.8.2
+  resolution: "rollup-pluginutils@npm:2.8.2"
+  dependencies:
+    estree-walker: ^0.6.1
+  checksum: 6922c1a26df033cc3da4650106244fb2211b5ddf72a93be5010cbe51a0817c9abcab08f61cbc3f5fc906b2701df123d8c9b0dae0a34e69dd07218e34e5d357b8
   languageName: node
   linkType: hard
 
@@ -6036,6 +6142,13 @@ fsevents@~2.1.2:
   version: 0.6.1
   resolution: "source-map@npm:0.6.1"
   checksum: 8647829a0611724114022be455ca1c8a2c8ae61df81c5b3667d9b398207226a1e21174fb7bbf0b4dbeb27ac358222afb5a14f1c74a62a62b8883b012e5eb1270
+  languageName: node
+  linkType: hard
+
+"sourcemap-codec@npm:^1.4.4":
+  version: 1.4.8
+  resolution: "sourcemap-codec@npm:1.4.8"
+  checksum: 4d56d1232a45af813606d1755f11e7ae6b3542c615a7e3f904382f0134a9412ba8d090e83749254d78449eafdfcc62d5158b8f35e6241480b51b74b5c46b99f9
   languageName: node
   linkType: hard
 
@@ -6383,8 +6496,11 @@ fsevents@~2.1.2:
   resolution: "telegram-dark-cute@workspace:packages/telegram-dark-cute"
   dependencies:
     "@types/greasemonkey": ^3.0.0
+    common-dark-cute: "workspace:packages/common-dark-cute"
     rollup: ^2.29.0
     rollup-external-modules: ^2.0.0
+    rollup-plugin-commonjs: ^10.1.0
+    rollup-plugin-node-resolve: ^5.2.0
     rollup-plugin-typescript2: ^0.27.3
     rollup-plugin-userscript-metablock: ^0.2.5
     ts-loader: ^8.0.4

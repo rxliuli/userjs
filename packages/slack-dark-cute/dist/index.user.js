@@ -20,6 +20,7 @@
 
   function addOtherStyle() {
       // language=CSS
+      // noinspection CssUnusedSymbol
       GM_addStyle(`
   /*需要透明化的元素*/
   body,
