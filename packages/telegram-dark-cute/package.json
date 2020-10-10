@@ -1,0 +1,15 @@
+{
+  "name": "telegram-dark-cute",
+  "scripts": {
+    "build": "rollup --config"
+  },
+  "devDependencies": {
+    "@types/greasemonkey": "^3.0.0",
+    "rollup": "^2.29.0",
+    "rollup-external-modules": "^2.0.0",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "rollup-plugin-userscript-metablock": "^0.2.5",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3"
+  }
+}

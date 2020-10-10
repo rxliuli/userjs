@@ -27,20 +27,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/91flac-download"
       },
       {
-        "name": "hello",
-        "reference": "workspace:packages/hello"
-      },
-      {
         "name": "slack-dark-cute",
         "reference": "workspace:packages/slack-dark-cute"
+      },
+      {
+        "name": "telegram-dark-cute",
+        "reference": "workspace:packages/telegram-dark-cute"
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
       ["91flac-download", ["workspace:packages/91flac-download"]],
-      ["hello", ["workspace:packages/hello"]],
       ["slack-dark-cute", ["workspace:packages/slack-dark-cute"]],
+      ["telegram-dark-cute", ["workspace:packages/telegram-dark-cute"]],
       ["userjs", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -3609,20 +3609,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["hello", [
-        ["workspace:packages/hello", {
-          "packageLocation": "./packages/hello/",
-          "packageDependencies": [
-            ["hello", "workspace:packages/hello"],
-            ["rollup", "npm:2.29.0"],
-            ["rollup-plugin-typescript2", "virtual:0e2ceb5cdb7acad4d27cdf7ac57300b6a5928b744c9f475166f456b6cff00bcbf0c76b6e4c41acb7a93ae9eaa01205594eb015d503326b00b230cd41cd292b06#npm:0.27.3"],
-            ["rollup-plugin-userscript-metablock", "npm:0.2.5"],
-            ["ts-loader", "virtual:0e2ceb5cdb7acad4d27cdf7ac57300b6a5928b744c9f475166f456b6cff00bcbf0c76b6e4c41acb7a93ae9eaa01205594eb015d503326b00b230cd41cd292b06#npm:8.0.4"],
-            ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5bf698"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["hosted-git-info", [
         ["npm:2.8.8", {
           "packageLocation": "./.yarn/cache/hosted-git-info-npm-2.8.8-94a3928c03-3ecc389dc6.zip/node_modules/hosted-git-info/",
@@ -7095,6 +7081,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yallist", "npm:4.0.0"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["telegram-dark-cute", [
+        ["workspace:packages/telegram-dark-cute", {
+          "packageLocation": "./packages/telegram-dark-cute/",
+          "packageDependencies": [
+            ["telegram-dark-cute", "workspace:packages/telegram-dark-cute"],
+            ["@types/greasemonkey", "npm:3.0.0"],
+            ["rollup", "npm:2.29.0"],
+            ["rollup-external-modules", "npm:2.0.0"],
+            ["rollup-plugin-typescript2", "virtual:0e2ceb5cdb7acad4d27cdf7ac57300b6a5928b744c9f475166f456b6cff00bcbf0c76b6e4c41acb7a93ae9eaa01205594eb015d503326b00b230cd41cd292b06#npm:0.27.3"],
+            ["rollup-plugin-userscript-metablock", "npm:0.2.5"],
+            ["ts-loader", "virtual:0e2ceb5cdb7acad4d27cdf7ac57300b6a5928b744c9f475166f456b6cff00bcbf0c76b6e4c41acb7a93ae9eaa01205594eb015d503326b00b230cd41cd292b06#npm:8.0.4"],
+            ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5bf698"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["temp-dir", [
