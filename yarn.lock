@@ -5,6 +5,20 @@ __metadata:
   version: 4
   cacheKey: 7
 
+"91flac-download@workspace:packages/91flac-download":
+  version: 0.0.0-use.local
+  resolution: "91flac-download@workspace:packages/91flac-download"
+  dependencies:
+    rollup: ^2.29.0
+    rollup-external-modules: ^2.0.0
+    rollup-plugin-typescript2: ^0.27.3
+    rollup-plugin-userscript-metablock: ^0.2.5
+    rx-util: ^1.8.12
+    ts-loader: ^8.0.4
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
+
 "@babel/code-frame@npm:^7.0.0":
   version: 7.10.4
   resolution: "@babel/code-frame@npm:7.10.4"
@@ -3204,10 +3218,10 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "hello@workspace:packages/hello"
   dependencies:
-    prettier: ^2.1.2
     rollup: ^2.29.0
     rollup-plugin-typescript2: ^0.27.3
     rollup-plugin-userscript-metablock: ^0.2.5
+    rx-util: ^1.8.12
     ts-loader: ^8.0.4
     typescript: ^4.0.3
   languageName: unknown
@@ -5701,6 +5715,13 @@ fsevents@~2.1.2:
   bin:
     rimraf: ./bin.js
   checksum: 059efac2838ef917d4d1da1d80e724ad28c120cdf14ca6ed27ca72db2dc70be3e25421cba5947c6ec3d804c1d2bb9a247254653816ee0722bf943ffdd1ae19ef
+  languageName: node
+  linkType: hard
+
+"rollup-external-modules@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "rollup-external-modules@npm:2.0.0"
+  checksum: 6003ccca8467c1b2e3e216da6ecc3088ace1a2d369b396665e430dbb81224b30565c0b70b3ee654a72b81258300462e0896c9f19499e6fe2fd468ada1fb9ac67
   languageName: node
   linkType: hard
 
