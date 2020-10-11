@@ -2,7 +2,7 @@
 // @name        知乎移动端浏览优化
 // @description 知乎移动端浏览优化，避免使用 App 打开知乎。
 // @namespace   http://github.com/rxliuli/userjs
-// @version     0.1.0
+// @version     0.1.1
 // @author      rxliuli
 // @include     https://www.zhihu.com/question/*
 // @run-at      document-start
@@ -70,6 +70,10 @@
     }
     .MobileAppHeader-searchBox.MobileAppHeader-searchBoxWithUnlogin {
       width: calc(100vw - 200px);
+    }
+    /*删除中间的相关推荐*/
+    .Card.RelatedReadings{
+      display: none;
     }
 `,
     );

@@ -56,6 +56,10 @@ function initStyle() {
     .MobileAppHeader-searchBox.MobileAppHeader-searchBoxWithUnlogin {
       width: calc(100vw - 200px);
     }
+    /*删除中间的相关推荐*/
+    .Card.RelatedReadings{
+      display: none;
+    }
 `,
   )
 }
