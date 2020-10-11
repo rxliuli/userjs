@@ -7,6 +7,7 @@
   "match": [
     "https://evgeny-nadymov.github.io/*",
     "http://127.0.0.1:*/*",
+    "http://localhost:*/*",
     "https://userjs.rxliuli.com/*"
   ],
   "grant": [

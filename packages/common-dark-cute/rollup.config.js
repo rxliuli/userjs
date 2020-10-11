@@ -1,5 +1,4 @@
-import typescript from 'rollup-plugin-typescript2'
-import rollupExternalModules from 'rollup-external-modules'
+import sucrase from '@rollup/plugin-sucrase'
 
 export default {
   input: 'src/index.ts',
@@ -7,6 +6,10 @@ export default {
     file: 'dist/index.js',
     format: 'esm',
   },
-  external: rollupExternalModules,
-  plugins: [typescript()],
+  plugins: [
+    sucrase({
+      exclude: ['node_modules/**'],
+      transforms: ['typescript'],
+    }),
+  ],
 }

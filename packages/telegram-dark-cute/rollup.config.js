@@ -1,6 +1,6 @@
 import metablock from 'rollup-plugin-userscript-metablock'
-import typescript from 'rollup-plugin-typescript2'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import sucrase from '@rollup/plugin-sucrase'
 
 export default {
   input: 'src/index.ts',
@@ -8,5 +8,12 @@ export default {
     file: 'dist/index.user.js',
     format: 'iife',
   },
-  plugins: [nodeResolve(), typescript(), metablock()],
+  plugins: [
+    nodeResolve(),
+    sucrase({
+      exclude: ['node_modules/**'],
+      transforms: ['typescript'],
+    }),
+    metablock(),
+  ],
 }

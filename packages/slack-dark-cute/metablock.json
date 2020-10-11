@@ -6,6 +6,7 @@
   "author": "rxliuli",
   "match": [
     "https://app.slack.com/client/*",
+    "http://localhost:*/*",
     "http://127.0.0.1:*/*",
     "https://userjs.rxliuli.com/*"
   ],

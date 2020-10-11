@@ -1,7 +1,7 @@
 function addOtherStyle() {
-    // language=CSS
-    // noinspection CssUnusedSymbol
-    GM_addStyle(`
+  // language=CSS
+  // noinspection CssUnusedSymbol
+  GM_addStyle(`
   /*需要透明化的元素*/
   body,
   .p-client_container,

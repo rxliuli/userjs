@@ -1,0 +1,51 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "license": "MIT",
+  "homepage": ".",
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "yarn gh-pages -d dist -t true && shx rm -rf dist/"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.6",
+    "gh-pages": "^3.1.0",
+    "react-scripts": "^3.4.3",
+    "shx": "^0.3.2",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "antd": "^4.7.0",
+    "mobx": "^6.0.1",
+    "mobx-react": "^7.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-use": "^15.3.4",
+    "rx-util": "^1.9.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

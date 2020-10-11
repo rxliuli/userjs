@@ -1,0 +1,20 @@
+{
+  "name": "解除网页限制",
+  "namespace": "http://github.com/rxliuli/userjs",
+  "version": "2.3.3",
+  "description": "破解禁止复制/剪切/粘贴/选择/右键菜单的网站",
+  "author": "rxliuli",
+  "include": "*",
+  "grant": [
+    "GM_getValue",
+    "GM_setValue",
+    "GM_deleteValue",
+    "GM_listValues",
+    "GM_registerMenuCommand",
+    "GM_addStyle",
+    "GM_xmlhttpRequest",
+    "unsafeWindow"
+  ],
+  "run-at": "document-start",
+  "license": "MIT"
+}
