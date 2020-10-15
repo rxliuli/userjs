@@ -2,7 +2,7 @@
 // @name        解除网页限制
 // @description 破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @namespace   http://github.com/rxliuli/userjs
-// @version     2.3.4
+// @version     2.3.5
 // @author      rxliuli
 // @include     *
 // @require     https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js
@@ -24,6 +24,9 @@
   //region 公共的函数
 
 
+  const LastUpdateKey = 'LastUpdate';
+  const LastValueKey = 'LastValue';
+
   /**
    * 在固定时间周期内只执行函数一次
    * @param {Function} fn 执行的函数
@@ -33,8 +36,6 @@
   function onceOfCycle(fn, time) {
     const get = window.GM_getValue.bind(window);
     const set = window.GM_setValue.bind(window);
-    const LastUpdateKey = 'LastUpdate';
-    const LastValueKey = 'LastValue';
     return new Proxy(fn, {
       apply(_, _this, args) {
         const now = Date.now();
@@ -339,29 +340,37 @@ time, mark, audio, video, html body * {
    * 屏蔽列表配置 API，用以在指定 API 进行高级配置
    */
   class ConfigBlockApi {
+     listKey() {
+      return GM_listValues().filter(
+        (key) => ![LastUpdateKey, LastValueKey].includes(key),
+      )
+    }
     list() {
-      return GM_listValues()
-        .filter((key) => key !== 'LastUpdate' && key !== 'LastValue')
-        .map((config) => ({
-          ...rxUtil.safeExec(() => JSON.parse(config ), {
-            type: 'domain',
-            url: config,
-          } ),
-          enable: GM_getValue(config),
-          key: config,
-        }))
+      return this.listKey().map((config) => ({
+        ...rxUtil.safeExec(() => JSON.parse(config ), {
+          type: 'domain',
+          url: config,
+        } ),
+        enable: GM_getValue(config),
+        key: config,
+      }))
     }
     switch(key) {
+      console.log('ConfigBlockApi.switch: ', key);
       GM_setValue(key, !GM_getValue(key));
     }
     remove(key) {
+      console.log('ConfigBlockApi.remove: ', key);
       GM_deleteValue(key);
     }
     add(config) {
+      console.log('ConfigBlockApi.add: ', config);
       GM_setValue(JSON.stringify(config), true);
     }
     clear() {
-      GM_listValues().forEach(GM_deleteValue);
+      const delKeyList = this.listKey();
+      console.log('ConfigBlockApi.clear: ', delKeyList);
+      delKeyList.forEach(GM_deleteValue);
     }
     async update() {
       await BlockHost.updateHostList(await BlockHost.fetchHostList());
