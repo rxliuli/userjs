@@ -1,13 +1,17 @@
 {
   "name": "unblock-web-restrictions",
+  "version": "0.1.0",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "watch": "yarn build -w"
   },
   "devDependencies": {
     "@rollup/plugin-sucrase": "^3.1.0",
     "@types/greasemonkey": "^3.0.0",
     "rollup": "^2.29.0",
+    "rollup-external-modules": "^2.0.0",
     "rollup-plugin-userscript-metablock": "^0.2.5",
+    "rx-util": "^1.9.2",
     "typescript": "^4.0.3"
   }
 }

@@ -1,5 +1,6 @@
 {
   "name": "telegram-dark-cute",
+  "version": "0.1.0",
   "scripts": {
     "build": "rollup -c",
     "watch": "yarn build -w"
