@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "yarn gh-pages -d dist -t true && shx rm -rf dist/"
-  },
-  "staticFiles": {
-    "staticPath": "public",
-    "watcherGlob": "**"
+    "deploy": "yarn gh-pages -d build -t true && shx rm -rf build/"
   },
   "devDependencies": {
     "@types/react": "^16.9.51",
@@ -24,6 +20,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
+    "@csstools/normalize.css": "^11.0.1",
     "antd": "^4.7.0",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",

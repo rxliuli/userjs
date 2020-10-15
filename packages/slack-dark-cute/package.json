@@ -1,7 +1,7 @@
 {
   "name": "slack-dark-cute",
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --c"
   },
   "devDependencies": {
     "@rollup/plugin-sucrase": "^3.1.0",

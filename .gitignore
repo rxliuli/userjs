@@ -15,7 +15,6 @@ package-lock.json
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # parcel
 .cache
