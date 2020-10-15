@@ -2,7 +2,8 @@
   "name": "common-dark-cute",
   "version": "0.1.0",
   "scripts": {
-    "build": "tsc -b tsconfig.build.json && rollup -c"
+    "build": "tsc -b tsconfig.build.json && rollup -c",
+    "watch": "yarn build -w"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",

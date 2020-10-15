@@ -1,7 +1,8 @@
 {
   "name": "telegram-dark-cute",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "watch": "yarn build -w"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^9.0.0",

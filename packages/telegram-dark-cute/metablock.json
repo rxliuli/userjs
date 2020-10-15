@@ -1,7 +1,7 @@
 {
   "name": "Telegram 暗黑模式萌化",
   "namespace": "http://github.com/rxliuli/userjs",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Telegram 暗黑模式萌化，理论上支持任何视频背景。",
   "author": "rxliuli",
   "match": [

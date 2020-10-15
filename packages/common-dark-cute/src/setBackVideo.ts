@@ -1,13 +1,15 @@
-function setBackVideo(config) {
+import { Config } from './Config'
+
+export function setBackVideo(config: Config) {
   /**
    * 根据 html 字符串创建 Element 元素
    * @param str html 字符串
    * @returns 创建的 Element 元素
    */
-  function createElByString(str) {
-    const root = document.createElement('div');
-    root.innerHTML = str;
-    return root.querySelector('*') 
+  function createElByString(str: string): HTMLElement {
+    const root = document.createElement('div')
+    root.innerHTML = str
+    return root.querySelector('*') as HTMLElement
   }
 
   const $videoEl = createElByString(`<video
@@ -17,7 +19,7 @@ function setBackVideo(config) {
   autoplay="autoplay"
   src="${config.videoUrl}"
 />
-`);
+`)
   GM_addStyle(`video#videoWallPaper {
   position: fixed;
   right: 0;
@@ -35,8 +37,6 @@ function setBackVideo(config) {
   background-size: cover;
   filter: brightness(0.5);
 }
-`);
-  document.body.appendChild($videoEl);
+`)
+  document.body.appendChild($videoEl)
 }
-
-export { setBackVideo };
