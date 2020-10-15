@@ -2,7 +2,7 @@
 // @name        91Flac Download
 // @description 在 91Flac 下载歌曲自动设置文件名
 // @namespace   https://github.com/rxliuli
-// @version     0.1.3
+// @version     0.1.4
 // @author      rxliuli
 // @require     https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js
 // @match       http*://www.91flac.com/*
