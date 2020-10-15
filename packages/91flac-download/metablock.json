@@ -4,6 +4,9 @@
   "version": "0.1.3",
   "description": "在 91Flac 下载歌曲自动设置文件名",
   "author": "rxliuli",
+  "require": [
+    "https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js"
+  ],
   "match": [
     "http*://www.91flac.com/*",
     "http*://91flac.vip/*",

@@ -202,15 +202,17 @@ function batchDownload() {
       (el.querySelector('td:nth-child(2) a') as HTMLElement).innerText
     )
   }
-  const SUFFIXS = ['flac', 'ape', 'mp3', 'aac', 'ogg']
+  const SuffixList = ['flac', 'ape', 'mp3', 'aac', 'ogg']
   function calcType(links: string[]) {
     const arr = Array.from(links)
-    return SUFFIXS.find((suffix) => arr.some(([name]) => name.includes(suffix)))
+    return SuffixList.find((suffix) =>
+      arr.some(([name]) => name.includes(suffix)),
+    )
   }
   function calcLink(links: string[]): string | undefined {
     const arr = Array.from(links)
-    let result
-    SUFFIXS.find((suffix) => {
+    let result = undefined
+    SuffixList.find((suffix) => {
       result = arr.find(([name]) => name.includes(suffix))
       return result
     })
