@@ -19,3 +19,4 @@ package-lock.json
 # parcel
 .cache
 test/
+dist/
