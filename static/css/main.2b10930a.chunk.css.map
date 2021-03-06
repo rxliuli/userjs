@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,WAAY,CACZ,eACF","file":"main.2b10930a.chunk.css","sourcesContent":["#app {\r\n  height: 100%;\r\n  overflow-y: auto;\r\n}\r\n"]}
