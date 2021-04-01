@@ -1,1 +1,0 @@
-import{C as e}from"./vendor.d93981af.js";import{B as t}from"./BasicLayoutCard.e5d1bfff.js";import"./index.5ed71ac1.js";export default()=>e.createElement(t,{title:"首页"},e.createElement("h2",null,"这是为了让吾辈能够在一个地方修改油猴脚本所添加的网站"));
