@@ -33,23 +33,7 @@
   },
   {
     "type": "domain",
-    "url": "jianshu.com"
-  },
-  {
-    "type": "domain",
-    "url": "juejin.im"
-  },
-  {
-    "type": "domain",
-    "url": "zhihu.com"
-  },
-  {
-    "type": "domain",
-    "url": "qidian.com"
-  },
-  {
-    "type": "domain",
-    "url": "360doc.com"
+    "url": "juejin.cn"
   },
   {
     "type": "domain",
@@ -129,15 +113,15 @@
   },
   {
     "type": "domain",
-    "url": "51test.net"
+    "url": "www.51test.net"
   },
   {
     "type": "domain",
-    "url": "xuexi.la"
+    "url": "www.xuexi.la"
   },
   {
     "type": "domain",
-    "url": "xuexila.com"
+    "url": "www.xuexila.com"
   },
   {
     "type": "domain",
@@ -145,19 +129,11 @@
   },
   {
     "type": "domain",
-    "url": "doc88.com"
+    "url": "www.doc88.com"
   },
   {
     "type": "domain",
-    "url": "segmentfault.com"
-  },
-  {
-    "type": "domain",
-    "url": "leetcode-cn.com"
-  },
-  {
-    "type": "domain",
-    "url": "30edu.com.cn"
+    "url": "www.30edu.com.cn"
   },
   {
     "type": "domain",
@@ -165,7 +141,7 @@
   },
   {
     "type": "domain",
-    "url": "yuque.com"
+    "url": "www.yuque.com"
   },
   {
     "type": "domain",
@@ -173,7 +149,7 @@
   },
   {
     "type": "domain",
-    "url": "diyifanwen.com"
+    "url": "www.diyifanwen.com"
   },
   {
     "type": "domain",
@@ -181,6 +157,6 @@
   },
   {
     "type": "domain",
-    "url": "cnitpm.com"
+    "url": "www.cnitpm.com"
   }
 ]
