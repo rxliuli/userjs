@@ -1055,6 +1055,11 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@liuli-util/async@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/@liuli-util/async/-/async-3.2.0.tgz#76ccb91dcb6980c680a38fd5d2c9a9f6af620de5"
+  integrity sha512-umIEvIrXJBVfSQtz5xMWAYl14nmvAn50U6IPwU3Y9kDsY0fWuPafsHksAdVgL3b1lQX2aoZKeHAaSRNt8TVtJA==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

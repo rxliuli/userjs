@@ -1,0 +1,21 @@
+{
+  "name": "telegram-group-user-shield",
+  "namespace": "http://github.com/rxliuli/userjs",
+  "version": "0.2.7",
+  "description": "在 telegram 群组中屏蔽置顶用户的消息",
+  "author": "rxliuli",
+  "match": [
+    "https://evgeny-nadymov.github.io/telegram-react/*",
+    "http://127.0.0.1:*/*",
+    "http://localhost:*/*",
+    "https://userjs.rxliuli.com/*"
+  ],
+  "grant": [
+    "GM_addStyle",
+    "GM_getValue",
+    "GM_setValue",
+    "GM_xmlhttpRequest",
+    "unsafeWindow"
+  ],
+  "license": "MIT"
+}
