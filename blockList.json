@@ -1,27 +1,7 @@
 [
   {
     "type": "domain",
-    "url": "weread.qq.com"
-  },
-  {
-    "type": "domain",
-    "url": "segmentfault.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.v1tx.com"
-  },
-  {
-    "type": "domain",
-    "url": "leetcode-cn.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.7fyd.com"
-  },
-  {
-    "type": "domain",
-    "url": "time.geekbang.org"
+    "url": "699pic.com"
   },
   {
     "type": "domain",
@@ -29,7 +9,19 @@
   },
   {
     "type": "domain",
+    "url": "boke112.com"
+  },
+  {
+    "type": "domain",
+    "url": "chuangshi.qq.com"
+  },
+  {
+    "type": "domain",
     "url": "ciweimao.com"
+  },
+  {
+    "type": "domain",
+    "url": "commandlinux.com"
   },
   {
     "type": "domain",
@@ -37,59 +29,11 @@
   },
   {
     "type": "domain",
-    "url": "www.lovehtbooks.com"
+    "url": "leetcode-cn.com"
   },
   {
     "type": "domain",
-    "url": "shushan.zhangyue.net"
-  },
-  {
-    "type": "domain",
-    "url": "www.yamibo.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.fanfiction.net"
-  },
-  {
-    "type": "domain",
-    "url": "www.oschina.net"
-  },
-  {
-    "type": "domain",
-    "url": "www.360doc.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.ciweimao.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.ehuixue.cn"
-  },
-  {
-    "type": "domain",
-    "url": "www.google.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.linyunseo.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.qidian.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.zhihu.com"
-  },
-  {
-    "type": "linkPrefix",
-    "url": "https://www.bilibili.com/read/"
-  },
-  {
-    "type": "domain",
-    "url": "www.x23qb.com"
+    "url": "mbalib.com"
   },
   {
     "type": "domain",
@@ -97,19 +41,23 @@
   },
   {
     "type": "domain",
-    "url": "www.zgywyd.cn"
+    "url": "segmentfault.com"
   },
   {
     "type": "domain",
-    "url": "zhinan.sogou.com"
+    "url": "time.geekbang.org"
   },
   {
     "type": "domain",
-    "url": "699pic.com"
+    "url": "weread.qq.com"
   },
   {
     "type": "domain",
-    "url": "zh.moegirl.org.cn"
+    "url": "www.30edu.com.cn"
+  },
+  {
+    "type": "domain",
+    "url": "www.360doc.com"
   },
   {
     "type": "domain",
@@ -117,11 +65,15 @@
   },
   {
     "type": "domain",
-    "url": "www.xuexi.la"
+    "url": "www.7fyd.com"
   },
   {
     "type": "domain",
-    "url": "www.xuexila.com"
+    "url": "www.ciweimao.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.cnitpm.com"
   },
   {
     "type": "domain",
@@ -133,11 +85,59 @@
   },
   {
     "type": "domain",
-    "url": "www.30edu.com.cn"
+    "url": "www.diyifanwen.com"
   },
   {
     "type": "domain",
-    "url": "boke112.com"
+    "url": "www.ehuixue.cn"
+  },
+  {
+    "type": "domain",
+    "url": "www.fanfiction.net"
+  },
+  {
+    "type": "domain",
+    "url": "www.google.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.liuxue86.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.lovehtbooks.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.oschina.net"
+  },
+  {
+    "type": "domain",
+    "url": "www.qidian.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.uslsoftware.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.v1tx.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.x23qb.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.xuexi.la"
+  },
+  {
+    "type": "domain",
+    "url": "www.xuexila.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.yamibo.com"
   },
   {
     "type": "domain",
@@ -145,18 +145,30 @@
   },
   {
     "type": "domain",
-    "url": "commandlinux.com"
+    "url": "www.zgywyd.cn"
   },
   {
     "type": "domain",
-    "url": "www.diyifanwen.com"
+    "url": "www.zhihu.com"
   },
   {
     "type": "domain",
-    "url": "mbalib.com"
+    "url": "wx.zsxq.com"
   },
   {
     "type": "domain",
-    "url": "www.cnitpm.com"
+    "url": "yc.ireader.com.cn"
+  },
+  {
+    "type": "domain",
+    "url": "zh.moegirl.org.cn"
+  },
+  {
+    "type": "domain",
+    "url": "zhinan.sogou.com"
+  },
+  {
+    "type": "linkPrefix",
+    "url": "https://www.bilibili.com/read/"
   }
 ]
