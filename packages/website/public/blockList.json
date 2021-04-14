@@ -21,6 +21,10 @@
   },
   {
     "type": "domain",
+    "url": "cnitpm.com"
+  },
+  {
+    "type": "domain",
     "url": "commandlinux.com"
   },
   {
@@ -34,6 +38,10 @@
   {
     "type": "domain",
     "url": "mbalib.com"
+  },
+  {
+    "type": "domain",
+    "url": "mihoyo.com"
   },
   {
     "type": "domain",
@@ -78,10 +86,6 @@
   {
     "type": "domain",
     "url": "www.cspengbo.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.doc88.com"
   },
   {
     "type": "domain",
