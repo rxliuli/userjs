@@ -5,6 +5,10 @@
   },
   {
     "type": "domain",
+    "url": "bbs.mihoyo.com"
+  },
+  {
+    "type": "domain",
     "url": "blog.csdn.net"
   },
   {
@@ -34,10 +38,6 @@
   {
     "type": "domain",
     "url": "mbalib.com"
-  },
-  {
-    "type": "domain",
-    "url": "mihoyo.com"
   },
   {
     "type": "domain",
