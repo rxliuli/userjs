@@ -5,6 +5,10 @@
   },
   {
     "type": "domain",
+    "url": "bbs.mihoyo.com"
+  },
+  {
+    "type": "domain",
     "url": "blog.csdn.net"
   },
   {
@@ -13,11 +17,11 @@
   },
   {
     "type": "domain",
-    "url": "chuangshi.qq.com"
+    "url": "ciweimao.com"
   },
   {
     "type": "domain",
-    "url": "ciweimao.com"
+    "url": "cnitpm.com"
   },
   {
     "type": "domain",
@@ -81,10 +85,6 @@
   },
   {
     "type": "domain",
-    "url": "www.doc88.com"
-  },
-  {
-    "type": "domain",
     "url": "www.diyifanwen.com"
   },
   {
@@ -94,10 +94,6 @@
   {
     "type": "domain",
     "url": "www.fanfiction.net"
-  },
-  {
-    "type": "domain",
-    "url": "www.google.com"
   },
   {
     "type": "domain",
