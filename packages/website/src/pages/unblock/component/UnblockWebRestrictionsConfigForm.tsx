@@ -5,6 +5,8 @@ import {
   configTypeLabelMap,
 } from '../constant/configTypeLabelMap'
 import * as React from 'react'
+import { pick } from 'rx-util'
+import BlockConfig = UnblockWebRestrictions.BlockConfig
 
 /**
  * 配置新增表单
@@ -18,17 +20,11 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
     form.resetFields()
   }
 
-  function onFinish(values: Record<string, string>) {
-    const _values = values as {
-      type: TypeEnum
-      url: string
+  async function onFinish(values: Record<string, string>) {
+    const _values = values as Pick<BlockConfig, 'type' | 'url'> & {
       tempUrl: string
     }
-    if (!match(new URL(_values.tempUrl), _values)) {
-      message.warn('测试需要匹配的 URL 未能匹配！')
-      return
-    }
-    configBlockApi.add(_values)
+    configBlockApi.add(pick(_values, 'type', 'url'))
     message.success('添加成功')
     props.onReload()
     onReset()
@@ -64,7 +60,20 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
             type: 'url',
             message: '测试需要匹配的 URL 必须是个 URL 啊喂 (#`O′)',
           },
+          (form) => ({
+            validator(rule, _, error) {
+              const values = form.getFieldsValue() as Pick<
+                BlockConfig,
+                'type' | 'url'
+              > & { tempUrl: string }
+              if (match(new URL(values.tempUrl), values)) {
+                return
+              }
+              error('测试需要匹配的 URL 未能匹配！')
+            },
+          }),
         ]}
+        dependencies={['type', 'url']}
       >
         <Input />
       </Form.Item>
