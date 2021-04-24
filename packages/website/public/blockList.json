@@ -3,9 +3,17 @@
     "type": "domain",
     "url": "699pic.com"
   },
+    {
+    "type": "domain",
+    "url": "b.faloo.com"
+  },
   {
     "type": "domain",
     "url": "bbs.mihoyo.com"
+  },
+  {
+    "type": "domain",
+    "url": "chokstick.com"
   },
   {
     "type": "domain",
@@ -14,6 +22,10 @@
   {
     "type": "domain",
     "url": "boke112.com"
+  },
+  {
+    "type": "domain",
+    "url": "book.zongheng.com"
   },
   {
     "type": "domain",
@@ -57,6 +69,10 @@
   },
   {
     "type": "domain",
+    "url": "www.17k.com"
+  },
+  {
+    "type": "domain",
     "url": "www.30edu.com.cn"
   },
   {
@@ -97,6 +113,14 @@
   },
   {
     "type": "domain",
+    "url": "www.hongshu.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.hongxiu.com"
+  },
+  {
+    "type": "domain",
     "url": "www.liuxue86.com"
   },
   {
@@ -110,6 +134,14 @@
   {
     "type": "domain",
     "url": "www.qidian.com"
+  },
+    {
+    "type": "domain",
+    "url": "www.readnovel.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.tadu.com"
   },
   {
     "type": "domain",
@@ -162,6 +194,10 @@
   {
     "type": "domain",
     "url": "zhinan.sogou.com"
+  },
+  {
+    "type": "linkPrefix",
+    "url": "http://www.imooc.com/article/"
   },
   {
     "type": "linkPrefix",
