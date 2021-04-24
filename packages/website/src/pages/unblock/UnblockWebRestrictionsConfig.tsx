@@ -5,13 +5,11 @@ import UnblockWebRestrictionsConfigForm from './component/UnblockWebRestrictions
 import UnblockWebRestrictionsConfigList from './component/UnblockWebRestrictionsConfigList'
 import BasicLayoutCard from '../../components/layout/BasicLayoutCard'
 import LayoutEmpty from '../../components/layout/LayoutEmpty'
+import { configBlockApi } from './constant/configTypeLabelMap'
+
 type BlockConfig = UnblockWebRestrictions.BlockConfig
 
 type PropsType = {}
-
-const configBlockApi = window[
-  'com.rxliuli.UnblockWebRestrictions.configBlockApi'
-]!
 
 const UnblockWebRestrictionsConfigNotEmpty: React.FC<PropsType> = () => {
   const [configList, setConfigList] = useState(() => configBlockApi.list())
@@ -21,6 +19,7 @@ const UnblockWebRestrictionsConfigNotEmpty: React.FC<PropsType> = () => {
     setConfigList(list)
     console.log('reload: ', list)
   }
+
   function handleClear() {
     configBlockApi.clear()
     handleReload()

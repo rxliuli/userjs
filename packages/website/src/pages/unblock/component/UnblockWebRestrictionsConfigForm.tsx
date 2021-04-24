@@ -1,6 +1,9 @@
 import { Button, Form, Input, message, Select } from 'antd'
 import { match } from '../util/match'
-import { configTypeLabelMap } from '../constant/configTypeLabelMap'
+import {
+  configBlockApi,
+  configTypeLabelMap,
+} from '../constant/configTypeLabelMap'
 import * as React from 'react'
 
 /**
@@ -25,10 +28,7 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
       message.warn('测试需要匹配的 URL 未能匹配！')
       return
     }
-    window.configBlockApi.add({
-      type: _values.type,
-      url: _values.url,
-    })
+    configBlockApi.add(_values)
     message.success('添加成功')
     props.onReload()
     onReset()

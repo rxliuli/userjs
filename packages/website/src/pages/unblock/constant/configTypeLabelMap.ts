@@ -4,3 +4,7 @@ export const configTypeLabelMap: Record<TypeEnum, string> = {
   linkPrefix: '链接前缀',
   regex: '正则表达式',
 }
+
+export const configBlockApi = window[
+  'com.rxliuli.UnblockWebRestrictions.configBlockApi'
+]!

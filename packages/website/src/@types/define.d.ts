@@ -12,10 +12,15 @@ namespace UnblockWebRestrictions {
 
   declare class ConfigBlockApi {
     list(): BlockConfig[]
+
     remove(key: string): void
+
     switch(key: string): void
-    add(config: BlockConfig): void
+
+    add(config: Pick<BlockConfig, 'type' | 'url'>): void
+
     clear(): void
+
     update(): Promise<void>
   }
 }
@@ -26,9 +31,12 @@ declare namespace DarkCute {
     imageUrl: string
     videoUrl: string
   }
+
   declare class ConfigApi {
     async list(): Promise<Config[]>
+
     get(): Config | undefined
+
     set(config: Config): void
   }
 }
