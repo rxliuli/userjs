@@ -3,7 +3,7 @@
     "type": "domain",
     "url": "699pic.com"
   },
-    {
+  {
     "type": "domain",
     "url": "b.faloo.com"
   },
@@ -135,7 +135,7 @@
     "type": "domain",
     "url": "www.qidian.com"
   },
-    {
+  {
     "type": "domain",
     "url": "www.readnovel.com"
   },
@@ -202,5 +202,9 @@
   {
     "type": "linkPrefix",
     "url": "https://www.bilibili.com/read/"
+  },
+  {
+    "type": "regex",
+    "url": ".*\\.pixnet\\.net"
   }
 ]
