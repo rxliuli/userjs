@@ -1,10 +1,10 @@
 # Remove web restrictions
 
-> [GitHub](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/391193)
+> [GitHub](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/391193)
 
 ## Introduction
 
-> [English](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/README.md), [中文简体](https://github.com/rxliuli/userjs/blob/master/src/UnblockWebRestrictions/README.zhCN.md)
+> [English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文简体](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
 
 The reason why this script is written is that it is very inconvenient to add / disable the domain name in the existing UserJS script, so write one yourself, which is convenient for my generation to use.
 
