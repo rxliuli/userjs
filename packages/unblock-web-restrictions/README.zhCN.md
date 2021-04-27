@@ -3,7 +3,7 @@
 
 ## 简介
 
-> [中文简体](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.en.md)
+> [English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文简体](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
 
 之所以要写这个脚本的原因在于目前已有的 UserJS 脚本添加/禁用域名很不方便，所以便自己写一个，方便吾辈更好的使用。
 
