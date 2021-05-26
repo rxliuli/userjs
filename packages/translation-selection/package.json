@@ -1,0 +1,20 @@
+{
+  "name": "translation-selection",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "yarn build -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-sucrase": "^3.1.0",
+    "@types/tampermonkey": "^4.0.0",
+    "rollup": "^2.50.0",
+    "rollup-plugin-userscript-metablock": "^0.2.5",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@liuli-util/google-translate-api-free": "^0.1.4"
+  }
+}
