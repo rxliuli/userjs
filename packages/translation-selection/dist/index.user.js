@@ -2,7 +2,7 @@
 // @name        translation-selection
 // @description 将网页上选中的文字为英文，然后复制到剪切版便于粘贴
 // @namespace   https://github.com/rxliuli/userjs
-// @version     0.2.7
+// @version     0.1.0
 // @author      rxliuli
 // @include     *
 // @license     MIT
