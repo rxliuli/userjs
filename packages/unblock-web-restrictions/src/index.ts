@@ -1,7 +1,6 @@
 //region 公共的函数
 
 import { compatibleAsync, safeExec } from 'rx-util'
-import { Func } from 'rx-util/dist/module/interface/Func'
 
 const LastUpdateKey = 'LastUpdate'
 const LastValueKey = 'LastValue'
@@ -18,10 +17,10 @@ function onceOfCycle(fn: (...args: any[]) => any, time: number) {
   return new Proxy(fn, {
     apply(_, _this, args) {
       const now = Date.now()
-      const last = get(LastUpdateKey)
+      const last: number | string = get(LastUpdateKey)
       if (
-        ![null, undefined, 'null', 'undefined'].includes(last) &&
-        now - last < time
+        ![null, undefined, 'null', 'undefined'].includes(last as string) &&
+        now - (last as number) < time
       ) {
         return safeExec(() => JSON.parse(get(LastValueKey)), 1)
       }
@@ -74,26 +73,37 @@ class UnblockLimit {
     const documentAddEventListener = document.addEventListener
     const eventTargetAddEventListener = EventTarget.prototype.addEventListener
 
-    function addEventListener(
-      this: Document | HTMLElement,
-      type: string,
-      listener: EventListenerOrEventListenerObject,
-      useCapture?: boolean,
-    ) {
-      const $addEventListener =
-        this instanceof Document
-          ? documentAddEventListener
-          : eventTargetAddEventListener
-
-      // 在这里阻止会更合适一点
-      if (UnblockLimit.eventTypes.includes(type as any)) {
-        console.log('拦截 addEventListener: ', type, this)
-        return
-      }
-      Reflect.apply($addEventListener, this, [type, listener, useCapture])
+    const proxyHandler: ProxyHandler<Document['addEventListener']> = {
+      apply(
+        target: Document['addEventListener'],
+        thisArg: any,
+        [type, listener, useCapture]: [
+          type: string,
+          listener: EventListenerOrEventListenerObject,
+          useCapture?: boolean,
+        ],
+      ): any {
+        const $addEventListener =
+          target instanceof Document
+            ? documentAddEventListener
+            : eventTargetAddEventListener
+        // 在这里阻止会更合适一点
+        if (UnblockLimit.eventTypes.includes(type as any)) {
+          console.log('拦截 addEventListener: ', type, this)
+          return
+        }
+        Reflect.apply($addEventListener, thisArg, [type, listener, useCapture])
+      },
     }
 
-    document.addEventListener = EventTarget.prototype.addEventListener = addEventListener
+    document.addEventListener = new Proxy(
+      documentAddEventListener,
+      proxyHandler,
+    )
+    EventTarget.prototype.addEventListener = new Proxy(
+      eventTargetAddEventListener,
+      proxyHandler,
+    )
   }
 
   // 代理网页添加的键盘快捷键，阻止自定义 C-C/C-V/C-X 这三个快捷键
@@ -101,48 +111,61 @@ class UnblockLimit {
     const documentAddEventListener = document.addEventListener
     const eventTargetAddEventListener = EventTarget.prototype.addEventListener
 
-    function addEventListener(
-      this: Document | HTMLElement,
-      type: string,
-      listener: EventListenerOrEventListenerObject,
-      useCapture?: boolean,
-    ) {
-      const $addEventListener =
-        this === document
-          ? documentAddEventListener
-          : eventTargetAddEventListener
-
-      // 在这里阻止会更合适一点
-
-      const listenerHandler: ProxyHandler<any> = {
-        apply(target: Func, thisArg: any, argArray: [KeyboardEvent]): any {
-          const ev = argArray[0]
-          const proxyKey = ['c', 'x', 'v', 'a']
-          const proxyAssistKey = ['Control', 'Alt']
-          if (
-            (ev.ctrlKey && proxyKey.includes(ev.key)) ||
-            proxyAssistKey.includes(ev.key)
-          ) {
-            console.log('已阻止: ', ev.ctrlKey, ev.altKey, ev.key)
-            return
-          }
-          if (ev.altKey) {
-            return
-          }
-          // Reflect.apply(target, thisArg, argArray)
-        },
-      }
-
-      Reflect.apply($addEventListener, this, [
-        type,
-        UnblockLimit.keyEventTypes.includes(type as any)
-          ? new Proxy(listener as Func, listenerHandler)
-          : listener,
-        useCapture,
-      ])
+    const keyProxyHandler: ProxyHandler<(ev: KeyboardEvent) => void> = {
+      apply(
+        target: (ev: KeyboardEvent) => void,
+        thisArg: any,
+        argArray: [KeyboardEvent],
+      ): any {
+        const ev = argArray[0]
+        const proxyKey = ['c', 'x', 'v', 'a']
+        const proxyAssistKey = ['Control', 'Alt']
+        if (
+          (ev.ctrlKey && proxyKey.includes(ev.key)) ||
+          proxyAssistKey.includes(ev.key)
+        ) {
+          console.log('已阻止: ', ev.ctrlKey, ev.altKey, ev.key)
+          return
+        }
+        if (ev.altKey) {
+          return
+        }
+        Reflect.apply(target, thisArg, argArray)
+      },
     }
 
-    document.addEventListener = EventTarget.prototype.addEventListener = addEventListener
+    const proxyHandler: ProxyHandler<Document['addEventListener']> = {
+      apply(
+        target: Document['addEventListener'],
+        thisArg: any,
+        [type, listener, useCapture]: [
+          type: string,
+          listener: EventListenerOrEventListenerObject,
+          useCapture?: boolean,
+        ],
+      ): any {
+        const $addEventListener =
+          target instanceof Document
+            ? documentAddEventListener
+            : eventTargetAddEventListener
+        Reflect.apply($addEventListener, thisArg, [
+          type,
+          UnblockLimit.keyEventTypes.includes(type as any)
+            ? new Proxy(listener as Function, keyProxyHandler)
+            : listener,
+          useCapture,
+        ])
+      },
+    }
+
+    document.addEventListener = new Proxy(
+      documentAddEventListener,
+      proxyHandler,
+    )
+    EventTarget.prototype.addEventListener = new Proxy(
+      eventTargetAddEventListener,
+      proxyHandler,
+    )
   }
 
   // 清理使用 onXXX 添加到事件
@@ -362,6 +385,7 @@ class Application {
     MenuHandler.register()
     if (BlockHost.findKey()) {
       UnblockLimit.watchEventListener()
+      UnblockLimit.proxyKeyEventListener()
       UnblockLimit.clearJsOnXXXEvent()
     }
     BlockHost.updateBlockHostList()
