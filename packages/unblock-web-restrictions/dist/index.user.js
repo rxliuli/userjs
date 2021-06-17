@@ -2,7 +2,7 @@
 // @name        解除网页限制
 // @description 破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @namespace   http://github.com/rxliuli/userjs
-// @version     2.3.5
+// @version     2.4.0
 // @author      rxliuli
 // @include     *
 // @require     https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js
@@ -23,7 +23,6 @@
 
   //region 公共的函数
 
-
   const LastUpdateKey = 'LastUpdate';
   const LastValueKey = 'LastValue';
 
@@ -41,8 +40,8 @@
         const now = Date.now();
         const last = get(LastUpdateKey);
         if (
-          ![null, undefined, 'null', 'undefined'].includes(last) &&
-          now - last < time
+          ![null, undefined, 'null', 'undefined'].includes(last ) &&
+          now - (last ) < time
         ) {
           return rxUtil.safeExec(() => JSON.parse(get(LastValueKey)), 1)
         }
@@ -95,26 +94,37 @@
       const documentAddEventListener = document.addEventListener;
       const eventTargetAddEventListener = EventTarget.prototype.addEventListener;
 
-      function addEventListener(
-        
-        type,
-        listener,
-        useCapture,
-      ) {
-        const $addEventListener =
-          this instanceof Document
-            ? documentAddEventListener
-            : eventTargetAddEventListener;
+      const proxyHandler = {
+        apply(
+          target,
+          thisArg,
+          [type, listener, useCapture]
 
-        // 在这里阻止会更合适一点
-        if (UnblockLimit.eventTypes.includes(type )) {
-          console.log('拦截 addEventListener: ', type, this);
-          return
-        }
-        Reflect.apply($addEventListener, this, [type, listener, useCapture]);
-      }
 
-      document.addEventListener = EventTarget.prototype.addEventListener = addEventListener;
+
+  ,
+        ) {
+          const $addEventListener =
+            target instanceof Document
+              ? documentAddEventListener
+              : eventTargetAddEventListener;
+          // 在这里阻止会更合适一点
+          if (UnblockLimit.eventTypes.includes(type )) {
+            console.log('拦截 addEventListener: ', type, this);
+            return
+          }
+          Reflect.apply($addEventListener, thisArg, [type, listener, useCapture]);
+        },
+      };
+
+      document.addEventListener = new Proxy(
+        documentAddEventListener,
+        proxyHandler,
+      );
+      EventTarget.prototype.addEventListener = new Proxy(
+        eventTargetAddEventListener,
+        proxyHandler,
+      );
     }
 
     // 代理网页添加的键盘快捷键，阻止自定义 C-C/C-V/C-X 这三个快捷键
@@ -122,48 +132,61 @@
       const documentAddEventListener = document.addEventListener;
       const eventTargetAddEventListener = EventTarget.prototype.addEventListener;
 
-      function addEventListener(
-        
-        type,
-        listener,
-        useCapture,
-      ) {
-        const $addEventListener =
-          this === document
-            ? documentAddEventListener
-            : eventTargetAddEventListener;
+      const keyProxyHandler = {
+        apply(
+          target,
+          thisArg,
+          argArray,
+        ) {
+          const ev = argArray[0];
+          const proxyKey = ['c', 'x', 'v', 'a'];
+          const proxyAssistKey = ['Control', 'Alt'];
+          if (
+            (ev.ctrlKey && proxyKey.includes(ev.key)) ||
+            proxyAssistKey.includes(ev.key)
+          ) {
+            console.log('已阻止: ', ev.ctrlKey, ev.altKey, ev.key);
+            return
+          }
+          if (ev.altKey) {
+            return
+          }
+          Reflect.apply(target, thisArg, argArray);
+        },
+      };
 
-        // 在这里阻止会更合适一点
+      const proxyHandler = {
+        apply(
+          target,
+          thisArg,
+          [type, listener, useCapture]
 
-        const listenerHandler = {
-          apply(target, thisArg, argArray) {
-            const ev = argArray[0];
-            const proxyKey = ['c', 'x', 'v', 'a'];
-            const proxyAssistKey = ['Control', 'Alt'];
-            if (
-              (ev.ctrlKey && proxyKey.includes(ev.key)) ||
-              proxyAssistKey.includes(ev.key)
-            ) {
-              console.log('已阻止: ', ev.ctrlKey, ev.altKey, ev.key);
-              return
-            }
-            if (ev.altKey) {
-              return
-            }
-            // Reflect.apply(target, thisArg, argArray)
-          },
-        };
 
-        Reflect.apply($addEventListener, this, [
-          type,
-          UnblockLimit.keyEventTypes.includes(type )
-            ? new Proxy(listener , listenerHandler)
-            : listener,
-          useCapture,
-        ]);
-      }
 
-      document.addEventListener = EventTarget.prototype.addEventListener = addEventListener;
+  ,
+        ) {
+          const $addEventListener =
+            target instanceof Document
+              ? documentAddEventListener
+              : eventTargetAddEventListener;
+          Reflect.apply($addEventListener, thisArg, [
+            type,
+            UnblockLimit.keyEventTypes.includes(type )
+              ? new Proxy(listener , keyProxyHandler)
+              : listener,
+            useCapture,
+          ]);
+        },
+      };
+
+      document.addEventListener = new Proxy(
+        documentAddEventListener,
+        proxyHandler,
+      );
+      EventTarget.prototype.addEventListener = new Proxy(
+        eventTargetAddEventListener,
+        proxyHandler,
+      );
     }
 
     // 清理使用 onXXX 添加到事件
@@ -383,6 +406,7 @@ time, mark, audio, video, html body * {
       MenuHandler.register();
       if (BlockHost.findKey()) {
         UnblockLimit.watchEventListener();
+        UnblockLimit.proxyKeyEventListener();
         UnblockLimit.clearJsOnXXXEvent();
       }
       BlockHost.updateBlockHostList();
