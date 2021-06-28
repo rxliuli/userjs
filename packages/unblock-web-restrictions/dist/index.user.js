@@ -2,10 +2,11 @@
 // @name        解除网页限制
 // @description 破解禁止复制/剪切/粘贴/选择/右键菜单的网站
 // @namespace   http://github.com/rxliuli/userjs
-// @version     2.4.0
+// @version     2.4.1
 // @author      rxliuli
 // @include     *
 // @require     https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js
+// @connect     userjs.rxliuli.com
 // @run-at      document-start
 // @license     MIT
 // @grant       GM_getValue
