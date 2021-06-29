@@ -9,6 +9,15 @@
   "workspaces": [
     "packages/*"
   ],
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "endOfLine": "crlf"
+  },
   "devDependencies": {
     "@types/greasemonkey": "^3.0.0",
     "lerna": "^3.22.1",
