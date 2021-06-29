@@ -32,6 +32,23 @@ If you find a domain name that is not yet supported, you can click _Tampermonkey
 
 ## FAQ
 
-- The script does not take effect. If it is a website on localhost, the loading time of the script may be later than the webpage script. Refer to: <https://www.tampermonkey.net/documentation.php#_run_at>
-- The shortcut keys on the webpage are no longer available. Yes, since the script will cover the following shortcut keys, `c-c/v/x/a`, it may also include some shortcut keys related to drag and drop via `ctrl + mouse`.
-- In fact, at present, the script will limit the scope of the impact as small as possible, but there is no guarantee that there will be no conflict with the website (see the previous article), so if any problems occur, please directly raise them on GitHub Issues.
+### Script not working
+
+There are many reasons for this issue, some common ones include
+
+- Using transparent images or div masks -- usually solved by removing the corresponding element using user.css/js
+- Using custom fonts to replace the displayed text with the actual text -- find the font mapping rules and parse them back
+
+The following need to use OCR technology to solve the problem, which is painful for web developers and users alike
+
+- Custom text typography rules, making it difficult to select text
+- Use canvas to draw the text on
+- Render text as image on server side, client side only gets image
+
+### Shortcuts on web pages don't work anymore
+
+Yes, because the script overrides the following shortcuts, `c-c/v/x/a`, and possibly some drag-and-drop related shortcuts via `ctrl + mouse`.
+
+### The functionality of the site itself is affected
+
+In fact, the script currently limits the impact to as little as possible, but there is no guarantee that there will be no conflicts with the site (see the previous article), so if something goes wrong, please raise it directly in GitHub Issues.
