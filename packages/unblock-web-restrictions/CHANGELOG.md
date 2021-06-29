@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+## 2.4.1
+
+- feat(unblock-web-restrictions): 将屏蔽列表的域名添加至源域名白名单中
+
 ## 2.4.0
 
 - feat(unblock-web-restrictions): 对按键事件 c+c,c+v 也进行拦截处理
