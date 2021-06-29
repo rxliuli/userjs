@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "build": "rollup -c",
-    "watch": "yarn build -w"
+    "watch": "yarn build -w",
+    "docs:deploy": "gh-pages -d assets -a"
   },
   "devDependencies": {
     "@rollup/plugin-sucrase": "^3.1.0",
@@ -12,6 +13,7 @@
     "rollup-external-modules": "^2.0.0",
     "rollup-plugin-userscript-metablock": "^0.2.5",
     "rx-util": "^1.9.2",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "gh-pages": "^3.2.3"
   }
 }
