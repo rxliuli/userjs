@@ -1,0 +1,16 @@
+/* ==UserStyle==
+@name           boke112 选中文本颜色恢复高亮
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("boke112.com") {
+    /* 在此插入代码... */
+    :not(input):not(textarea)::selection {
+        color: white !important;
+        background-color: #05d3f9 !important;
+    }
+}
+```
