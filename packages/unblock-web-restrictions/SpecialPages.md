@@ -2,7 +2,7 @@
 
 该文档记录了一些特殊的网页，包括需特殊支持以及不支持的网页。
 
-推荐与`uBlock Origin`一起使用，并订阅`uBlock filters – Annoyances`过滤规则，配合该脚本达到更好的过滤规则。
+推荐与`uBlock Origin`一起使用，并订阅`uBlock filters – Annoyances`过滤规则，配合该脚本达到更好的解除屏蔽效果。
 
 ## 需特殊支持的网页
 
