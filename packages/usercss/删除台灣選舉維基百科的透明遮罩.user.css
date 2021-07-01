@@ -1,0 +1,13 @@
+/* ==UserStyle==
+@name           votetw.com 删除遮罩层
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         rxliuli
+==/UserStyle== */
+
+@-moz-document domain("votetw.com") {
+    div[style*="width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;"] {
+        display: none;
+    }
+}
