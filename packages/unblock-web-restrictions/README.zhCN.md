@@ -45,6 +45,8 @@
 - 使用 canvas 将文字画上去
 - 在服务端渲染文字为图片，客户端仅能得到图片
 
+> [特殊网页解决方案说明](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/docs/SpecialPages.md)
+
 ### 网页上的快捷键不能用了
 
 是的，由于脚本会覆盖以下快捷键，`c-c/v/x/a`，还有可能包括一些通过 `ctrl + 鼠标` 拖拽相关的快捷键。
