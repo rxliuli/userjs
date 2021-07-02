@@ -14,7 +14,7 @@
 
 - 添加自定义过滤规则（已包含于 `uBlock filters – Annoyances` 过滤规则中）
 
-```txt
+```ubo
 votetw.com##div[style="width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;"]
 ```
 
@@ -70,6 +70,14 @@ myhtebooks.com##*:style(-webkit-touch-callout: default !important; -webkit-user-
 该网页修改了选中文本的颜色，详见 [#19](https://github.com/rxliuli/userjs/issues/19)
 
 解决方案
+
+- 添加自定义过滤规则（已包含于 `uBlock filters – Annoyances` 过滤规则中）
+
+```ubo
+boke112.com##+js(aopw, stopPrntScr)
+||boke.yigujin.cn/wp-content/themes/Three/js/content112.js$script,domain=boke112.com
+boke112.com##*::selection:style(background-color:#338FFF!important)
+```
 
 - 使用 user style 恢复文本高亮的颜色 [点此安装](https://github.com/rxliuli/userjs/blob/master/packages/usercss/boke112%20%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%81%A2%E5%A4%8D%E9%AB%98%E4%BA%AE.user.css)
 
