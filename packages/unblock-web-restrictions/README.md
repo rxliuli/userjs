@@ -45,6 +45,8 @@ The following need to use OCR technology to solve the problem, which is painful 
 - Use canvas to draw the text on
 - Render text as image on server side, client side only gets image
 
+> [Special web solution description](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/docs/SpecialPages.md)
+
 ### Shortcuts on web pages don't work anymore
 
 Yes, because the script overrides the following shortcuts, `c-c/v/x/a`, and possibly some drag-and-drop related shortcuts via `ctrl + mouse`.
