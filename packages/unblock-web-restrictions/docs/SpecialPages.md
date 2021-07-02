@@ -12,12 +12,11 @@
 
 解决方案
 
-- 订阅`uBlock filters – Annoyances`过滤规则，该规则已包含针对该网页的过滤规则
-- 添加自定义过滤规则
+- 添加自定义过滤规则（已包含于 `uBlock filters – Annoyances` 过滤规则中）
 
-  ```txt
-  votetw.com##div[style="width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;"]
-  ```
+```txt
+votetw.com##div[style="width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;"]
+```
 
 - 使用 user.css 删除该遮罩 [点此安装](https://github.com/rxliuli/userjs/blob/master/packages/usercss/%E5%88%A0%E9%99%A4%E5%8F%B0%E7%81%A3%E9%81%B8%E8%88%89%E7%B6%AD%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9.user.css)
 
@@ -42,8 +41,7 @@
 
 解决方案
 
-- 订阅`uBlock filters – Annoyances`过滤规则，该规则已包含针对该网页的过滤规则
-- 添加自定义过滤规则
+- 添加自定义过滤规则（已包含于 `uBlock filters – Annoyances` 过滤规则中）
 
 ```ubo
 myhtebooks.com##+js(ra, oncontextmenu|ondragstart|onselectstart|onselect|oncopy|onbeforecopy|onkeydown|onunload)
