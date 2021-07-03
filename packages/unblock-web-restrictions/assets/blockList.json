@@ -53,6 +53,10 @@
   },
   {
     "type": "domain",
+    "url": "m.qidian.com"
+  },
+  {
+    "type": "domain",
     "url": "m.ruiwen.com"
   },
   {
@@ -129,6 +133,10 @@
   },
   {
     "type": "domain",
+    "url": "www.flickr.com"
+  },
+  {
+    "type": "domain",
     "url": "www.hongshu.com"
   },
   {
@@ -150,6 +158,10 @@
   {
     "type": "domain",
     "url": "www.oschina.net"
+  },
+  {
+    "type": "domain",
+    "url": "www.peekme.cc"
   },
   {
     "type": "domain",
