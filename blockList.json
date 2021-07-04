@@ -13,6 +13,10 @@
   },
   {
     "type": "domain",
+    "url": "businessnews.in"
+  },
+  {
+    "type": "domain",
     "url": "chokstick.com"
   },
   {
@@ -33,14 +37,6 @@
   },
   {
     "type": "domain",
-    "url": "cnitpm.com"
-  },
-  {
-    "type": "domain",
-    "url": "commandlinux.com"
-  },
-  {
-    "type": "domain",
     "url": "juejin.cn"
   },
   {
@@ -49,11 +45,19 @@
   },
   {
     "type": "domain",
-    "url": "mbalib.com"
+    "url": "m.oh100.com"
   },
   {
     "type": "domain",
-    "url": "oh100.com"
+    "url": "m.qidian.com"
+  },
+  {
+    "type": "domain",
+    "url": "m.ruiwen.com"
+  },
+  {
+    "type": "domain",
+    "url": "mbalib.com"
   },
   {
     "type": "domain",
@@ -125,6 +129,10 @@
   },
   {
     "type": "domain",
+    "url": "www.flickr.com"
+  },
+  {
+    "type": "domain",
     "url": "www.hongshu.com"
   },
   {
@@ -141,7 +149,15 @@
   },
   {
     "type": "domain",
+    "url": "www.oh100.com"
+  },
+  {
+    "type": "domain",
     "url": "www.oschina.net"
+  },
+  {
+    "type": "domain",
+    "url": "www.peekme.cc"
   },
   {
     "type": "domain",
