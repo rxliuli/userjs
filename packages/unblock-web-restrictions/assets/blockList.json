@@ -249,6 +249,10 @@
   },
   {
     "type": "regex",
+    "url": ".*\\.cnki\\.net.*/.*/Detail"
+  },
+  {
+    "type": "regex",
     "url": ".*\\.pixnet\\.net"
   }
 ]
