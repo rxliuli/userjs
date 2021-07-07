@@ -244,6 +244,10 @@
     "url": "zhinan.sogou.com"
   },
   {
+    "type": "link",
+    "url": "https://auth.alipay.com/login/index.htm"
+  },
+  {
     "type": "linkPrefix",
     "url": "http://www.imooc.com/article/"
   },
