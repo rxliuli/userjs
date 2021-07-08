@@ -73,6 +73,10 @@
   },
   {
     "type": "domain",
+    "url": "read.qidian.com"
+  },
+  {
+    "type": "domain",
     "url": "segmentfault.com"
   },
   {
@@ -174,10 +178,6 @@
   {
     "type": "domain",
     "url": "www.peekme.cc"
-  },
-  {
-    "type": "domain",
-    "url": "www.qidian.com"
   },
   {
     "type": "domain",
