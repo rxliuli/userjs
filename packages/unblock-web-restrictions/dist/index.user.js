@@ -1,5 +1,5 @@
-﻿// ==UserScript==
-// @name              Remove web restrictions
+// ==UserScript==
+// @name              Unblock web restrictions
 // @name:zh-CN        解除网页限制
 // @description       Crack the site that prohibits copy/cut/paste/select/right click menu
 // @description:zh-CN 破解禁止复制/剪切/粘贴/选择/右键菜单的网站
