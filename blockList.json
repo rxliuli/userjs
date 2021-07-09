@@ -37,11 +37,23 @@
   },
   {
     "type": "domain",
+    "url": "doc.mbalib.com"
+  },
+  {
+    "type": "domain",
     "url": "juejin.cn"
   },
   {
     "type": "domain",
     "url": "leetcode-cn.com"
+  },
+  {
+    "type": "domain",
+    "url": "m.cspengbo.com"
+  },
+  {
+    "type": "domain",
+    "url": "m.fanwenda.com"
   },
   {
     "type": "domain",
@@ -57,11 +69,11 @@
   },
   {
     "type": "domain",
-    "url": "mbalib.com"
+    "url": "qiangwaikan.com"
   },
   {
     "type": "domain",
-    "url": "qiangwaikan.com"
+    "url": "read.qidian.com"
   },
   {
     "type": "domain",
@@ -85,10 +97,6 @@
   },
   {
     "type": "domain",
-    "url": "www.30edu.com.cn"
-  },
-  {
-    "type": "domain",
     "url": "www.360doc.com"
   },
   {
@@ -106,6 +114,10 @@
   {
     "type": "domain",
     "url": "www.cnitpm.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.commandlinux.com"
   },
   {
     "type": "domain",
@@ -129,6 +141,10 @@
   },
   {
     "type": "domain",
+    "url": "www.fanwenda.com"
+  },
+  {
+    "type": "domain",
     "url": "www.flickr.com"
   },
   {
@@ -138,6 +154,10 @@
   {
     "type": "domain",
     "url": "www.hongxiu.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.jianshu.com"
   },
   {
     "type": "domain",
@@ -158,10 +178,6 @@
   {
     "type": "domain",
     "url": "www.peekme.cc"
-  },
-  {
-    "type": "domain",
-    "url": "www.qidian.com"
   },
   {
     "type": "domain",
@@ -189,7 +205,11 @@
   },
   {
     "type": "domain",
-    "url": "www.x23qb.com"
+    "url": "www.wjx.cn"
+  },
+  {
+    "type": "domain",
+    "url": "www.x23qb.net"
   },
   {
     "type": "domain",
@@ -225,11 +245,19 @@
   },
   {
     "type": "domain",
+    "url": "z.30edu.com.cn"
+  },
+  {
+    "type": "domain",
     "url": "zh.moegirl.org.cn"
   },
   {
     "type": "domain",
     "url": "zhinan.sogou.com"
+  },
+  {
+    "type": "link",
+    "url": "https://auth.alipay.com/login/index.htm"
   },
   {
     "type": "linkPrefix",
