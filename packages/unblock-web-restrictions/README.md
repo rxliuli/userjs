@@ -1,4 +1,4 @@
-# Remove web restrictions
+﻿# Unblock web restrictions
 
 > [GitHub](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/391193)
 
