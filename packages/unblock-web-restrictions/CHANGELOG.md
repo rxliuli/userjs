@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+## 2.4.2
+
+- feat(unblock-web-restrictions): 添加脚本英语名称及说明
+
 ## 2.4.1
 
 - feat(unblock-web-restrictions): 将屏蔽列表的域名添加至源域名白名单中
