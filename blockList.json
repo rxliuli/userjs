@@ -169,6 +169,10 @@
   },
   {
     "type": "domain",
+    "url": "www.nowcoder.com"
+  },
+  {
+    "type": "domain",
     "url": "www.oh100.com"
   },
   {
@@ -206,6 +210,10 @@
   {
     "type": "domain",
     "url": "www.wjx.cn"
+  },
+  {
+    "type": "domain",
+    "url": "www.wpchen.net"
   },
   {
     "type": "domain",
@@ -253,6 +261,10 @@
   },
   {
     "type": "domain",
+    "url": "zhidao.baidu.com"
+  },
+  {
+    "type": "domain",
     "url": "zhinan.sogou.com"
   },
   {
@@ -266,6 +278,10 @@
   {
     "type": "linkPrefix",
     "url": "https://www.bilibili.com/read/"
+  },
+  {
+    "type": "regex",
+    "url": ".*\\.cnki\\.net.*/.*/Detail"
   },
   {
     "type": "regex",
