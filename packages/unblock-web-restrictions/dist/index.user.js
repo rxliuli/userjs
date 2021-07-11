@@ -1,22 +1,24 @@
 // ==UserScript==
-// @name        Unblock web restrictions
-// @description Crack the site that prohibits copy/cut/paste/select/right click menu
-// @namespace   http://github.com/rxliuli/userjs
-// @version     2.4.2
-// @author      rxliuli
-// @include     *
-// @require     https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js
-// @connect     userjs.rxliuli.com
-// @run-at      document-start
-// @license     MIT
-// @grant       GM_getValue
-// @grant       GM_setValue
-// @grant       GM_deleteValue
-// @grant       GM_listValues
-// @grant       GM_registerMenuCommand
-// @grant       GM_addStyle
-// @grant       GM_xmlhttpRequest
-// @grant       unsafeWindow
+// @name              Remove web restrictions
+// @name:zh-CN        解除网页限制
+// @description       Crack the site that prohibits copy/cut/paste/select/right click menu
+// @description:zh-CN 破解禁止复制/剪切/粘贴/选择/右键菜单的网站
+// @namespace         http://github.com/rxliuli/userjs
+// @version           2.4.2
+// @author            rxliuli
+// @include           *
+// @require           https://cdn.jsdelivr.net/npm/rx-util@1.9.2/dist/index.min.js
+// @connect           userjs.rxliuli.com
+// @run-at            document-start
+// @license           MIT
+// @grant             GM_getValue
+// @grant             GM_setValue
+// @grant             GM_deleteValue
+// @grant             GM_listValues
+// @grant             GM_registerMenuCommand
+// @grant             GM_addStyle
+// @grant             GM_xmlhttpRequest
+// @grant             unsafeWindow
 // ==/UserScript==
 
 (function (rxUtil) {
