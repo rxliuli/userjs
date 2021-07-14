@@ -26,7 +26,7 @@ This is a more powerful feature, not only matching domain names, but also matchi
 
 ## Help
 
-If you find a domain name that is not yet supported, you can click _Tampermonkey => Remove Webpage Restrictions => Remove Restrictions_ to take effect, or, put it on [GitHub Issues](https://github.com/rxliuli/userjs/issues) , So that everyone can update the domain name to lift the restriction.
+If you find a domain name that is not yet supported, you can click _Tampermonkey => Unblock web restrictions => Unlock Restrictions_ to take effect, or, put it on [GitHub Issues](https://github.com/rxliuli/userjs/issues) , So that everyone can update the domain name to lift the restriction.
 
 ![image.png](https://i.loli.net/2019/10/15/xypJIQnbtN4DuWM.png)
 
