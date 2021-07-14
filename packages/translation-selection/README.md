@@ -1,6 +1,6 @@
 # translation-selection
 
-> [GitHub](https://github.com/rxliuli/userjs/tree/master/packages/translation-selection/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/427046)
+> [GitHub](https://github.com/rxliuli/userjs/blob/master/packages/translation-selection/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/427046)
 
 ## 使用
 
