@@ -6,7 +6,7 @@
 
 > [English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文简体](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
 
-The reason why this script is written is that it is very inconvenient to add / disable the domain name in the existing UserJS script, so write one yourself, which is convenient for my generation to use.
+The reason why this script is written is that it is very inconvenient to add / disable the domain name in the existing UserJS script, so write one myself, which is convenient for my generation to use.
 
 ## Features
 
@@ -26,7 +26,7 @@ This is a more powerful feature, not only matching domain names, but also matchi
 
 ## Help
 
-If you find a domain name that is not yet supported, you can click _Tampermonkey => Unblock web restrictions => Unlock Restrictions_ to take effect, or, put it on [GitHub Issues](https://github.com/rxliuli/userjs/issues) , So that everyone can update the domain name to lift the restriction.
+If you find a domain name that is not yet supported, you can click _Tampermonkey => Unblock web restrictions => Unlock Restrictions_ to take effect, or, put it on [GitHub Issues](https://github.com/rxliuli/userjs/issues) so that everyone can update the domain name to lift the restriction.
 
 ![image.png](https://i.loli.net/2019/10/15/xypJIQnbtN4DuWM.png)
 
