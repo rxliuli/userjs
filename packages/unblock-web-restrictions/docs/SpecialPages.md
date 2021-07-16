@@ -22,7 +22,6 @@ votetw.com##div[style="width: 100%; height: 100%; top: 0;left: 0; position:fixed
 
 ```css
 /* ==UserStyle==
-/* ==UserStyle==
 @name           删除台灣選舉維基百科的透明遮罩
 @namespace      github.com/rxliuli/userjs
 @version        1.0.0
