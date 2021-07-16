@@ -56,7 +56,7 @@ myhtebooks.com##*:style(-webkit-touch-callout: default !important; -webkit-user-
 @name           海棠文化删除文字的遮罩图片
 @namespace      github.com/rxliuli/userjs
 @version        1.0.0
-@description    这个网站会在禁止复制的文字上面覆盖一个透明遮罩，这个脚本可以删除掉它
+@description    这个网站会在禁止复制的文字上面覆盖一个透明的图片，这个脚本可以删除掉它
 @author         rxliuli
 ==/UserStyle== */
 @-moz-document domain("www.myhtebooks.com") {
