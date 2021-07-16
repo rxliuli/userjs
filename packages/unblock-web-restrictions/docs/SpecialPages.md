@@ -4,8 +4,6 @@
 
 推荐与 `uBlock Origin` 一起使用，并订阅 `uBlock filters – Annoyances` 过滤规则，配合该脚本达到更好的解除屏蔽效果。
 
-针对部分使用自定义字体的小说页面，可以参考[该项目](https://github.com/7325156/jjwxcNovelCrawler)将小说内容下载。
-
 ## 需特殊支持的网页
 
 ### votetw.com（台灣選舉維基百科）
@@ -104,7 +102,7 @@ boke112.com##*::selection:style(background-color:#338FFF!important)
 
 ## 不支持的网页
 
-针对使用了自定义的字体的网页，该脚本虽然可以解除限制，但并不能替换掉自定义的字体，因此不会默认添加支持。
+针对使用了自定义的字体的网页，该脚本虽然可以解除限制，但并不能替换掉自定义的字体，因此默认屏蔽列表中不会支持这些网页，但你仍然可以手动添加。
 
 ### chuangshi.qq.com（创世中文网）
 
@@ -112,7 +110,11 @@ boke112.com##*::selection:style(background-color:#338FFF!important)
 
 ### doc88.com（道客巴巴）
 
-使用的 canvas 画布，所见文字并不是文字，本质上都是由这个网站的开发者自行“画”上去的，详见 [#25](https://github.com/rxliuli/userjs/issues/25)。
+网站使用 canvas 画布，所见文字并不是文字，本质上都是由这个网站的开发者自行“画”上去的，详见 [#25](https://github.com/rxliuli/userjs/issues/25)。
+
+替代方案
+
+- 可以使用[该脚本](https://greasyfork.org/zh-CN/scripts/405130)进行复制，并仅在该网页上启用。
 
 ### xxsy.net（潇湘书院）
 
@@ -122,6 +124,10 @@ boke112.com##*::selection:style(background-color:#338FFF!important)
 
 网站在VIP章节中使用了自定义的字体。
 
+替代方案
+
+- 可参考[该项目](https://github.com/7325156/jjwxcNovelCrawler)下载小说内容。
+
 ### ranwen.cc（燃文小说网）
 
 网站使用了自定义的字体。
@@ -129,3 +135,11 @@ boke112.com##*::selection:style(background-color:#338FFF!important)
 ### yunqi.qq.com（云起书院）
 
 网站使用了自定义的字体。
+
+### docs.qq.com（腾讯文档）
+
+网站使用 canvas 画布，详见 [#41](https://github.com/rxliuli/userjs/issues/41)。
+
+替代方案
+
+- 可以使用 `Ctrl` + `P` 在打印页面中进行复制。
