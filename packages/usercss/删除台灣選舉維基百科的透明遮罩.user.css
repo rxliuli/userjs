@@ -1,8 +1,8 @@
-/* ==UserStyle==
-@name           votetw.com 删除遮罩层
-@namespace      github.com/openstyles/stylus
+﻿/* ==UserStyle==
+@name           删除台灣選舉維基百科的透明遮罩
+@namespace      github.com/rxliuli/userjs
 @version        1.0.0
-@description    A new userstyle
+@description    这个网站会在禁止复制的文字上面覆盖一个透明遮罩，这个脚本可以删除掉它
 @author         rxliuli
 ==/UserStyle== */
 

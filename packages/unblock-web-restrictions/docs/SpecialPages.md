@@ -1,14 +1,16 @@
-# 特殊网页
+﻿# 特殊网页
 
 该文档记录了一些特殊的网页，包括需特殊支持以及不支持的网页。
 
 推荐与 `uBlock Origin` 一起使用，并订阅 `uBlock filters – Annoyances` 过滤规则，配合该脚本达到更好的解除屏蔽效果。
 
+针对部分使用自定义字体的小说页面，可以参考[该项目](https://github.com/7325156/jjwxcNovelCrawler)将小说内容下载。
+
 ## 需特殊支持的网页
 
 ### votetw.com（台灣選舉維基百科）
 
-该网页使用透明遮罩层，详见 [#27](https://github.com/rxliuli/userjs/issues/27)
+该网页使用透明遮罩层，详见 [#27](https://github.com/rxliuli/userjs/issues/27)。
 
 解决方案
 
@@ -22,22 +24,24 @@ votetw.com##div[style="width: 100%; height: 100%; top: 0;left: 0; position:fixed
 
 ```css
 /* ==UserStyle==
-@name           votetw.com 删除遮罩层
-@namespace      github.com/openstyles/stylus
+/* ==UserStyle==
+@name           删除台灣選舉維基百科的透明遮罩
+@namespace      github.com/rxliuli/userjs
 @version        1.0.0
-@description    A new userstyle
+@description    这个网站会在禁止复制的文字上面覆盖一个透明遮罩，这个脚本可以删除掉它
 @author         rxliuli
 ==/UserStyle== */
+
 @-moz-document domain("votetw.com") {
-  div[style*='width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;'] {
-    display: none;
-  }
+    div[style*="width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;"] {
+        display: none;
+    }
 }
 ```
 
 ### myhtebooks.com（海棠文化）
 
-该网页使用透明图片进行遮罩，详见[该链接](https://greasyfork.org/zh-CN/scripts/391193-%E8%A7%A3%E9%99%A4%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6/discussions/89917#comment-214785)
+该网页使用透明图片进行遮罩，详见[该链接](https://greasyfork.org/zh-CN/scripts/391193-%E8%A7%A3%E9%99%A4%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6/discussions/89917#comment-214785)。
 
 解决方案
 
@@ -54,8 +58,8 @@ myhtebooks.com##*:style(-webkit-touch-callout: default !important; -webkit-user-
 /* ==UserStyle==
 @name           海棠文化删除文字的遮罩图片
 @namespace      github.com/rxliuli/userjs
-@version        0.1.0
-@description    这个网站会在禁止复制的文字上面覆盖一个透明的图片，这个脚本可以删除掉它
+@version        1.0.0
+@description    这个网站会在禁止复制的文字上面覆盖一个透明遮罩，这个脚本可以删除掉它
 @author         rxliuli
 ==/UserStyle== */
 @-moz-document domain("www.myhtebooks.com") {
@@ -67,7 +71,7 @@ myhtebooks.com##*:style(-webkit-touch-callout: default !important; -webkit-user-
 
 ### boke112.com（boke112 联盟）
 
-该网页修改了选中文本的颜色，详见 [#19](https://github.com/rxliuli/userjs/issues/19)
+该网页修改了选中文本的颜色，详见 [#19](https://github.com/rxliuli/userjs/issues/19)。
 
 解决方案
 
@@ -84,27 +88,44 @@ boke112.com##*::selection:style(background-color:#338FFF!important)
 ```css
 /* ==UserStyle==
 @name           boke112 选中文本颜色恢复高亮
-@namespace      github.com/openstyles/stylus
+@namespace      github.com/rxliuli/userjs
 @version        1.0.0
-@description    A new userstyle
-@author         Me
+@description    该网站修改了选中文本的颜色，这个脚本可以恢复选中文本的颜色
+@author         rxliuli
 ==/UserStyle== */
 
 @-moz-document domain("boke112.com") {
-  /* 在此插入代码... */
-  :not(input):not(textarea)::selection {
-    color: white !important;
-    background-color: #05d3f9 !important;
-  }
+    :not(input):not(textarea)::selection {
+        color: white !important;
+        background-color: #05d3f9 !important;
+    }
 }
 ```
 
 ## 不支持的网页
 
+针对使用了自定义的字体的网页，该脚本虽然可以解除限制，但并不能替换掉自定义的字体，因此不会默认添加支持。
+
 ### chuangshi.qq.com（创世中文网）
 
-网站使用了自定义的字体，所以复制出来在其他字体下会出现乱码，详见 [#23](https://github.com/rxliuli/userjs/issues/23)
+网站使用了自定义的字体，所以复制出来在其他字体下会出现乱码，详见 [#23](https://github.com/rxliuli/userjs/issues/23)。
 
 ### doc88.com（道客巴巴）
 
-使用的 canvas 画布，所见文字并不是文字，本质上都是由这个网站的开发者自行“画”上去的，详见 [#25](https://github.com/rxliuli/userjs/issues/25)
+使用的 canvas 画布，所见文字并不是文字，本质上都是由这个网站的开发者自行“画”上去的，详见 [#25](https://github.com/rxliuli/userjs/issues/25)。
+
+### xxsy.net（潇湘书院）
+
+网站使用了自定义的字体。
+
+### jjwxc.net（晋江文学城）
+
+网站在VIP章节中使用了自定义的字体。
+
+### ranwen.cc（燃文小说网）
+
+网站使用了自定义的字体。
+
+### yunqi.qq.com（云起书院）
+
+网站使用了自定义的字体。

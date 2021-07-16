@@ -1,8 +1,4 @@
-## CHANGELOG
-
-## 2.4.2
-
-- feat(unblock-web-restrictions): 添加脚本英语名称及说明
+﻿## CHANGELOG
 
 ## 2.4.1
 
