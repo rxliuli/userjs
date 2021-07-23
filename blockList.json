@@ -49,6 +49,10 @@
   },
   {
     "type": "domain",
+    "url": "iwrite.unipus.cn"
+  },
+  {
+    "type": "domain",
     "url": "juejin.cn"
   },
   {
@@ -74,6 +78,10 @@
   {
     "type": "domain",
     "url": "m.ruiwen.com"
+  },
+  {
+    "type": "domain",
+    "url": "masuit.com"
   },
   {
     "type": "domain",
@@ -226,10 +234,6 @@
   {
     "type": "domain",
     "url": "www.v1tx.com"
-  },
-  {
-    "type": "domain",
-    "url": "www.wjx.cn"
   },
   {
     "type": "domain",
