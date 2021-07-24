@@ -309,10 +309,10 @@
   },
   {
     "type": "regex",
-    "url": ".*\\.cnki\\.net.*/.*/Detail"
+    "url": ".*\\.pixnet\\.net"
   },
   {
     "type": "regex",
-    "url": ".*\\.pixnet\\.net"
+    "url": ".*\\.cnki\\.net.*/.*/Detail"
   }
 ]
