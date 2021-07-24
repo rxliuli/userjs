@@ -21,4 +21,4 @@ package-lock.json
 
 # build dist
 *.tgz
-build/
+dist/
