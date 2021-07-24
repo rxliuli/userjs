@@ -257,6 +257,9 @@ class BlockHost {
       GM_xmlhttpRequest({
         method: 'GET',
         url: 'https://userjs.rxliuli.com/blockList.json',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
         onload(res) {
           const list = JSON.parse(res.responseText)
           resolve(list)
