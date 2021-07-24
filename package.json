@@ -6,19 +6,18 @@
   "author": "rxliuli",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "setup": "yarn && yarn stream build",
+    "clean": "lerna clean -y && lerna exec -- rimraf dist && rimraf node_modules",
+    "stream": "lerna run --include-dependencies --stream"
+  },
   "workspaces": [
     "packages/*"
   ],
-  "prettier": {
-    "tabWidth": 2,
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "arrowParens": "always",
-    "endOfLine": "crlf"
-  },
+  "prettier": "@liuli-util/prettier-standard-config",
   "devDependencies": {
+    "@liuli-util/prettier-standard-config": "^0.1.0",
+    "rimraf": "^3.0.2",
     "@types/greasemonkey": "^3.0.0",
     "lerna": "^3.22.1",
     "prettier": "^2.1.2",
