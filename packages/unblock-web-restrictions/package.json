@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "yarn build -w",
-    "docs:deploy": "gh-pages -d assets -a"
+    "deploy": "gh-pages -d assets -a"
   },
   "devDependencies": {
     "@rollup/plugin-sucrase": "^3.1.0",

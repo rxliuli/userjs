@@ -1,5 +1,9 @@
 ﻿## CHANGELOG
 
+## 2.4.2
+
+- fix(unblock-web-restrictions): 修复更新配置列表没有清理缓存的问题
+
 ## 2.4.1
 
 - feat(unblock-web-restrictions): 将屏蔽列表的域名添加至源域名白名单中
