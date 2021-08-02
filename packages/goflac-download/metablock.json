@@ -1,0 +1,10 @@
+{
+  "name": "goflac-download",
+  "namespace": "http://github.com/rxliuli/userjs",
+  "version": "0.2.7",
+  "description": "在 telegram 群组中屏蔽置顶用户的消息",
+  "author": "rxliuli",
+  "match": ["https://www.goflac.com/*"],
+  "grant": ["GM_xmlhttpRequest"],
+  "license": "MIT"
+}
