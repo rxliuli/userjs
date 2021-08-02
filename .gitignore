@@ -9,12 +9,13 @@
 # npm
 node_modules/
 package-lock.json
-.yarn
 .yarn/*
+!.yarn/patches
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+.pnp.*
 
 # parcel
 .cache

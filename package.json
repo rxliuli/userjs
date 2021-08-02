@@ -7,9 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "setup": "yarn && yarn stream build",
-    "clean": "lerna clean -y && lerna exec -- rimraf dist && rimraf node_modules",
-    "stream": "lerna run --include-dependencies --stream"
+    "clean": "yarn workspaces foreach -p exec rimraf dist release",
+    "build": "yarn workspaces foreach -p --topological-dev run build"
   },
   "workspaces": [
     "packages/*"
@@ -17,13 +16,13 @@
   "prettier": "@liuli-util/prettier-standard-config",
   "devDependencies": {
     "@liuli-util/prettier-standard-config": "^0.1.0",
-    "rimraf": "^3.0.2",
     "@types/greasemonkey": "^3.0.0",
     "lerna": "^3.22.1",
     "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
     "rx-util": "^1.9.2",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.3",
-    "type-fest": "^0.21.2"
+    "type-fest": "^0.21.2",
+    "typescript": "^4.0.3"
   }
 }
