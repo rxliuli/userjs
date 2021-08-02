@@ -5,6 +5,7 @@
 // @version     0.2.3
 // @author      rxliuli
 // @match       https://app.slack.com/client/*
+// @match       http://localhost:*/*
 // @match       http://127.0.0.1:*/*
 // @match       https://userjs.rxliuli.com/*
 // @license     MIT
@@ -19,9 +20,9 @@
   'use strict';
 
   function addOtherStyle() {
-      // language=CSS
-      // noinspection CssUnusedSymbol
-      GM_addStyle(`
+    // language=CSS
+    // noinspection CssUnusedSymbol
+    GM_addStyle(`
   /*需要透明化的元素*/
   body,
   .p-client_container,
@@ -60,45 +61,57 @@
   }
   `);
   }
+
+
+
+
+
+
   class ConfigApi {
-      async list() {
-          return new Promise((resolve, reject) => {
-              GM_xmlhttpRequest({
-                  method: 'GET',
-                  url: 'https://userjs.rxliuli.com/data.json',
-                  onload(res) {
-                      resolve(JSON.parse(res.responseText));
-                  },
-                  onerror(e) {
-                      reject(e);
-                  },
-              });
-          });
-      }
-      get() {
-          try {
-              return JSON.parse(GM_getValue(ConfigApi.CurrentBackgroundVideoKey));
-          }
-          catch (e) { }
-      }
-      set(config) {
-          return GM_setValue(ConfigApi.CurrentBackgroundVideoKey, JSON.stringify(config));
-      }
-  }
-  ConfigApi.CurrentBackgroundVideoKey = 'CurrentBackgroundVideo';
+    async list() {
+      return new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: 'GET',
+          url: 'https://userjs.rxliuli.com/data.json',
+          onload(res) {
+            resolve(JSON.parse(res.responseText));
+          },
+          onerror(e) {
+            reject(e);
+          },
+        });
+      })
+    }
+
+     static  __initStatic() {this.CurrentBackgroundVideoKey = 'CurrentBackgroundVideo';}
+
+    get() {
+      try {
+        return JSON.parse(GM_getValue(ConfigApi.CurrentBackgroundVideoKey))
+      } catch (e) {}
+    }
+    set(config) {
+      return GM_setValue(
+        ConfigApi.CurrentBackgroundVideoKey,
+        JSON.stringify(config),
+      )
+    }
+  } ConfigApi.__initStatic();
   const configApi = new ConfigApi();
+
   function setBackVideo(config) {
-      /**
-       * 根据 html 字符串创建 Element 元素
-       * @param str html 字符串
-       * @returns 创建的 Element 元素
-       */
-      function createElByString(str) {
-          const root = document.createElement('div');
-          root.innerHTML = str;
-          return root.querySelector('*');
-      }
-      const $videoEl = createElByString(`<video
+    /**
+     * 根据 html 字符串创建 Element 元素
+     * @param str html 字符串
+     * @returns 创建的 Element 元素
+     */
+    function createElByString(str) {
+      const root = document.createElement('div');
+      root.innerHTML = str;
+      return root.querySelector('*') 
+    }
+
+    const $videoEl = createElByString(`<video
   id="videoWallPaper"
   muted="muted"
   loop="loop"
@@ -106,7 +119,7 @@
   src="${config.videoUrl}"
 />
 `);
-      GM_addStyle(`video#videoWallPaper {
+    GM_addStyle(`video#videoWallPaper {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -124,18 +137,22 @@
   filter: brightness(0.5);
 }
 `);
-      document.body.appendChild($videoEl);
+    document.body.appendChild($videoEl);
   }
+
   if (window.location.hostname === 'app.slack.com') {
-      const config = configApi.get();
-      if (config) {
-          setBackVideo(config);
-          addOtherStyle();
-      }
+    const config = configApi.get();
+    if (config) {
+      setBackVideo(config);
+      addOtherStyle();
+    }
   }
-  if (location.href.startsWith('https://userjs.rxliuli.com/') ||
-      location.hostname === '127.0.0.1') {
-      Reflect.set(unsafeWindow, 'com.rxliuli.SlackDarkCute.configApi', configApi);
+
+  if (
+    location.href.startsWith('https://userjs.rxliuli.com/') ||
+    location.hostname === '127.0.0.1'
+  ) {
+    Reflect.set(unsafeWindow, 'com.rxliuli.SlackDarkCute.configApi', configApi);
   }
 
 }());

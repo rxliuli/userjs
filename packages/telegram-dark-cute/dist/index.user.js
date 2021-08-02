@@ -2,7 +2,7 @@
 // @name        Telegram 暗黑模式萌化
 // @description Telegram 暗黑模式萌化，理论上支持任何视频背景。
 // @namespace   http://github.com/rxliuli/userjs
-// @version     0.2.6
+// @version     0.2.7
 // @author      rxliuli
 // @match       https://evgeny-nadymov.github.io/*
 // @match       http://127.0.0.1:*/*
