@@ -5,20 +5,6 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"91flac-download@workspace:packages/91flac-download":
-  version: 0.0.0-use.local
-  resolution: "91flac-download@workspace:packages/91flac-download"
-  dependencies:
-    "@rollup/plugin-node-resolve": ^9.0.0
-    "@rollup/plugin-sucrase": ^3.1.0
-    "@types/greasemonkey": ^3.0.0
-    rollup: ^2.29.0
-    rollup-plugin-userscript-metablock: ^0.2.5
-    rx-util: ^1.9.2
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
-
 "@ant-design/colors@npm:^3.1.0":
   version: 3.2.2
   resolution: "@ant-design/colors@npm:3.2.2"
@@ -2633,17 +2619,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"common-dark-cute@*, common-dark-cute@workspace:packages/common-dark-cute":
-  version: 0.0.0-use.local
-  resolution: "common-dark-cute@workspace:packages/common-dark-cute"
-  dependencies:
-    "@rollup/plugin-sucrase": ^3.1.0
-    "@types/greasemonkey": ^3.0.0
-    rollup: ^2.29.0
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
-
 "commondir@npm:^1.0.1":
   version: 1.0.1
   resolution: "commondir@npm:1.0.1"
@@ -4161,9 +4136,9 @@ fsevents@~2.3.1:
     "@rollup/plugin-node-resolve": ^9.0.0
     "@rollup/plugin-sucrase": ^3.1.0
     "@types/greasemonkey": ^3.0.0
-    common-dark-cute: "*"
     rollup: ^2.29.0
     rollup-plugin-userscript-metablock: ^0.2.5
+    rx-util: ^1.9.2
     typescript: ^4.0.3
   languageName: unknown
   linkType: soft
@@ -8195,18 +8170,6 @@ resolve@^1.19.0:
   languageName: node
   linkType: hard
 
-"slack-dark-cute@workspace:packages/slack-dark-cute":
-  version: 0.0.0-use.local
-  resolution: "slack-dark-cute@workspace:packages/slack-dark-cute"
-  dependencies:
-    "@rollup/plugin-sucrase": ^3.1.0
-    "@types/greasemonkey": ^3.0.0
-    rollup: ^2.29.0
-    rollup-plugin-userscript-metablock: ^0.2.5
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
-
 "slash@npm:^2.0.0":
   version: 2.0.0
   resolution: "slash@npm:2.0.0"
@@ -8826,35 +8789,6 @@ resolve@^1.19.0:
   checksum: 13c9b26b22b26b321e842f024fd56831e26fd455cceface3827f2034d1027ad1e9c59b75a98e30a19171b1b5047526d517ec6bf38d2d7bb6bb8d496d7ff239af
   languageName: node
   linkType: hard
-
-"telegram-dark-cute@workspace:packages/telegram-dark-cute":
-  version: 0.0.0-use.local
-  resolution: "telegram-dark-cute@workspace:packages/telegram-dark-cute"
-  dependencies:
-    "@rollup/plugin-node-resolve": ^9.0.0
-    "@rollup/plugin-sucrase": ^3.1.0
-    "@types/greasemonkey": ^3.0.0
-    common-dark-cute: "*"
-    rollup: ^2.29.0
-    rollup-plugin-userscript-metablock: ^0.2.5
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
-
-"telegram-group-user-shield@workspace:packages/telegram-block":
-  version: 0.0.0-use.local
-  resolution: "telegram-group-user-shield@workspace:packages/telegram-block"
-  dependencies:
-    "@liuli-util/async": ^3.2.0
-    "@rollup/plugin-node-resolve": ^9.0.0
-    "@rollup/plugin-sucrase": ^3.1.0
-    "@types/greasemonkey": ^3.0.0
-    common-dark-cute: "*"
-    rollup: ^2.29.0
-    rollup-plugin-userscript-metablock: ^0.2.5
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
 
 "temp-dir@npm:^1.0.0":
   version: 1.0.0
@@ -9702,15 +9636,3 @@ typescript@^4.0.3:
   checksum: 2c487b0e149e746ef48cda9f8bad10fc83693cd69d7f9dcd8be4214e985de33a29c9e24f3c0d6bcf2288427040a8947406ab27f7af67ee9456e6b84854f02dd6
   languageName: node
   linkType: hard
-
-"zhihu-mobile-browse@workspace:packages/zhihu-mobile-browse":
-  version: 0.0.0-use.local
-  resolution: "zhihu-mobile-browse@workspace:packages/zhihu-mobile-browse"
-  dependencies:
-    "@rollup/plugin-sucrase": ^3.1.0
-    "@types/greasemonkey": ^3.0.0
-    rollup: ^2.29.0
-    rollup-plugin-userscript-metablock: ^0.2.5
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
