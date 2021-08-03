@@ -1,8 +1,8 @@
 {
   "name": "goflac-download",
   "namespace": "http://github.com/rxliuli/userjs",
-  "version": "0.2.7",
-  "description": "在 telegram 群组中屏蔽置顶用户的消息",
+  "version": "0.1.0",
+  "description": "简化下载音乐需要重命名的麻烦，基本上和 91flac-download 差不多",
   "author": "rxliuli",
   "match": ["https://www.goflac.com/*"],
   "grant": ["GM_xmlhttpRequest"],
