@@ -5,8 +5,8 @@ import {
   configTypeLabelMap,
 } from '../constant/configTypeLabelMap'
 import * as React from 'react'
-import { pick } from 'rx-util'
 import BlockConfig = UnblockWebRestrictions.BlockConfig
+import { pick } from '@liuli-util/object'
 
 /**
  * 配置新增表单

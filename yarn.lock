@@ -1318,6 +1318,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@liuli-util/object@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "@liuli-util/object@npm:3.2.5"
+  checksum: 2f1e582fb1b717d50460c5e66323eb0f742758b8fe7626b1cef49b163e679cb31008c03631e6eb16b5918dbca87f5ef4748a3039fba47d09095c6457ff496aec
+  languageName: node
+  linkType: hard
+
 "@liuli-util/prettier-standard-config@npm:^0.1.0":
   version: 0.1.0
   resolution: "@liuli-util/prettier-standard-config@npm:0.1.0"
@@ -3371,13 +3378,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es6-object-assign@npm:^1.0.3":
-  version: 1.1.0
-  resolution: "es6-object-assign@npm:1.1.0"
-  checksum: 8d4fdf63484d78b5c64cacc2c2e1165bc7b6a64b739d2a9db6a4dc8641d99cc9efb433cdd4dc3d3d6b00bfa6ce959694e4665e3255190339945c5f33b692b5d8
-  languageName: node
-  linkType: hard
-
 "es6-promise@npm:^4.0.3":
   version: 4.2.8
   resolution: "es6-promise@npm:4.2.8"
@@ -4080,7 +4080,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"glob@npm:7.1.6, glob@npm:^7.0.0, glob@npm:^7.0.3, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4":
+"glob@npm:7.1.6, glob@npm:^7.0.3, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
   dependencies:
@@ -4590,13 +4590,6 @@ fsevents@~2.1.2:
   version: 2.0.0
   resolution: "insert-css@npm:2.0.0"
   checksum: c510411fc2df6fd5106a3bc771417b3ea07ebfefa2c0e360b0901c37d8d3f5de7dc9a78a7c949433ac6875f661a7a6290b71f411b8594284c097fa1fa2a35a35
-  languageName: node
-  linkType: hard
-
-"interpret@npm:^1.0.0":
-  version: 1.4.0
-  resolution: "interpret@npm:1.4.0"
-  checksum: 2e5f51268b5941e4a17e4ef0575bc91ed0ab5f8515e3cf77486f7c14d13f3010df9c0959f37063dcc96e78d12dc6b0bb1b9e111cdfe69771f4656d2993d36155
   languageName: node
   linkType: hard
 
@@ -7645,15 +7638,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rechoir@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "rechoir@npm:0.6.2"
-  dependencies:
-    resolve: ^1.1.6
-  checksum: fe76bf9c21875ac16e235defedd7cbd34f333c02a92546142b7911a0f7c7059d2e16f441fe6fb9ae203f459c05a31b2bcf26202896d89e390eda7514d5d2702b
-  languageName: node
-  linkType: hard
-
 "redent@npm:^1.0.0":
   version: 1.0.0
   resolution: "redent@npm:1.0.0"
@@ -7810,7 +7794,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"resolve@^1.1.6, resolve@^1.10.0, resolve@^1.17.0":
+"resolve@^1.10.0, resolve@^1.17.0":
   version: 1.17.0
   resolution: "resolve@npm:1.17.0"
   dependencies:
@@ -7829,7 +7813,7 @@ resolve@^1.19.0:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>":
   version: 1.17.0
   resolution: "resolve@patch:resolve@npm%3A1.17.0#~builtin<compat/resolve>::version=1.17.0&hash=00b1ff"
   dependencies:
@@ -8167,32 +8151,6 @@ resolve@^1.19.0:
   version: 1.0.0
   resolution: "shebang-regex@npm:1.0.0"
   checksum: 404c5a752cd40f94591dfd9346da40a735a05139dac890ffc229afba610854d8799aaa52f87f7e0c94c5007f2c6af55bdcaeb584b56691926c5eaf41dc8f1372
-  languageName: node
-  linkType: hard
-
-"shelljs@npm:^0.8.1":
-  version: 0.8.4
-  resolution: "shelljs@npm:0.8.4"
-  dependencies:
-    glob: ^7.0.0
-    interpret: ^1.0.0
-    rechoir: ^0.6.2
-  bin:
-    shjs: bin/shjs
-  checksum: 27f83206ef6a4f5b74a493726c3e6b4c3e07a9c2aac94c5e692d800a61353c18a8234967bd8523b1346abe718beb563843687fb57f466529ba06db3cae6f0bb3
-  languageName: node
-  linkType: hard
-
-"shx@npm:^0.3.2":
-  version: 0.3.2
-  resolution: "shx@npm:0.3.2"
-  dependencies:
-    es6-object-assign: ^1.0.3
-    minimist: ^1.2.0
-    shelljs: ^0.8.1
-  bin:
-    shx: lib/cli.js
-  checksum: 4b62e894b48f78d180243aec0ebc411aefd17110ac10c9d1d339acd429c38fd63c6e1bc1aa1aec0daea13601625c89653f5430b470828be81ae8b7aeb77f84c8
   languageName: node
   linkType: hard
 
@@ -9013,6 +8971,7 @@ resolve@^1.19.0:
     "@rollup/plugin-node-resolve": ^9.0.0
     "@rollup/plugin-sucrase": ^3.1.0
     "@types/tampermonkey": ^4.0.0
+    gh-pages: ^3.2.3
     rollup: ^2.50.0
     rollup-plugin-userscript-metablock: ^0.2.5
     typescript: ^4.0.3
@@ -9453,6 +9412,7 @@ typescript@^4.0.3:
   dependencies:
     "@ant-design/icons": ^4.2.2
     "@csstools/normalize.css": ^11.0.1
+    "@liuli-util/object": ^3.2.5
     "@types/react": ^16.9.51
     "@types/react-dom": ^16.9.8
     "@types/react-router": ^5.1.8
@@ -9464,8 +9424,6 @@ typescript@^4.0.3:
     react-dom: ^17.0.2
     react-router-dom: ^5.2.0
     react-use: ^17.2.4
-    rx-util: ^1.9.2
-    shx: ^0.3.2
     typescript: ^4.0.3
     vite: ^2.0.5
   languageName: unknown
