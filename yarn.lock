@@ -1286,10 +1286,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@liuli-util/array@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "@liuli-util/array@npm:3.2.5"
+  checksum: 5c304dd9419de5c8e9927663cbdfce90bbcb53187ae2139af198a4f3172e9be1b41ac183bc16b4359bc46cf10991ca6221d36292ea4df6bd242c4f1f454dc8d8
+  languageName: node
+  linkType: hard
+
 "@liuli-util/async@npm:^3.2.0":
   version: 3.2.0
   resolution: "@liuli-util/async@npm:3.2.0"
   checksum: f7c424512b7b77ee66a77992f6efb2da5a1b1fbdbabcd0779cf7fa2d4de0ecbac568ec0dbdc4274547b6d4ccb44b0099152b6d239b2e9bac0fd4a2e267267807
+  languageName: node
+  linkType: hard
+
+"@liuli-util/dom@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "@liuli-util/dom@npm:3.2.5"
+  dependencies:
+    "@liuli-util/array": ^3.2.5
+  checksum: bad9e281914810681fc6f3ad32fbac36bcedfc7add60d603e7bd686f806279b1e91be9c327ffe8bff61b150f0e45e72932fe7b325dd895f1070b2ef267e86157
   languageName: node
   linkType: hard
 
@@ -3812,7 +3828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@~2.3.1#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@~2.3.1#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=1cc4b2"
   dependencies:
@@ -3830,7 +3846,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-fsevents@~2.3.1:
+"fsevents@~2.3.1, fsevents@~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -4133,12 +4149,15 @@ fsevents@~2.3.1:
   resolution: "goflac-download@workspace:packages/goflac-download"
   dependencies:
     "@liuli-util/async": ^3.2.0
+    "@liuli-util/dom": ^3.2.5
     "@rollup/plugin-node-resolve": ^9.0.0
     "@rollup/plugin-sucrase": ^3.1.0
     "@types/greasemonkey": ^3.0.0
-    rollup: ^2.29.0
+    gh-pages: ^3.2.3
+    rollup: ^2.55.1
     rollup-plugin-userscript-metablock: ^0.2.5
     rx-util: ^1.9.2
+    sweetalert2: ^11.1.0
     typescript: ^4.0.3
   languageName: unknown
   linkType: soft
@@ -7944,6 +7963,20 @@ resolve@^1.19.0:
   languageName: node
   linkType: hard
 
+"rollup@npm:^2.55.1":
+  version: 2.55.1
+  resolution: "rollup@npm:2.55.1"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 504f293723b98431cbd57341d6bbfe5388fcbfa7c34046885f81b51329a9316a08641945051857e05623e72b9b1ceb529a6e60275593d2710fe27f353c194962
+  languageName: node
+  linkType: hard
+
 "rtl-css-js@npm:^1.14.0":
   version: 1.14.1
   resolution: "rtl-css-js@npm:1.14.1"
@@ -8758,6 +8791,13 @@ resolve@^1.19.0:
   dependencies:
     has-flag: ^4.0.0
   checksum: 3dda818de06ebbe5b9653e07842d9479f3555ebc77e9a0280caf5a14fb877ffee9ed57007c3b78f5a6324b8dbeec648d9e97a24e2ed9fdb81ddc69ea07100f4a
+  languageName: node
+  linkType: hard
+
+"sweetalert2@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "sweetalert2@npm:11.1.0"
+  checksum: 7a3d0d2ffe28d851e9cf2dd354987084accc0c719291b29d5eeac3cc46dbca938b033ec73963c7ad7c457f031fe99177bfd2f6db23f6498f906c1278bc974b11
   languageName: node
   linkType: hard
 

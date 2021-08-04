@@ -1,47 +1,6 @@
-import { createElByString, download, singleModel } from 'rx-util'
+import { download } from '@liuli-util/dom'
 import { wait } from '@liuli-util/async'
-
-/**
- * 简单的弹窗组件
- */
-const Loading = singleModel(
-  class Loading {
-    constructor() {
-      const LoadingText = `
-    <div class="rx-loading" style="position: fixed; right: 10px; bottom: 10px;">
-      <div
-        class="loading-content"
-        style="background-color: grey; color: white; font-size: 20px; padding: 10px;"
-      >
-        正在下载...（<span class="loading-progress">50</span>%）
-      </div>
-    </div>
-    `
-      // eslint-disable-next-line no-undef
-      document.body.append(createElByString(LoadingText)!)
-      this.hide()
-    }
-    show() {
-      ;(document.querySelector('.rx-loading') as HTMLElement).style.display =
-        'block'
-    }
-    hide() {
-      ;(document.querySelector('.rx-loading') as HTMLElement).style.display =
-        'none'
-    }
-    progress(num: number) {
-      ;(document.querySelector(
-        '.rx-loading .loading-progress',
-      ) as HTMLElement).innerHTML = num.toString()
-    }
-  },
-)
-function load() {
-  const loading = new Loading()
-  loading.show()
-  loading.progress(0)
-  return loading
-}
+import { loading } from './loading'
 
 /**
  * 下载歌曲
@@ -49,7 +8,7 @@ function load() {
  * @param {string} name 歌曲全名，包括后缀
  */
 function downloadMusic(url: string, name: string) {
-  const loading = load()
+  const instance = loading('正在下载... 0%')
   // eslint-disable-next-line no-undef
   GM_xmlhttpRequest({
     method: 'GET',
@@ -58,14 +17,14 @@ function downloadMusic(url: string, name: string) {
     onload(res: any) {
       // eslint-disable-next-line no-undef
       download(res.response, name)
-      loading.hide()
+      instance.hide()
     },
     onprogress(res: any) {
       if (res.readyState !== 3) {
         return
       }
       const num = Math.floor(((res as any).done * 100) / res.total)
-      loading.progress(num)
+      instance.update(`正在下载... ${num}%`)
     },
   } as any)
 }
@@ -79,17 +38,6 @@ function getMusicName() {
 
 function getLink() {
   return (document.querySelector('div.mt-4 a') as HTMLLinkElement).href
-}
-
-function addMask(el: HTMLDivElement) {
-  const mask = document.createElement('div')
-  mask.style.position = 'absolute'
-  mask.style.left = '0'
-  mask.style.right = '0'
-  mask.style.top = '0'
-  mask.style.bottom = '0'
-  el.style.position = 'relative'
-  el.appendChild(mask)
 }
 
 enum TypeEnum {
@@ -138,7 +86,17 @@ function hideDialog() {
   dialogStyle.left = '-10000px'
 }
 
+function insertCSS(href: string) {
+  const linkElement = document.createElement('link')
+  linkElement.rel = 'stylesheet'
+  linkElement.href = href
+  document.head.appendChild(linkElement)
+}
+
 function main() {
+  insertCSS(
+    'https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.css',
+  )
   const downloadButtonList = document.getElementsByClassName('-m-2')[1]
   hideDialog()
   downloadButtonList.addEventListener('click', async (evt) => {
