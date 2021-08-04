@@ -2,7 +2,6 @@
 // @name        goflac-download
 // @description 简化下载音乐需要重命名的麻烦，基本上和 91flac-download 差不多
 // @namespace   http://github.com/rxliuli/userjs
-// @require     https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.js
 // @version     0.1.0
 // @author      rxliuli
 // @match       https://www.goflac.com/*
