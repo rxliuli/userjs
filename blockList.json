@@ -37,10 +37,6 @@
   },
   {
     "type": "domain",
-    "url": "ciweimao.com"
-  },
-  {
-    "type": "domain",
     "url": "doc.mbalib.com"
   },
   {
@@ -309,10 +305,10 @@
   },
   {
     "type": "regex",
-    "url": ".*\\.pixnet\\.net"
+    "url": ".*\\.cnki\\.net.*/.*/Detail"
   },
   {
     "type": "regex",
-    "url": ".*\\.cnki\\.net.*/.*/Detail"
+    "url": ".*\\.pixnet\\.net"
   }
 ]
