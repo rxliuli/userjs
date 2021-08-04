@@ -70,11 +70,6 @@
     }
   }
 
-
-
-
-
-
   let instance;
   function loading(content) {
     if (!instance) {
