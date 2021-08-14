@@ -1,10 +1,10 @@
 # 解除网页限制
 
-> [GitHub](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/), [GreasyFork](https://greasyfork.org/zh-CN/scripts/391193)
-
 ## 简介
 
-> [English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文简体](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
+[English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
+
+> [安装](https://github.com/rxliuli/userjs/raw/gh-pages/unblock-web-restrictions/index.user.js)
 
 之所以要写这个脚本的原因在于目前已有的 UserJS 脚本添加/禁用域名很不方便，所以便自己写一个，方便吾辈更好的使用。
 
