@@ -1,6 +1,6 @@
 # translation-selection
 
-> > [安装](https://github.com/rxliuli/userjs/raw/gh-pages/translation-selection/index.user.js)
+> [安装](https://github.com/rxliuli/userjs/raw/gh-pages/translation-selection/index.user.js)
 
 ## 使用
 
