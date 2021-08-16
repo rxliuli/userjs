@@ -4,7 +4,7 @@
 
 [English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
 
-> [Install](https://github.com/rxliuli/userjs/raw/gh-pages/unblock-web-restrictions/index.user.js)
+> [Install](https://userjs.rxliuli.com/unblock-web-restrictions/index.user.js)
 
 The reason why this script is written is that it is very inconvenient to add / disable the domain name in the existing UserJS script, so write one myself, which is convenient for my generation to use.
 

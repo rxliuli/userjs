@@ -9133,7 +9133,7 @@ typescript@^4.0.3:
 
 "typescript@patch:typescript@^4.0.3#~builtin<compat/typescript>":
   version: 4.0.3
-  resolution: "typescript@patch:typescript@npm%3A4.0.3#~builtin<compat/typescript>::version=4.0.3&hash=d8b4e7"
+  resolution: "typescript@patch:typescript@npm%3A4.0.3#~builtin<compat/typescript>::version=4.0.3&hash=34ad7d"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
