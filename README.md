@@ -7,6 +7,8 @@
 - [解除网页限制](./packages/unblock-web-restrictions): 快速解除/恢复网页限制
 - [translation-selection](./packages/translation-selection): 将网页上选中的文字为英文，然后复制到剪切版便于粘贴
 - [goflac-download](./packages/goflac-download): 简化下载音乐需要重命名的麻烦，基本上和 91flac-download 差不多
+- [mdn-auto-chinese](./packages/mdn-auto-chinese): 如果检测到当前页面有中文翻译的话就跳转到中文翻译页面
+- [npmjs-copy-name-only](./packages/npmjs-copy-name-only): npm.js 仅复制名字，而不复制 `npm i` 前缀
 - [user.css](./packages/usercss): 一些 user.css 样式
 - [website](./packages/website): 脚本的配置网站
 
