@@ -86,17 +86,7 @@ function hideDialog() {
   dialogStyle.left = '-10000px'
 }
 
-function insertCSS(href: string) {
-  const linkElement = document.createElement('link')
-  linkElement.rel = 'stylesheet'
-  linkElement.href = href
-  document.head.appendChild(linkElement)
-}
-
 function main() {
-  insertCSS(
-    'https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.css',
-  )
   const downloadButtonList = document.getElementsByClassName('-m-2')[1]
   hideDialog()
   downloadButtonList.addEventListener('click', async (evt) => {
