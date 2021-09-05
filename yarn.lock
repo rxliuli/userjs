@@ -4133,8 +4133,6 @@ fsevents@~2.1.2:
     gh-pages: ^3.2.3
     rollup: ^2.55.1
     rollup-plugin-userscript-metablock: ^0.2.5
-    rx-util: ^1.9.2
-    sweetalert2: ^11.1.0
     typescript: ^4.4.2
   languageName: unknown
   linkType: soft
@@ -5434,6 +5432,20 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdn-auto-chinese@workspace:packages/mdn-auto-chinese":
+  version: 0.0.0-use.local
+  resolution: "mdn-auto-chinese@workspace:packages/mdn-auto-chinese"
+  dependencies:
+    "@rollup/plugin-node-resolve": ^9.0.0
+    "@rollup/plugin-sucrase": ^3.1.0
+    "@types/greasemonkey": ^3.0.0
+    gh-pages: ^3.2.3
+    rollup: ^2.55.1
+    rollup-plugin-userscript-metablock: ^0.2.5
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
+
 "mdn-data@npm:2.0.14":
   version: 2.0.14
   resolution: "mdn-data@npm:2.0.14"
@@ -6078,6 +6090,20 @@ fsevents@~2.1.2:
   checksum: acd5ad81648ba4588ba5a8effb1d98d2b339d31be16826a118d50f182a134ac523172101b82eab1d01cb4c2ba358e857d54cfafd8163a1ffe7bd52100b741125
   languageName: node
   linkType: hard
+
+"npmjs-copy-name-only@workspace:packages/npmjs-copy-name-only":
+  version: 0.0.0-use.local
+  resolution: "npmjs-copy-name-only@workspace:packages/npmjs-copy-name-only"
+  dependencies:
+    "@rollup/plugin-node-resolve": ^9.0.0
+    "@rollup/plugin-sucrase": ^3.1.0
+    "@types/greasemonkey": ^3.0.0
+    gh-pages: ^3.2.3
+    rollup: ^2.55.1
+    rollup-plugin-userscript-metablock: ^0.2.5
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
 
 "npmlog@npm:^4.1.2":
   version: 4.1.2
@@ -8724,13 +8750,6 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"sweetalert2@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "sweetalert2@npm:11.1.0"
-  checksum: 7a3d0d2ffe28d851e9cf2dd354987084accc0c719291b29d5eeac3cc46dbca938b033ec73963c7ad7c457f031fe99177bfd2f6db23f6498f906c1278bc974b11
-  languageName: node
-  linkType: hard
-
 "tar@npm:^4.4.10, tar@npm:^4.4.12, tar@npm:^4.4.8":
   version: 4.4.13
   resolution: "tar@npm:4.4.13"
@@ -9086,7 +9105,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-typescript@^4.4.2:
+"typescript@^4.0.3, typescript@^4.4.2":
   version: 4.4.2
   resolution: "typescript@npm:4.4.2"
   bin:
@@ -9096,7 +9115,7 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.4.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.0.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.2#~builtin<compat/typescript>":
   version: 4.4.2
   resolution: "typescript@patch:typescript@npm%3A4.4.2#~builtin<compat/typescript>::version=4.4.2&hash=34ad7d"
   bin:
