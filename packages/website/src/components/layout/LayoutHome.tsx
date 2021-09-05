@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { Layout, Menu } from 'antd'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { Switch, useHistory } from 'react-router-dom'
 import { useState } from 'react'
-import { allRouteList } from './constant/allRouteList'
+import { routeList } from './constant/routeList'
+import { renderRoutes } from 'react-router-config'
 
 type PropsType = {}
 
@@ -42,7 +43,7 @@ const LayoutHome: React.FC<PropsType> = () => {
             mode="inline"
             style={{ height: 'calc(100% - 56px)', borderRight: 0 }}
           >
-            {allRouteList.map((config) => (
+            {routeList.map((config) => (
               <Menu.Item key={config.path as string}>
                 {config.meta.title}
               </Menu.Item>
@@ -50,11 +51,7 @@ const LayoutHome: React.FC<PropsType> = () => {
           </Menu>
         </Layout.Sider>
         <React.Suspense fallback={'正在加载中...'}>
-          <Switch>
-            {allRouteList.map((config, i) => (
-              <Route {...config} key={i} />
-            ))}
-          </Switch>
+          <Switch>{renderRoutes(routeList)}</Switch>
         </React.Suspense>
       </Layout>
     </Layout>

@@ -1,13 +1,13 @@
-import { RouteProps } from 'react-router'
 import { lazy } from 'react'
+import { RouteConfig } from 'react-router-config'
 
-interface RouteConfig extends RouteProps {
+type RouteMenuConfig = RouteConfig & {
   meta: {
     title: string
   }
 }
 
-export const allRouteList: RouteConfig[] = [
+export const routeList: RouteMenuConfig[] = [
   {
     path: '/',
     component: lazy(() => import('../../../pages/home/Home')),
