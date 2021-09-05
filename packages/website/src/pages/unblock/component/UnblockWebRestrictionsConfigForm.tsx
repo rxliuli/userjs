@@ -1,4 +1,4 @@
-import { Button, Form, Input, message, Select } from 'antd'
+import { Button, Form, Input, message, Select, Space } from 'antd'
 import { match } from '../util/match'
 import {
   configBlockApi,
@@ -21,6 +21,7 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
   }
 
   async function onFinish(values: Record<string, string>) {
+    console.log('values: ', values)
     const _values = values as Pick<BlockConfig, 'type' | 'url'> & {
       tempUrl: string
     }
@@ -31,7 +32,7 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
   }
 
   return (
-    <Form form={form} onFinish={onFinish} layout={'vertical'}>
+    <Form form={form} onFinish={onFinish} onReset={onReset} layout={'vertical'}>
       <Form.Item
         label={'匹配模式'}
         name={'type'}
@@ -55,21 +56,22 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
         label={'测试需要匹配的 URL'}
         name={'tempUrl'}
         rules={[
-          { required: true, message: '测试需要匹配的 URL 不能为空' },
           {
             type: 'url',
             message: '测试需要匹配的 URL 必须是个 URL 啊喂 (#`O′)',
           },
           (form) => ({
-            validator(rule, _, error) {
+            async validator(rule, _) {
               const values = form.getFieldsValue() as Pick<
                 BlockConfig,
                 'type' | 'url'
               > & { tempUrl: string }
-              if (match(new URL(values.tempUrl), values)) {
-                return
+              if (!values.tempUrl) {
+                throw new Error('测试需要匹配的 URL 不能为空')
               }
-              error('测试需要匹配的 URL 未能匹配！')
+              if (!match(new URL(values.tempUrl), values)) {
+                throw new Error('测试需要匹配的 URL 未能匹配！')
+              }
             },
           }),
         ]}
@@ -78,18 +80,12 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
         <Input />
       </Form.Item>
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType={'submit'}
-          style={{
-            marginRight: 8,
-          }}
-        >
-          提交
-        </Button>
-        <Button htmlType={'reset'} onClick={onReset}>
-          清空
-        </Button>
+        <Space>
+          <Button type="primary" htmlType={'submit'}>
+            提交
+          </Button>
+          <Button htmlType={'reset'}>清空</Button>
+        </Space>
       </Form.Item>
     </Form>
   )
