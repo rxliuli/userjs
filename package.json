@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "clean": "yarn workspaces foreach -p exec rimraf dist release",
-    "build": "yarn workspaces foreach -p --topological-dev run build",
-    "deploy": "yarn workspaces foreach -p run deploy"
+    "clean-all": "pnpx rimraf **/node_modules **/dist **/release",
+    "build-all": "pnpm --filter ./packages run build",
+    "deploy-all": "pnpm --filter ./packages run deploy",
+    "postinstall": "simple-git-hooks"
   },
   "workspaces": [
     "packages/*"
@@ -17,14 +18,30 @@
   "prettier": "@liuli-util/prettier-standard-config",
   "devDependencies": {
     "@liuli-util/prettier-standard-config": "^0.1.0",
-    "@types/greasemonkey": "^3.0.0",
-    "lerna": "^3.22.1",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
-    "rx-util": "^1.9.2",
-    "ts-node": "^9.0.0",
-    "type-fest": "^0.21.2",
-    "typescript": "^4.4.2"
+    "prettier": "^2.3.2",
+    "@commitlint/cli": "^12.1.4",
+    "@liuli-util/commitlint-standard-config": "^0.1.6",
+    "simple-git-hooks": "^2.5.1",
+    "lint-staged": "^11.1.1"
   },
-  "packageManager": "yarn@3.0.0-rc.2"
+  "sync": [
+    "prettier",
+    "commitlint",
+    "simplehooks"
+  ],
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit $1",
+    "pre-commit": "npx lint-staged"
+  },
+  "commitlint": {
+    "extends": [
+      "@liuli-util/commitlint-standard-config"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,vue}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
 }

@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "build": "rollup -c",
-    "watch": "yarn build -w",
+    "watch": "pnpm build -w",
     "deploy": "gh-pages -d dist -e /goflac-download -a"
   },
   "devDependencies": {

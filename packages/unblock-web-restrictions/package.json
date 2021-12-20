@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "build": "rollup -c",
-    "watch": "yarn build -w",
+    "watch": "pnpm build -w",
     "deploy": "gh-pages -d dist -e /unblock-web-restrictions -a && gh-pages -d assets -a"
   },
   "devDependencies": {
