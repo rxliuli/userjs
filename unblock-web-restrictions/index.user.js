@@ -18,7 +18,6 @@
 // @grant       GM_xmlhttpRequest
 // @grant       unsafeWindow
 // ==/UserScript==
-
 (function (rxUtil) {
   'use strict';
 
@@ -435,4 +434,4 @@ time, mark, audio, video, html body * {
 
   new Application().start();
 
-}(rx));
+})(rx);
