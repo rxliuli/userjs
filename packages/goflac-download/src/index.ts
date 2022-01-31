@@ -30,9 +30,7 @@ function downloadMusic(url: string, name: string) {
 }
 
 function getMusicName() {
-  const titleElement = document.querySelector(
-    'main .space-y-2 .inline',
-  ) as HTMLDivElement
+  const titleElement = document.querySelector('h1') as HTMLDivElement
   return titleElement.textContent!.replaceAll(' ', '')
 }
 
@@ -70,16 +68,16 @@ function getType(text: string): TypeEnum | null {
   text = text.toLocaleLowerCase()
   for (let [k, v] of Object.entries(textToTypeMap)) {
     if (v.every((s) => text.includes(s))) {
-      return (k as unknown) as TypeEnum
+      return k as unknown as TypeEnum
     }
   }
   return null
 }
 
 function hideDialog() {
-  const dialogStyle = (document.querySelector(
-    '.jetstream-modal',
-  ) as HTMLDivElement).style
+  const dialogStyle = (
+    document.querySelector('.jetstream-modal') as HTMLDivElement
+  ).style
   dialogStyle.zIndex = '-100'
   dialogStyle.display = 'none'
   dialogStyle.position = 'fixed'
