@@ -4,9 +4,15 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -cw",
-    "deploy": "gh-pages -d dist -e /goflac-download -a"
+    "deploy": "liuli-cli deploy"
+  },
+  "deploy": {
+    "type": "gh-pages",
+    "dist": "dist",
+    "dest": "/goflac-download"
   },
   "devDependencies": {
+    "@liuli-util/cli": "^3.18.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-sucrase": "^3.1.0",
     "@types/greasemonkey": "^3.0.0",
