@@ -682,8 +682,13 @@ break;case "inversionMode":switch(c){case "original":Y="dontInvert";break;case "
   }
 
   // src/index.ts
-  var imageMap = /* @__PURE__ */ new Map();
   var qrEngine;
+  function get(src) {
+    return localStorage.getItem("twitter-block-qr__" + src);
+  }
+  function set(src, value) {
+    localStorage.setItem("twitter-block-qr__" + src, value.toString());
+  }
   async function containerQr(img) {
     const resp = await fetch(img.src);
     const blob = await resp.blob();
@@ -697,12 +702,12 @@ break;case "inversionMode":switch(c){case "original":Y="dontInvert";break;case "
     }
   }
   async function blockQrImages() {
-    const list = Array.from(document.querySelectorAll("img")).filter((item) => item.width > 100 && imageMap.get(item.src) !== false);
+    const list = Array.from(document.querySelectorAll("img")).filter((item) => item.width > 100 && get(item.src) !== "false");
     console.log("list: ", list);
     await m.forEach(list, async (img) => {
       const src = img.src;
-      const res = imageMap.get(src) ?? await containerQr(img);
-      imageMap.set(src, res);
+      const res = get(src) ?? await containerQr(img);
+      set(src, res);
       if (!res) {
         return;
       } else {
