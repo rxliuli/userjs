@@ -684,7 +684,6 @@ break;case "inversionMode":switch(c){case "original":Y="dontInvert";break;case "
   // src/index.ts
   var imageMap = /* @__PURE__ */ new Map();
   var qrEngine;
-  Reflect.set(unsafeWindow, "QrScanner", qr_scanner_min_default);
   async function containerQr(img) {
     const resp = await fetch(img.src);
     const blob = await resp.blob();
