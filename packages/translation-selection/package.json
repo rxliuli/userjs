@@ -2,18 +2,26 @@
   "name": "translation-selection",
   "version": "0.1.0",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "pnpm build -w",
+    "build": "liuli-cli build single -t userjs",
+    "dev": "liuli-cli build single -t userjs -w",
     "deploy": "gh-pages -d dist -e /translation-selection -a"
   },
+  "userjs": {
+    "name": "translation-selection",
+    "namespace": "https://github.com/rxliuli/userjs",
+    "version": "0.1.0",
+    "description": "将网页上选中的文字为英文，然后复制到剪切版便于粘贴",
+    "author": "rxliuli",
+    "include": "*",
+    "grant": [
+      "GM_xmlhttpRequest",
+      "GM_notification"
+    ],
+    "license": "MIT"
+  },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-sucrase": "^3.1.0",
+    "@liuli-util/cli": "^3.19.0",
     "@types/tampermonkey": "^4.0.0",
-    "gh-pages": "^3.2.3",
-    "rollup": "^2.50.0",
-    "rollup-plugin-userscript-metablock": "^0.2.5",
     "typescript": "^4.4.2"
   },
   "dependencies": {

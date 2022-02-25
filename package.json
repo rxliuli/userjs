@@ -17,12 +17,12 @@
   ],
   "prettier": "@liuli-util/prettier-standard-config",
   "devDependencies": {
-    "@liuli-util/prettier-standard-config": "^0.1.0",
-    "prettier": "^2.3.2",
     "@commitlint/cli": "^12.1.4",
     "@liuli-util/commitlint-standard-config": "^0.1.6",
-    "simple-git-hooks": "^2.5.1",
-    "lint-staged": "^11.1.1"
+    "@liuli-util/prettier-standard-config": "^0.1.0",
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2",
+    "simple-git-hooks": "^2.5.1"
   },
   "sync": [
     "prettier",

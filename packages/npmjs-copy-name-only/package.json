@@ -2,17 +2,24 @@
   "name": "npmjs-copy-name-only",
   "version": "0.1.0",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "pnpm build -w",
+    "build": "liuli-cli build single -t userjs",
+    "dev": "liuli-cli build single -t userjs -w",
     "deploy": "gh-pages -d dist -e /npmjs-copy-name-only -a"
   },
+  "userjs": {
+    "name": "npmjs-copy-name-only",
+    "namespace": "https://github.com/rxliuli/userjs",
+    "version": "0.1.0",
+    "description": "npm.js 仅复制名字",
+    "author": "rxliuli",
+    "match": [
+      "https://www.npmjs.com/package/*"
+    ],
+    "icon": "https://www.google.com/s2/favicons?domain=npmjs.com"
+  },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-sucrase": "^3.1.0",
+    "@liuli-util/cli": "^3.19.0",
     "@types/greasemonkey": "^3.0.0",
-    "gh-pages": "^3.2.3",
-    "rollup": "^2.55.1",
-    "rollup-plugin-userscript-metablock": "^0.2.5",
     "typescript": "^4.0.3"
   }
 }

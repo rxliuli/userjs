@@ -2,8 +2,8 @@
   "name": "goflac-download",
   "version": "0.1.1",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -cw",
+    "build": "liuli-cli build single -t userjs",
+    "dev": "liuli-cli build single -t userjs -w",
     "deploy": "liuli-cli deploy"
   },
   "deploy": {
@@ -11,14 +11,23 @@
     "dist": "dist",
     "dest": "/goflac-download"
   },
+  "userjs": {
+    "name": "goflac-download",
+    "namespace": "http://github.com/rxliuli/userjs",
+    "version": "0.1.1",
+    "description": "简化下载音乐需要重命名的麻烦，基本上和 91flac-download 差不多",
+    "author": "rxliuli",
+    "match": [
+      "https://www.goflac.com/*"
+    ],
+    "grant": [
+      "GM_xmlhttpRequest"
+    ],
+    "license": "MIT"
+  },
   "devDependencies": {
-    "@liuli-util/cli": "^3.18.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-sucrase": "^3.1.0",
+    "@liuli-util/cli": "^3.19.0",
     "@types/greasemonkey": "^3.0.0",
-    "gh-pages": "^3.2.3",
-    "rollup": "^2.55.1",
-    "rollup-plugin-userscript-metablock": "^0.2.5",
     "typescript": "^4.4.2"
   },
   "dependencies": {

@@ -1,9 +1,0 @@
-{
-  "name": "npmjs-copy-name-only",
-  "namespace": "https://github.com/rxliuli/userjs",
-  "version": "0.1.0",
-  "description": "npm.js 仅复制名字",
-  "author": "rxliuli",
-  "match": ["https://www.npmjs.com/package/*"],
-  "icon": "https://www.google.com/s2/favicons?domain=npmjs.com"
-}
