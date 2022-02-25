@@ -8,8 +8,7 @@
   "private": true,
   "scripts": {
     "clean-all": "pnpx rimraf **/node_modules **/dist **/release",
-    "build-all": "pnpm --filter ./packages run build",
-    "deploy-all": "pnpm --filter ./packages run deploy",
+    "build-all": "pnpm --filter ./apps run build",
     "postinstall": "simple-git-hooks"
   },
   "workspaces": [
