@@ -1,6 +1,6 @@
 {
   "name": "userjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "一些吾辈日常浏览网页需要用到便自行实现的 userjs 脚本",
   "repository": "git@github.com:rxliuli/userjs.git",
   "author": "rxliuli",
