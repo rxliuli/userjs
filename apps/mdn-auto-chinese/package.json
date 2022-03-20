@@ -1,6 +1,6 @@
 {
   "name": "mdn-auto-chinese",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "build": "liuli-cli build single -t userjs",
     "dev": "liuli-cli build single -t userjs -w",
