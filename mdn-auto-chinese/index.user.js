@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name mdn-auto-chinese
 // @namespace https://github.com/rxliuli/userjs
-// @version 0.1.0
+// @version 0.2.0
 // @description 如果有中文翻译的话就跳转到中文翻译页面
 // @author rxliuli
 // @match http*://developer.mozilla.org/*
