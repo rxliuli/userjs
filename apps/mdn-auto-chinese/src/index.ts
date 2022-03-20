@@ -1,3 +1,9 @@
+function parseLocales(): string[] {
+  return JSON.parse(
+    document.querySelector('#hydration')!.textContent!,
+  ).doc.other_translations.map((item: { locale: string }) => item.locale)
+}
+
 /**
  * MDN 自动跳转中文翻译
  * 如果来到一个 MDN 的网页
@@ -19,10 +25,7 @@ function goto() {
   }
 
   // 获取可能存在的中文翻译页面
-  const $lang = document.querySelector(
-    '#language-selector',
-  ) as HTMLSelectElement
-  const someZhCN = [...$lang.options].some((item) => item.value === 'zh-CN')
+  const someZhCN = parseLocales().includes('zh-CN')
 
   // 如果有就跳转过去
   if (someZhCN) {
