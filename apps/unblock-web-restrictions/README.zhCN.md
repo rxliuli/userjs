@@ -2,7 +2,7 @@
 
 ## 简介
 
-[English](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.md), [中文](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/README.zhCN.md)
+[English](https://github.com/rxliuli/userjs/blob/master/apps/unblock-web-restrictions/README.md), [中文](https://github.com/rxliuli/userjs/blob/master/apps/unblock-web-restrictions/README.zhCN.md)
 
 > [安装](https://userjs.rxliuli.com/unblock-web-restrictions/index.user.js)
 
