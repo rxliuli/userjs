@@ -18,7 +18,7 @@
 votetw.com##div[style="width: 100%; height: 100%; top: 0;left: 0; position:fixed; z-index: 255;"]
 ```
 
-- 使用 user.css 删除该遮罩 [点此安装](https://github.com/rxliuli/userjs/blob/master/packages/usercss/%E5%88%A0%E9%99%A4%E5%8F%B0%E7%81%A3%E9%81%B8%E8%88%89%E7%B6%AD%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9.user.css)
+- 使用 user.css 删除该遮罩 [点此安装](https://github.com/rxliuli/userjs/blob/master/apps/usercss/%E5%88%A0%E9%99%A4%E5%8F%B0%E7%81%A3%E9%81%B8%E8%88%89%E7%B6%AD%E5%9F%BA%E7%99%BE%E7%A7%91%E7%9A%84%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9.user.css)
 
 ```css
 /* ==UserStyle==
@@ -49,7 +49,7 @@ myhtebooks.com##+js(ra, oncontextmenu|ondragstart|onselectstart|onselect|oncopy|
 myhtebooks.com##*:style(-webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important;)
 ```
 
-- 使用 user.css 来删除文字的透明遮罩图片 [点此安装](https://github.com/rxliuli/userjs/blob/master/packages/usercss/%E6%B5%B7%E6%A3%A0%E6%96%87%E5%8C%96%E5%88%A0%E9%99%A4%E6%96%87%E5%AD%97%E7%9A%84%E9%81%AE%E7%BD%A9%E5%9B%BE%E7%89%87.user.css)
+- 使用 user.css 来删除文字的透明遮罩图片 [点此安装](https://github.com/rxliuli/userjs/blob/master/apps/usercss/%E6%B5%B7%E6%A3%A0%E6%96%87%E5%8C%96%E5%88%A0%E9%99%A4%E6%96%87%E5%AD%97%E7%9A%84%E9%81%AE%E7%BD%A9%E5%9B%BE%E7%89%87.user.css)
 
 ```css
 /* ==UserStyle==
@@ -80,7 +80,7 @@ boke112.com##+js(aopw, stopPrntScr)
 boke112.com##*::selection:style(background-color:#338FFF!important)
 ```
 
-- 使用 user style 恢复文本高亮的颜色 [点此安装](https://github.com/rxliuli/userjs/blob/master/packages/usercss/boke112%20%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%81%A2%E5%A4%8D%E9%AB%98%E4%BA%AE.user.css)
+- 使用 user style 恢复文本高亮的颜色 [点此安装](https://github.com/rxliuli/userjs/blob/master/apps/usercss/boke112%20%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%81%A2%E5%A4%8D%E9%AB%98%E4%BA%AE.user.css)
 
 ```css
 /* ==UserStyle==
