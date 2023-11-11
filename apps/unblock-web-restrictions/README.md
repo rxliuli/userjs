@@ -45,7 +45,7 @@ The following need to use OCR technology to solve the problem, which is painful 
 - Use canvas to draw the text on
 - Render text as image on server side, client side only gets image
 
-> [Special Web Solution Description](https://github.com/rxliuli/userjs/blob/master/packages/unblock-web-restrictions/docs/SpecialPages.md)
+> [Special Web Solution Description](https://github.com/rxliuli/userjs/blob/master/apps/unblock-web-restrictions/docs/SpecialPages.md)
 
 ### Shortcuts on web pages don't work anymore
 
