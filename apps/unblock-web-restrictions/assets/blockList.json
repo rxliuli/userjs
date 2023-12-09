@@ -398,5 +398,9 @@
   {
     "type": "regex",
     "url": ".*\\.pixnet\\.net"
+  },
+  {
+    "type": "regex",
+    "url": ".*\\.zhihuishu\\.com"
   }
 ]
