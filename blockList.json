@@ -45,6 +45,10 @@
   },
   {
     "type": "domain",
+    "url": "fuloserbldrama.com"
+  },
+  {
+    "type": "domain",
     "url": "iwrite.unipus.cn"
   },
   {
@@ -217,6 +221,10 @@
   },
   {
     "type": "domain",
+    "url": "www.icourse163.org"
+  },
+  {
+    "type": "domain",
     "url": "www.jianbiaoku.com"
   },
   {
@@ -230,6 +238,10 @@
   {
     "type": "domain",
     "url": "www.kt250.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.kugou.com"
   },
   {
     "type": "domain",
@@ -250,6 +262,10 @@
   {
     "type": "domain",
     "url": "www.nowcoder.com"
+  },
+  {
+    "type": "domain",
+    "url": "www.nxhh.net"
   },
   {
     "type": "domain",
@@ -382,5 +398,9 @@
   {
     "type": "regex",
     "url": ".*\\.pixnet\\.net"
+  },
+  {
+    "type": "regex",
+    "url": ".*\\.zhihuishu\\.com"
   }
 ]
