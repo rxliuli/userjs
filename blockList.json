@@ -401,6 +401,6 @@
   },
   {
     "type": "regex",
-    "url": ".*\\.zhihuishu\\.com"
+    "url": "^https://(?!passport\\.zhihuishu\\.com\\/).+\\.zhihuishu\\.com\\/"
   }
 ]
