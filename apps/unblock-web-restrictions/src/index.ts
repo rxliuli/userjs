@@ -370,7 +370,8 @@ class Application {
     })
     if (
       location.href.startsWith('https://userjs.rxliuli.com/') ||
-      location.hostname === '127.0.0.1'
+      location.hostname === '127.0.0.1' ||
+      location.hostname === 'localhost'
     ) {
       Reflect.set(
         unsafeWindow,
