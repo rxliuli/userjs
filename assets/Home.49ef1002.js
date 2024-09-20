@@ -1,1 +1,0 @@
-import{r as u}from"./vendor.83739eef.js";import{B as e}from"./BasicLayoutCard.312e37e8.js";const a=()=>u.exports.createElement(e,{title:"\u9996\u9875"},u.exports.createElement("h2",null,"\u8FD9\u662F\u4E3A\u4E86\u8BA9\u543E\u8F88\u80FD\u591F\u5728\u4E00\u4E2A\u5730\u65B9\u4FEE\u6539\u6CB9\u7334\u811A\u672C\u6240\u6DFB\u52A0\u7684\u7F51\u7AD9"));export{a as default};
