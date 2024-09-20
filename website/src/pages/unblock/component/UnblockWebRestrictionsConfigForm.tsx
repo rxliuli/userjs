@@ -53,31 +53,42 @@ const UnblockWebRestrictionsConfigForm: React.FC<{
         <Input />
       </Form.Item>
       <Form.Item
-        label={'测试需要匹配的 URL'}
-        name={'tempUrl'}
-        rules={[
-          {
-            type: 'url',
-            message: '测试需要匹配的 URL 必须是个 URL 啊喂 (#`O′)',
-          },
-          (form) => ({
-            async validator(rule, _) {
-              const values = form.getFieldsValue() as Pick<
-                BlockConfig,
-                'type' | 'url'
-              > & { tempUrl: string }
-              if (!values.tempUrl) {
-                throw new Error('测试需要匹配的 URL 不能为空')
-              }
-              if (!match(new URL(values.tempUrl), values)) {
-                throw new Error('测试需要匹配的 URL 未能匹配！')
-              }
-            },
-          }),
-        ]}
-        dependencies={['type', 'url']}
+        shouldUpdate={(prevValues, currentValues) =>
+          prevValues.type !== currentValues.type
+        }
       >
-        <Input />
+        {({ getFieldValue }) => {
+          return getFieldValue('type') === 'regex' ? (
+            <Form.Item
+              label={'测试需要匹配的 URL'}
+              name={'tempUrl'}
+              rules={[
+                {
+                  required: true,
+                  type: 'url',
+                  message: '测试需要匹配的 URL 必须是个 URL 啊喂 (#`O′)',
+                },
+                (form) => ({
+                  async validator(rule, _) {
+                    const values = form.getFieldsValue() as Pick<
+                      BlockConfig,
+                      'type' | 'url'
+                    > & { tempUrl: string }
+                    if (!values.tempUrl) {
+                      throw new Error('测试需要匹配的 URL 不能为空')
+                    }
+                    if (!match(new URL(values.tempUrl), values)) {
+                      throw new Error('测试需要匹配的 URL 未能匹配！')
+                    }
+                  },
+                }),
+              ]}
+              dependencies={['type', 'url']}
+            >
+              <Input />
+            </Form.Item>
+          ) : null
+        }}
       </Form.Item>
       <Form.Item>
         <Space>

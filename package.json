@@ -19,9 +19,9 @@
     "@commitlint/cli": "^12.1.4",
     "@liuli-util/commitlint-standard-config": "^0.1.6",
     "@liuli-util/prettier-standard-config": "^0.1.0",
-    "lint-staged": "^11.1.1",
-    "prettier": "^2.3.2",
-    "simple-git-hooks": "^2.5.1"
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.8.8",
+    "simple-git-hooks": "^2.11.1"
   },
   "sync": [
     "prettier",
